@@ -1,0 +1,8 @@
+{
+  "name": "bittrex-developers",
+  "version": "0.1.0",
+  "description": "Bittrex has released an initial version of its Websocket API.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
