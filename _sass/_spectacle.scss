@@ -8,6 +8,14 @@
         top: $header-height;
     }
 
+    #nav {
+        a {
+            &.active {
+                color: #1779ba;
+            }
+        }
+    }
+
     .drawer-layout {
         .floating-menu-icon {
             z-index: $header-z-index + 1;
