@@ -1337,12 +1337,12 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   #spectacle .hljs-regexp,
   #spectacle .hljs-literal,
   #spectacle .hljs-link {
-    color: #ae81ff; }
+    color: #e28e2e; }
   #spectacle .hljs-code,
   #spectacle .hljs-title,
   #spectacle .hljs-section,
   #spectacle .hljs-selector-class {
-    color: #a6e22e; }
+    color: #ae81ff; }
   #spectacle .hljs-strong {
     font-weight: bold; }
   #spectacle .hljs-emphasis {
@@ -1351,10 +1351,10 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   #spectacle .hljs-selector-tag,
   #spectacle .hljs-name,
   #spectacle .hljs-attr {
-    color: #f92672; }
+    color: #e6db74; }
   #spectacle .hljs-symbol,
   #spectacle .hljs-attribute {
-    color: #66d9ef; }
+    color: #f92672; }
   #spectacle .hljs-params,
   #spectacle .hljs-class .hljs-title {
     color: #f8f8f2; }
@@ -1368,7 +1368,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   #spectacle .hljs-addition,
   #spectacle .hljs-variable,
   #spectacle .hljs-template-variable {
-    color: #e6db74; }
+    color: #9cbeeb; }
   #spectacle .hljs-comment,
   #spectacle .hljs-deletion,
   #spectacle .hljs-meta {

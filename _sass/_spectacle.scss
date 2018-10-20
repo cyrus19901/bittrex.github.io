@@ -14,4 +14,12 @@
             top: calc(#{$header-height} + .75rem);
         }
     }
+
+    .swagger-operation-description,
+    .swagger-request-params,
+    .swagger-responses {
+        &::before {
+            color: #7EC1F2;
+        }
+    }
 }
