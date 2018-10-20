@@ -1,35 +1,80 @@
 @import 'vars';
 
-body {
+.external-link {
+    text-decoration: underline;
+}
 
-    > header {
-        position: fixed;
-        height: $header-height;
-        width: 100%;
-        background: $header-bg-color;
-        z-index: $header-z-index;
-        top: 0;
-        padding: 0 2.15rem;
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: $header-z-index;
+    top: 0;
 
-        // @include breakpoint()
+    height: $header-height;
+    width: 100%;
+    padding: 0 $header-padding;
 
-        a {
+    background: $header-bg-color;
+
+    a { 
+        &.page-title,
+        &.nav-link {
             height: 100%;
             line-height: $header-height;
-            &:not(:first-child) {
-                margin-left: 15px;
+
+            background-color: transparent;
+            transition: background-color $standard-transition;
+            will-change: background-color;
+            &:hover {
+                background-color: rgba(0,0,0,0.2);
+            } 
+        }
+        &.page-title {
+            &::before {
+                content:"";
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                height: 24px;
+                width: 24px;
+                background: #0084ff;
+                transform: translateY(-50%);
             }
-            &.nav-link {
-                color: #fafafa;
+            position: relative;
+            width: $sidebar-width;
+            text-align: center;
+            margin-left: -$header-padding;
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: white;
+        }
+        &.nav-link {
+            padding: 0 15px;
+            letter-spacing: -0.01em;
+            font-weight: 100;
+
+            color: #eaeaea;
+            transition: background-color $standard-transition;
+            will-change: background-color;
+            &:hover {
+                color: white;
+                transition: color $standard-transition;
             }
         }
     }
+}
 
-    > .content-frame {
-        position: relative;
-        margin-top: $header-height;
-        width: 100%;
-        z-index: $base-z-index;
-        overflow: hidden;
-    }
+.page-nav {
+    display: flex;
+}
+
+.page-content {
+    position: relative;
+    margin-top: $header-height;
+    width: 100%;
+    z-index: $base-z-index;
+    overflow: hidden;
 }
