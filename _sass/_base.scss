@@ -1,8 +1,30 @@
 @import 'vars';
 
+html,
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
 .external-link {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 39.9375em) {
+    .hidden-sm {
+        display: none;
+    }
+}
+
+
 
 .page-header {
     display: flex;
@@ -73,7 +95,7 @@
 
 .page-content {
     position: relative;
-    margin-top: $header-height;
+    top: $header-height;
     width: 100%;
     z-index: $base-z-index;
     overflow: hidden;

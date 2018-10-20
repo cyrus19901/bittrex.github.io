@@ -10,8 +10,15 @@
 
     #nav {
         a {
+            font-size: 0.9rem;
+            &:not(.active) {
+                color: #797F85;
+                &:hover {
+                    color: #4a5055;
+                }
+            }
             &.active {
-                color: #1779ba;
+                color: #1779ba
             }
         }
     }
@@ -27,7 +34,7 @@
     .swagger-request-params,
     .swagger-responses {
         &::before {
-            color: #7EC1F2;
+            color: #1779ba;
         }
     }
 }
