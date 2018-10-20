@@ -1,0 +1,35 @@
+@import 'vars';
+
+body {
+
+    > header {
+        position: fixed;
+        height: $header-height;
+        width: 100%;
+        background: $header-bg-color;
+        z-index: $header-z-index;
+        top: 0;
+        padding: 0 2.15rem;
+
+        // @include breakpoint()
+
+        a {
+            height: 100%;
+            line-height: $header-height;
+            &:not(:first-child) {
+                margin-left: 15px;
+            }
+            &.nav-link {
+                color: #fafafa;
+            }
+        }
+    }
+
+    > .content-frame {
+        position: relative;
+        margin-top: $header-height;
+        width: 100%;
+        z-index: $base-z-index;
+        overflow: hidden;
+    }
+}

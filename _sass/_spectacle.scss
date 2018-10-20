@@ -1,0 +1,17 @@
+@import 'vars';
+
+#spectacle {
+    position: relative;
+
+    #sidebar {
+        height: calc(100vh - #{$header-height});
+        top: $header-height;
+    }
+
+    .drawer-layout {
+        .floating-menu-icon {
+            z-index: $header-z-index + 1;
+            top: calc(#{$header-height} + .75rem);
+        }
+    }
+}
