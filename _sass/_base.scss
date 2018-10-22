@@ -47,17 +47,6 @@ h6 {
             } 
         }
         &.page-title {
-            &::before {
-                content:"";
-                display: block;
-                position: absolute;
-                top: 50%;
-                left: 15px;
-                height: 24px;
-                width: 24px;
-                background: #0084ff;
-                transform: translateY(-50%);
-            }
             position: relative;
             width: $sidebar-width;
             text-align: center;
@@ -65,6 +54,17 @@ h6 {
             font-size: 2rem;
             text-transform: uppercase;
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: $header-height;
+            margin-right: 15px;
+            img:first-child {
+                margin-right: 10px;
+            }
+            > * {
+                height: $header-height * .8;
+            }
         }
         &.nav-link {
             padding: 0 15px;
