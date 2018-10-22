@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "version": "v1.1",
-        "title": "Bittrex API",
+        "title": "API Reference",
         "description": "Bittrex provides a simple and powerful REST API to allow you to programatically perform nearly all actions you can from our web interface. All requests use the `application/json` content type and go over `https`. The base url is `https://bittrex.com/api/{version}/`. All requests are GET requests and all responses come in a default response object with the result in the result field. Always check the `success` flag to ensure that your API call succeeded.\n\nWe are currently restricting orders to 500 open orders and 200,000 orders a day. We reserve the right to change these settings as we tune the system. If you are affected by these limits as an active trader, please visit [https://support.bittrex.com](https://support.bittrex.com) and open a support ticket.\n\nIf you have any questions, feedback or recommendations for API support you can post a question in our support center.",
         "termsOfService": "https://bittrex.com/Home/terms/",
         "contact": {
