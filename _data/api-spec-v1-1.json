@@ -365,6 +365,12 @@
                         "in": "query",
                         "description": "the rate at which to place the order",
                         "required": true
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "your api key <small>[(?)](#authentication)</small>",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -403,6 +409,12 @@
                         "in": "query",
                         "description": "the rate at which to place the order",
                         "required": true
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "your api key <small>[(?)](#authentication)</small>",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -428,6 +440,12 @@
                         "name": "uuid",
                         "in": "query",
                         "description": "uuid of buy or sell order",
+                        "required": true
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "your api key <small>[(?)](#authentication)</small>",
                         "required": true
                     }
                 ],
@@ -455,6 +473,12 @@
                         "in": "query",
                         "description": "a string literal for the market (ie. BTC-LTC)",
                         "required": false
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "your api key <small>[(?)](#authentication)</small>",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -491,7 +515,14 @@
                 "deprecated": false,
                 "tags": ["Account"],
                 "security": null,
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "your api key <small>[(?)](#authentication)</small>",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -532,6 +563,12 @@
                         "in": "query",
                         "required": true,
                         "description": "a string literal for the currency (ie. BTC)"
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "your api key <small>[(?)](#authentication)</small>",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -570,6 +607,12 @@
                         "name": "currency",
                         "in": "query",
                         "description": "a string literal for the currency (ie. BTC)",
+                        "required": true
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "your api key <small>[(?)](#authentication)</small>",
                         "required": true
                     }
                 ],
@@ -624,6 +667,12 @@
                         "name": "address",
                         "in": "query",
                         "description":"the address where to send the funds",
+                        "required": true
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "your api key <small>[(?)](#authentication)</small>",
                         "required": true
                     },
                     {

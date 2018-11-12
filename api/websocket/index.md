@@ -7,7 +7,7 @@ layout: markdown
 Bittrex has released an initial version of its Websocket API.
 
 ### Access to Account and Exchange Data
-We have identified common REST API patterns used by bots and other trading software to obtain up-to-date information from Bittrex. In order to help streamline the process for developers and to prevent potentially abusive behavior, we are providing Websocket-based methods for accessing account and exchange data, and we strongly encourage all developers to leverage these tools. (See **API Best Practices**)
+We have identified common REST API patterns used by bots and other trading software to obtain up-to-date information from Bittrex. In order to help streamline the process for developers and to prevent potentially abusive behavior, we are providing Websocket-based methods for accessing account and exchange data, and we strongly encourage all developers to leverage these tools. (See [API Best Practices](#api-best-practices))
 
 ### Throttling
 Improper API use affects the efficiency of the platform for our customers, and we have enabled throttling on all endpoints to mitigate the adverse effects of this improper behavior. Accounts will be permitted to make a maximum of 60 API calls per minute, and calls after the limit will fail, with throttle settings automatically resetting at the start of the next minute.
@@ -21,10 +21,10 @@ To help ensure these changes do not present issues for customers, we are encoura
 Below, users may find best practices for the most common API scenarios. By implementing these recommendations, customers using API may ensure timely access to account and exchange data while minimizing the possibility of being throttled due to improper use or blacklisted due to suspected malicious behavior.
 
 ### Obtaining Order and Balance Status
-Instead of polling the REST-based account and market APIs for open order and balance information, developers should use the WS API and subscribe to account-level data, detailed in **WS API Overview**.
+Instead of polling the REST-based account and market APIs for open order and balance information, developers should use the WS API and subscribe to account-level data, detailed in [WS API Overview](#ws-api-overview).
 
 ### Tracking an Order Book
-Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it **_once per second_**. By using the WS API�s `QueryExchangeState` and `SubscribeToExchangeDeltas` functions, developers can maintain their own copies of one or more order books.
+Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it **_once per second_**. By using the WS API's `QueryExchangeState` and `SubscribeToExchangeDeltas` functions, developers can maintain their own copies of one or more order books.
 
 ## WS API Overview
 The Bittrex Websocket API is implemented using [SignalR](https://www.asp.net/signalr), and while several SignalR clients exist for different languages, if one is not available for your environment, you will need to write one.
@@ -79,7 +79,7 @@ A string of challenge data to be used in `Authenticate`.
 
 ### `Authenticate`
 #### Description
-Verifies a user�s identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by `GetAuthContext` before calling this function.
+Verifies a user's identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by `GetAuthContext` before calling this function.
 
 To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the `uO` and `uB` events through their SignalR client. See [Appendix B](#appendix-b-callbacks-and-payloads) for event payload details and see the [sample code](./samples/WebsocketSample.cs) for an example of how to subscribe using the C# SignalR library.
 
