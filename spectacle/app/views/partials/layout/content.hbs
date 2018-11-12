@@ -10,10 +10,10 @@
    {{#unless info.x-spectacle-hide}}
     {{>swagger/introduction}}
   {{/unless}}
+  {{>swagger/x-spectacle-topics}}
   {{#unless securityDefinitions.x-spectacle-hide}}
     {{>swagger/securityDefinitions}}
-  {{/unless}}
-  {{>swagger/x-spectacle-topics}}
+  {{/unless}}  
 
   {{#if showTagSummary}}
     {{>swagger/tags}}

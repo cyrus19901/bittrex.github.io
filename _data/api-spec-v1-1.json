@@ -3,7 +3,7 @@
     "info": {
         "version": "v1.1",
         "title": "API Reference",
-        "description": "Bittrex provides a simple and powerful REST API to allow you to programatically perform nearly all actions you can from our web interface. All requests use the `application/json` content type and go over `https`. The base url is `https://bittrex.com/api/{version}/`. All requests are GET requests and all responses come in a default response object with the result in the result field. Always check the `success` flag to ensure that your API call succeeded.\n\nWe are currently restricting orders to 500 open orders and 200,000 orders a day. We reserve the right to change these settings as we tune the system. If you are affected by these limits as an active trader, please visit [https://support.bittrex.com](https://support.bittrex.com) and open a support ticket.\n\nIf you have any questions, feedback or recommendations for API support you can post a question in our support center.",
+        "description": "Bittrex provides a simple and powerful REST API to allow you to programatically perform nearly all actions you can from our web interface.\n\n If you have any questions, feedback or recommendations for API support you can post a question in our support center.",
         "termsOfService": "https://bittrex.com/Home/terms/",
         "contact": {
             "name": "Bittrex API Team",
@@ -25,16 +25,13 @@
     ],
     "securityDefinitions": {
         "api_key": {
-            "type": "apiKey",
             "description": "In the spirit of keeping things simple, we offer an easy to manage API Key authentication method. You can have multiple API keys, each with their own level of rights. To manage your API keys please go to _Settings > Manage API Keys_.\n> __Note__: You MUST have 2FA enabled to create an API key for your own safety.\n\n- __Read Info__ - You can only view the balances, orders, and other details of the account\n- __Withdraw__ - We allow you to programatically withdraw any currency to an address you provide. This can be used to quick arbitrage exchanges or move money into cold storage after thresholds.\n- __Trade Limit__ - This allows the API key to place LIMIT buy and sell orders\n\nFor this version, we use a standard HMAC-SHA512 signing. Append `apikey` and `nonce` to your request and calculate the HMAC hash and include it under an apisign header.\n\n __Note:__ the nonce is not respected right now but will be enforced later.\n\n",
-            "x-spectacle-example": "```\n$apikey='xxx';\n$apisecret='xxx';\n$nonce=time();\n$uri='https://bittrex.com/api/v1.1/market/getopenorders?apikey='.$apikey.'&nonce='.$nonce;\n$sign=hash_hmac('sha512',$uri,$apisecret); \n$ch = curl_init($uri); \ncurl_setopt($ch, CURLOPT_HTTPHEADER, array('apisign:'.$sign)); \n$execResult = curl_exec($ch); \n$obj = json_decode($execResult);\n```",
-            "name": "apikey",
-            "in": "query"
+            "x-spectacle-example": "```\n$apikey='xxx';\n$apisecret='xxx';\n$nonce=time();\n$uri='https://bittrex.com/api/v1.1/market/getopenorders?apikey='.$apikey.'&nonce='.$nonce;\n$sign=hash_hmac('sha512',$uri,$apisecret); \n$ch = curl_init($uri); \ncurl_setopt($ch, CURLOPT_HTTPHEADER, array('apisign:'.$sign)); \n$execResult = curl_exec($ch); \n$obj = json_decode($execResult);\n```"
         }
     },
     "x-spectacle-topics": {
-        "API Reference": {
-            "description": "Our APIs are broken into three distinct groups:\n\n- **Public**- Public information available without an API key\n- **Market**- For programmatic trading of cryptocurrencies\n- **Account**- For managing your account"
+        "Getting Started": {
+            "description": "All requests use the `application/json` content type and go over `https`. The base url is `https://bittrex.com/api/{version}/`. All requests are GET requests and all responses come in a default response object with the result in the result field. Always check the `success` flag to ensure that your API call succeeded.\n\nWe are currently restricting orders to 500 open orders and 200,000 orders a day. We reserve the right to change these settings as we tune the system. If you are affected by these limits as an active trader, please visit [https://support.bittrex.com](https://support.bittrex.com) and open a support ticket.\n\n Our APIs are broken into three distinct groups:\n\n- **Public**- Public information available without an API key\n- **Market**- For programmatic trading of cryptocurrencies\n- **Account**- For managing your account"
         }
     },
     "tags": {

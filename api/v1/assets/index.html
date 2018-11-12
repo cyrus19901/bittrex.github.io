@@ -7,8 +7,8 @@
       <nav id="nav" role="navigation">
         <h5>Topics</h5>
         <a href="#introduction">Introduction</a>
+        <a href="#topic-Getting-Started">Getting Started</a>
         <a href="#authentication">Authentication</a>
-        <a href="#topic-API-Reference">API Reference</a>
         <h5>Paths</h5>
         <!-- <section>
               <a href="#path--public-getmarkets">/public/getmarkets</a>
@@ -191,10 +191,8 @@
         <div id="introduction" data-traverse-target="introduction">
           <div class="doc-row">
             <div class="doc-copy">
-              <p>Bittrex provides a simple and powerful REST API to allow you to programatically perform nearly all actions you can from our web interface. All requests use the <code>application/json</code> content type and go over <code>https</code>. The base url is <code>https://bittrex.com/api/{version}/</code>. All requests are GET requests and all responses come in a default response object with the result in the result field. Always check the <code>success</code> flag to ensure that your API call succeeded.</p>
-              <p>We are currently restricting orders to 500 open orders and 200,000 orders a day. We reserve the right to change these settings as we tune the system. If you are affected by these limits as an active trader, please visit
-                <a href="https://support.bittrex.com">https://support.bittrex.com</a> and open a support ticket.</p>
-              <p>If you have any questions, feedback or recommendations for API support you can post a question in our support center.</p>
+              <p>Bittrex provides a simple and powerful REST API to allow you to programatically perform nearly all actions you can from our web interface.</p>
+              <p> If you have any questions, feedback or recommendations for API support you can post a question in our support center.</p>
             </div>
             <div class="doc-examples">
               <section>
@@ -220,6 +218,25 @@
             </div>
           </div>
         </div>
+        <h1 id="topic-Getting-Started" data-traverse-target="topic-Getting-Started">Getting Started</h1>
+        <div class="panel">
+          <div class="doc-row">
+            <div class="doc-copy">
+              <p>All requests use the <code>application/json</code> content type and go over <code>https</code>. The base url is <code>https://bittrex.com/api/{version}/</code>. All requests are GET requests and all responses come in a default response object with the result in the result field. Always check the <code>success</code> flag to ensure that your API call succeeded.</p>
+              <p>We are currently restricting orders to 500 open orders and 200,000 orders a day. We reserve the right to change these settings as we tune the system. If you are affected by these limits as an active trader, please visit
+                <a href="https://support.bittrex.com">https://support.bittrex.com</a> and open a support ticket.</p>
+              <p> Our APIs are broken into three distinct groups:</p>
+              <ul>
+                <li>
+                  <strong>Public</strong>- Public information available without an API key</li>
+                <li>
+                  <strong>Market</strong>- For programmatic trading of cryptocurrencies</li>
+                <li>
+                  <strong>Account</strong>- For managing your account</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <!-- <h1 id="security" data-traverse-target="security">Security</h1> -->
         <h1 id="authentication" data-traverse-target="authentication">Authentication</h1>
         <div id="security-definition-api_key" class="panel">
@@ -227,7 +244,7 @@
             <div class="doc-copy">
               <h3 class="security-definition-title">
                 <span class="security-name">api_key</span>
-                <span class="swagger-security-definition-apiKey"></span>
+                <span class="swagger-security-definition-"></span>
               </h3>
               <section class="security-definition-description">
                 <p>In the spirit of keeping things simple, we offer an easy to manage API Key authentication method. You can have multiple API keys, each with their own level of rights. To manage your API keys please go to
@@ -248,26 +265,7 @@
                 <p>
                   <strong>Note:</strong> the nonce is not respected right now but will be enforced later.</p>
               </section>
-              <section class="swagger-security-definition-properties">
-                <div class="prop-row security-definition-property">
-                  <div class="prop-name">
-                    <div class="prop-title security-definition-property-name">type</div>
-                  </div>
-                  <div class="prop-value security-definition-property-type"> apiKey </div>
-                </div>
-                <div class="prop-row security-definition-property">
-                  <div class="prop-name">
-                    <div class="prop-title security-definition-property-name">name</div>
-                  </div>
-                  <div class="prop-value security-definition-property-type"> apikey </div>
-                </div>
-                <div class="prop-row security-definition-property">
-                  <div class="prop-name">
-                    <div class="prop-title security-definition-property-name">in</div>
-                  </div>
-                  <div class="prop-value security-definition-property-type"> query </div>
-                </div>
-              </section>
+              <section class="swagger-security-definition-properties"> </section>
             </div>
             <div class="doc-examples">
               <section> <pre><code class="hljs">$apikey=<span class="hljs-string">'xxx'</span>;
@@ -280,22 +278,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="hljs-keyword">array</span>(<sp
 $execResult = curl_exec($ch); 
 $obj = json_decode($execResult);
 </code></pre> </section>
-            </div>
-          </div>
-        </div>
-        <h1 id="topic-API-Reference" data-traverse-target="topic-API-Reference">API Reference</h1>
-        <div class="panel">
-          <div class="doc-row">
-            <div class="doc-copy">
-              <p>Our APIs are broken into three distinct groups:</p>
-              <ul>
-                <li>
-                  <strong>Public</strong>- Public information available without an API key</li>
-                <li>
-                  <strong>Market</strong>- For programmatic trading of cryptocurrencies</li>
-                <li>
-                  <strong>Account</strong>- For managing your account</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -1015,7 +997,7 @@ $obj = json_decode($execResult);
                   <div class="prop-value">
                     <p>your api key
                       <small>
-                        <a href="#authentication">(more)</a>
+                        <a href="#authentication">(?)</a>
                       </small>
                     </p>
                   </div>
@@ -1057,21 +1039,6 @@ $obj = json_decode($execResult);
 }
 </code></pre>
                 <!-- </div> -->
-              </section>
-            </div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-request-security">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="swagger-request-security-schema"></th>
-                      <th class="swagger-request-security-scopes"></th>
-                    </tr>
-                  </thead>
-                  <tbody> </tbody>
-                </table>
               </section>
             </div>
           </div>
@@ -1145,6 +1112,25 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>the rate at which to place the order</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">api_key:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>your api key
+                      <small>
+                        <a href="#authentication">(?)</a>
+                      </small>
+                    </p>
                   </div>
                 </div>
               </section>
@@ -1229,6 +1215,25 @@ $obj = json_decode($execResult);
                     <p>uuid of buy or sell order</p>
                   </div>
                 </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">api_key:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>your api key
+                      <small>
+                        <a href="#authentication">(?)</a>
+                      </small>
+                    </p>
+                  </div>
+                </div>
               </section>
             </div>
             <div class="doc-examples"></div>
@@ -1308,6 +1313,25 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>a string literal for the market (ie. BTC-LTC)</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">api_key:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>your api key
+                      <small>
+                        <a href="#authentication">(?)</a>
+                      </small>
+                    </p>
                   </div>
                 </div>
               </section>
@@ -1394,7 +1418,29 @@ $obj = json_decode($execResult);
             </div>
           </div>
           <div class="doc-row">
-            <div class="doc-copy"> </div>
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">api_key:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>your api key
+                      <small>
+                        <a href="#authentication">(?)</a>
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </div>
             <div class="doc-examples"></div>
           </div>
           <div class="doc-row">
@@ -1486,6 +1532,25 @@ $obj = json_decode($execResult);
                     <p>a string literal for the currency (ie. BTC)</p>
                   </div>
                 </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">api_key:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>your api key
+                      <small>
+                        <a href="#authentication">(?)</a>
+                      </small>
+                    </p>
+                  </div>
+                </div>
               </section>
             </div>
             <div class="doc-examples"></div>
@@ -1575,6 +1640,25 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>a string literal for the currency (ie. BTC)</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">api_key:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>your api key
+                      <small>
+                        <a href="#authentication">(?)</a>
+                      </small>
+                    </p>
                   </div>
                 </div>
               </section>
@@ -1695,6 +1779,25 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>the address where to send the funds</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">api_key:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>your api key
+                      <small>
+                        <a href="#authentication">(?)</a>
+                      </small>
+                    </p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
