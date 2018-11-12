@@ -4,8 +4,9 @@
   "description": "Bittrex has released an initial version of its Websocket API.",
   "scripts": {
     "dev": "jekyll serve",
-    "build": "npm run build:spectacle:v1",
-    "build:spectacle:v1": "node ./spectacle/bin/spectacle -e -t v1/api-reference/assets _data/api-spec-v1-1.json"
+    "build": "npm run build:spectacle:v1 && npm run build:spectacle:v3",
+    "build:spectacle:v1": "node ./spectacle/bin/spectacle -e -t v1/api-reference/assets _data/api-spec-v1-1.json",
+    "build:spectacle:v3": "node ./spectacle/bin/spectacle -e -t v3/api-reference/assets _data/api-spec-v3.json"
   },
   "devDependencies": {
     "bluebird": "^3.4.7",

@@ -1,0 +1,2015 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v3",
+    "title": "Bittrex API",
+    "description": "API for interacting with the bittrex.com exchange",
+    "termsOfService": "https://bittrex.com/Home/terms/",
+    "contact": {
+      "name": "Bittrex Support",
+      "url": "https://support.bittrex.com"
+    }
+  },
+  "host": "localhost:25443",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v3/account": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Retrieve account information.",
+        "operationId": "Account_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        }
+      }
+    },
+    "/v3/addresses": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "description": "List deposit addresses.",
+        "operationId": "Addresses_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Address"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Addresses"
+        ],
+        "description": "Request provisioning of a deposit address.",
+        "operationId": "Addresses_Create",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "newAddress",
+            "in": "body",
+            "description": "information including ID of the currency to provision a deposit address for",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewAddress"
+            }
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Address"
+            }
+          }
+        }
+      }
+    },
+    "/v3/accounts/{accountId}/addresses": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "description": "List deposit addresses.",
+        "operationId": "Addresses_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Address"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Addresses"
+        ],
+        "description": "Request provisioning of a deposit address.",
+        "operationId": "Addresses_Create",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "newAddress",
+            "in": "body",
+            "description": "information including ID of the currency to provision a deposit address for",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewAddress"
+            }
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Address"
+            }
+          }
+        }
+      }
+    },
+    "/v3/addresses/{currencyId}": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "description": "Retrieve the deposit address for a particular currency.",
+        "operationId": "Addresses_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "currencyId",
+            "in": "path",
+            "description": "ID of the currency to retrieve the deposit address for",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Address"
+            }
+          }
+        }
+      }
+    },
+    "/v3/accounts/{accountId}/addresses/{currencyId}": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "description": "Retrieve the deposit address for a particular currency.",
+        "operationId": "Addresses_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "currencyId",
+            "in": "path",
+            "description": "ID of the currency to retrieve the deposit address for",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Address"
+            }
+          }
+        }
+      }
+    },
+    "/v3/balances": {
+      "get": {
+        "tags": [
+          "Balances"
+        ],
+        "summary": "List account balances across available currencies.",
+        "operationId": "Balances_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Balance"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/balances/{currencyId}": {
+      "get": {
+        "tags": [
+          "Balances"
+        ],
+        "summary": "Retrieve account balance for a specific currency.",
+        "operationId": "Balances_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "currencyId",
+            "in": "path",
+            "description": "ID of the currency to retrieve the account balance for",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Balance"
+            }
+          }
+        }
+      }
+    },
+    "/v3/currencies": {
+      "get": {
+        "tags": [
+          "Currencies"
+        ],
+        "summary": "List currencies with optional health info.",
+        "operationId": "Currencies_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "include_health",
+            "in": "query",
+            "description": "Include currency health information in results.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Currency"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/currencies/{currencyId}": {
+      "get": {
+        "tags": [
+          "Currencies"
+        ],
+        "summary": "Retrieve info on a specified currency.",
+        "operationId": "Currencies_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "currencyId",
+            "in": "path",
+            "description": "ID of the currency to retrieve",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "include_health",
+            "in": "query",
+            "description": "Include currency health information in results.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Currency"
+            }
+          }
+        }
+      }
+    },
+    "/v3/deposits": {
+      "get": {
+        "tags": [
+          "Deposits"
+        ],
+        "summary": "List historical deposits.",
+        "operationId": "Deposits_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "filter by deposit status (PENDING not allowed, use /deposits/pending to list pending deposits)",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "COMPLETED",
+              "ERROR"
+            ]
+          },
+          {
+            "name": "currencyId",
+            "in": "query",
+            "description": "filter by currency ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Deposit"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/deposits/pending": {
+      "get": {
+        "tags": [
+          "Deposits"
+        ],
+        "summary": "List pending deposits.",
+        "operationId": "Deposits_ListPending",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "currencyId",
+            "in": "query",
+            "description": "filter by currency ID",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Deposit"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/deposits/{depositId}": {
+      "get": {
+        "tags": [
+          "Deposits"
+        ],
+        "summary": "Retrieve information for a specific deposit.",
+        "operationId": "Deposits_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "depositId",
+            "in": "path",
+            "description": "ID of the deposit to retrieve",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Deposit"
+            }
+          }
+        }
+      }
+    },
+    "/v3/markets": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "summary": "List markets with optional summary information.",
+        "operationId": "Markets_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "include_summary",
+            "in": "query",
+            "description": "Include market summary information in results.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Market"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/markets/{marketId}": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "summary": "Retrieve information for a specific market.",
+        "operationId": "Markets_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "marketId",
+            "in": "path",
+            "description": "ID of market to retrieve",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "include_summary",
+            "in": "query",
+            "description": "Include market summary information in results.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Market"
+            }
+          }
+        }
+      }
+    },
+    "/v3/markets/{marketId}/orderbook": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "summary": "Retrieve the order book for a specific market.",
+        "operationId": "Markets_GetOrderBook",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "marketId",
+            "in": "path",
+            "description": "ID of market to retrieve order book for",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "depth",
+            "in": "query",
+            "description": "depth of order book to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "description": "filter results based on order direction (buy or sell)",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "BUY",
+              "SELL"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderBook"
+            }
+          }
+        }
+      }
+    },
+    "/v3/markets/{marketId}/history": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "summary": "Retrieve the order history for a specific market.",
+        "operationId": "Markets_GetHistory",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "marketId",
+            "in": "path",
+            "description": "ID of market to retrieve history for",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HistoryEntry"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/markets/{marketId}/ticks": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "summary": "Retrieve ticks for a specific market.",
+        "operationId": "Markets_GetTicks",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "marketId",
+            "in": "path",
+            "description": "ID of market to retrieve ticks for",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tick_interval",
+            "in": "query",
+            "description": "desired time interval between ticks",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "MINUTE_1",
+              "MINUTE_5",
+              "MINUTE_30",
+              "HOUR_1",
+              "DAY_1"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tick"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/orders": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "List historical orders.",
+        "operationId": "Orders_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "filter by order status (OPEN not allowed, use /orders/open to list open orders",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "OPEN",
+              "FILLED",
+              "CANCELLED"
+            ]
+          },
+          {
+            "name": "marketId",
+            "in": "query",
+            "description": "filter by market ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Create a new order.",
+        "operationId": "Orders_Create",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "newOrder",
+            "in": "body",
+            "description": "information specifying the order to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewOrder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        }
+      }
+    },
+    "/v3/orders/open": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "List open orders.",
+        "operationId": "Orders_ListOpen",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "marketId",
+            "in": "query",
+            "description": "filter by market ID",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/orders/{orderId}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Retrieve information on a specific order.",
+        "operationId": "Orders_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of order to retrieve",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Cancel an order.",
+        "operationId": "Orders_Delete",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of order to cancel",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/v3/status": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "summary": "Check service status.",
+        "operationId": "Status_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceStatus"
+            }
+          }
+        }
+      }
+    },
+    "/v3/withdrawals": {
+      "get": {
+        "tags": [
+          "Withdrawals"
+        ],
+        "summary": "List historical withdrawals.",
+        "operationId": "Withdrawals_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "filter by withdrawal status (PENDING not allowed, use /withdrawals/pending to list pending withdrawals)",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "COMPLETED",
+              "CANCELLED",
+              "ERROR"
+            ]
+          },
+          {
+            "name": "currencyId",
+            "in": "query",
+            "description": "filter by currency",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Withdrawal"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Withdrawals"
+        ],
+        "summary": "Create a new withdrawal.",
+        "operationId": "Withdrawals_Create",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "newWithdrawal",
+            "in": "body",
+            "description": "information specifying the withdrawal to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewWithdrawal"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Withdrawal"
+            }
+          }
+        }
+      }
+    },
+    "/v3/withdrawals/pending": {
+      "get": {
+        "tags": [
+          "Withdrawals"
+        ],
+        "summary": "List pending withdrawals.",
+        "operationId": "Withdrawals_ListPending",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "currencyId",
+            "in": "query",
+            "description": "filter by currency",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Withdrawal"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v3/withdrawals/{withdrawalId}": {
+      "get": {
+        "tags": [
+          "Withdrawals"
+        ],
+        "summary": "Retrieve information on a specified withdrawal.",
+        "operationId": "Withdrawals_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "withdrawalId",
+            "in": "path",
+            "description": "ID of withdrawal to retrieve",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Withdrawal"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Withdrawals"
+        ],
+        "summary": "Cancel a withdrawal.",
+        "operationId": "Withdrawals_Delete",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "withdrawalId",
+            "in": "path",
+            "description": "ID of withdrawal to cancel",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Account": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "the account ID associated with this API key / user",
+          "type": "string"
+        },
+        "email": {
+          "description": "the email address associated with this API key / user",
+          "type": "string"
+        }
+      }
+    },
+    "PaginationParameters": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "format": "int32",
+          "description": "maximum number of items to return",
+          "type": "integer"
+        },
+        "skip": {
+          "format": "int32",
+          "description": "number of items to skip",
+          "type": "integer"
+        }
+      }
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "the status of this deposit address",
+          "enum": [
+            "REQUESTED",
+            "PROVISIONED"
+          ],
+          "type": "string"
+        },
+        "currencyId": {
+          "description": "the unique ID of the currency this deposit address is for",
+          "type": "string"
+        },
+        "cryptoAddress": {
+          "description": "the cryptographic deposit address",
+          "type": "string"
+        }
+      }
+    },
+    "NewAddress": {
+      "required": [
+        "currencyId"
+      ],
+      "type": "object",
+      "properties": {
+        "currencyId": {
+          "description": "the currency ID to provision a new address for",
+          "type": "string"
+        }
+      }
+    },
+    "Balance": {
+      "type": "object",
+      "properties": {
+        "currencyId": {
+          "description": "unique ID for the currency this balance is associated with",
+          "type": "string"
+        },
+        "total": {
+          "format": "double",
+          "description": "total amount",
+          "type": "number"
+        },
+        "available": {
+          "format": "double",
+          "description": "available amount",
+          "type": "number"
+        },
+        "pending": {
+          "format": "double",
+          "description": "reserved amount",
+          "type": "number"
+        }
+      }
+    },
+    "Currency": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "unique ID for this currency",
+          "type": "string"
+        },
+        "name": {
+          "description": "long name of this currency",
+          "type": "string"
+        },
+        "baseAddress": {
+          "description": "base address of this currency",
+          "type": "string"
+        },
+        "coinType": {
+          "description": "coin type of this currency",
+          "enum": [
+            "ADA",
+            "ANTSHARES",
+            "BITCOIN",
+            "BITCOIN_PERCENTAGE_FEE",
+            "BITCOIN_STEALTH",
+            "BITSHAREX",
+            "CRYPTO_NOTE",
+            "CRYPTO_NOTE_PAYMENTID",
+            "ETH",
+            "ETH_CONTRACT",
+            "FIAT",
+            "LISK",
+            "LUMEN",
+            "NEM",
+            "NXT",
+            "NXT_ASSET",
+            "NXT_MS",
+            "OMNI",
+            "RIPPLE",
+            "STEEM",
+            "TRON",
+            "WAVES",
+            "WAVES_ASSET"
+          ],
+          "type": "string"
+        },
+        "isActive": {
+          "description": "determines whether this currency is currently active",
+          "type": "boolean"
+        },
+        "minConfirmations": {
+          "format": "int32",
+          "description": "minimum number of confirmations",
+          "type": "integer"
+        },
+        "notice": {
+          "description": "news or alerts regarding this currency",
+          "type": "string"
+        },
+        "txFee": {
+          "format": "double",
+          "description": "transaction fee for this currency",
+          "type": "number"
+        },
+        "health": {
+          "$ref": "#/definitions/CurrencyHealth",
+          "description": "optional health information for this currency"
+        }
+      }
+    },
+    "CurrencyHealth": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "unique ID for this currency",
+          "type": "string"
+        },
+        "depositQueueDepth": {
+          "format": "int32",
+          "description": "deposit queue depth for this currency",
+          "type": "integer"
+        },
+        "withdrawQueueDepth": {
+          "format": "int32",
+          "description": "withdraw queue depth for this currency",
+          "type": "integer"
+        },
+        "blockHeight": {
+          "format": "int64",
+          "description": "block height for this currency",
+          "type": "integer"
+        },
+        "walletBalance": {
+          "format": "double",
+          "description": "wallet balance for this currency",
+          "type": "number"
+        },
+        "walletConnections": {
+          "format": "int32",
+          "description": "optional health information for this currency",
+          "type": "integer"
+        },
+        "checkedAt": {
+          "format": "date-time",
+          "description": "time stamp when this currency's health was lasted checked",
+          "type": "string"
+        },
+        "isActive": {
+          "description": "determines whether the currency is currently active",
+          "type": "boolean"
+        }
+      }
+    },
+    "Deposit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "description": "unique ID for this deposit",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "currencyId": {
+          "description": "unique ID of currency being deposited to",
+          "type": "string"
+        },
+        "quantity": {
+          "format": "double",
+          "description": "quantity to deposit",
+          "type": "number"
+        },
+        "address": {
+          "description": "crypto address for this deposit",
+          "type": "string"
+        },
+        "txId": {
+          "description": "TxID for the deposit",
+          "type": "string"
+        },
+        "confirmations": {
+          "format": "int32",
+          "description": "current count of confirmations",
+          "type": "integer"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "description": "time stamp when this deposit was initiated",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "time stamp when this deposit was last updated",
+          "type": "string"
+        },
+        "status": {
+          "description": "current status of this deposit",
+          "enum": [
+            "PENDING",
+            "COMPLETED",
+            "ERROR"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "Market": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "unique ID for this market",
+          "type": "string"
+        },
+        "name": {
+          "description": "desired sort order",
+          "type": "string"
+        },
+        "baseCurrencyId": {
+          "description": "unique ID for base currency",
+          "type": "string"
+        },
+        "baseCurrencyName": {
+          "description": "long name for base currency",
+          "type": "string"
+        },
+        "quoteCurrencyId": {
+          "description": "unique ID for quote currency",
+          "type": "string"
+        },
+        "quoteCurrencyName": {
+          "description": "long name for quote currency",
+          "type": "string"
+        },
+        "minTradeSize": {
+          "format": "double",
+          "description": "minimum trade size",
+          "type": "number"
+        },
+        "isActive": {
+          "description": "true if this market is currently active",
+          "type": "boolean"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "description": "timestamp in UTC when this market was created",
+          "type": "string"
+        },
+        "notice": {
+          "description": "notice or alert info",
+          "type": "string"
+        },
+        "isSponsored": {
+          "description": "true if this market is sponsored",
+          "type": "boolean"
+        },
+        "logoUrl": {
+          "description": "logo URL",
+          "type": "string"
+        },
+        "summary": {
+          "$ref": "#/definitions/MarketSummary",
+          "description": "summary information for this market"
+        }
+      }
+    },
+    "MarketSummary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "unique ID for this market",
+          "type": "string"
+        },
+        "high": {
+          "format": "double",
+          "description": "high",
+          "type": "number"
+        },
+        "low": {
+          "format": "double",
+          "description": "low",
+          "type": "number"
+        },
+        "volume": {
+          "format": "double",
+          "description": "volume",
+          "type": "number"
+        },
+        "last": {
+          "format": "double",
+          "description": "last",
+          "type": "number"
+        },
+        "baseVolume": {
+          "format": "double",
+          "description": "base volume",
+          "type": "number"
+        },
+        "bid": {
+          "format": "double",
+          "description": "bid",
+          "type": "number"
+        },
+        "ask": {
+          "format": "double",
+          "description": "ask",
+          "type": "number"
+        },
+        "openBuyOrders": {
+          "format": "int32",
+          "description": "count of open buy orders",
+          "type": "integer"
+        },
+        "openSellOrders": {
+          "format": "int32",
+          "description": "count of open sell orders",
+          "type": "integer"
+        },
+        "previousDay": {
+          "format": "double",
+          "description": "previous day",
+          "type": "number"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "description": "timestamp in UTC when summary was created",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "timestamp in UTC when market summary was last updated",
+          "type": "string"
+        }
+      }
+    },
+    "OrderBook": {
+      "type": "object",
+      "properties": {
+        "buy": {
+          "description": "buy entries",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderBookEntry"
+          }
+        },
+        "sell": {
+          "description": "sell entries",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderBookEntry"
+          }
+        }
+      }
+    },
+    "OrderBookEntry": {
+      "type": "object",
+      "properties": {
+        "orderDirection": {
+          "description": "order direction",
+          "enum": [
+            "BUY",
+            "SELL"
+          ],
+          "type": "string"
+        },
+        "orderType": {
+          "description": "order type",
+          "enum": [
+            "LIMIT",
+            "MARKET"
+          ],
+          "type": "string"
+        },
+        "quantity": {
+          "format": "double",
+          "description": "quantity",
+          "type": "number"
+        },
+        "rate": {
+          "format": "double",
+          "description": "rate",
+          "type": "number"
+        }
+      }
+    },
+    "HistoryEntry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "unique ID for the order",
+          "type": "integer"
+        },
+        "filledAt": {
+          "format": "date-time",
+          "description": "timestamp in UTC when order was filled",
+          "type": "string"
+        },
+        "quantity": {
+          "format": "double",
+          "description": "quantity",
+          "type": "number"
+        },
+        "price": {
+          "format": "double",
+          "description": "price",
+          "type": "number"
+        },
+        "total": {
+          "format": "double",
+          "description": "total",
+          "type": "number"
+        },
+        "fillType": {
+          "description": "fill type",
+          "enum": [
+            "OPEN",
+            "PARTIAL_FILL",
+            "FILL"
+          ],
+          "type": "string"
+        },
+        "orderDirection": {
+          "description": "direction of order",
+          "enum": [
+            "BUY",
+            "SELL"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "Tick": {
+      "type": "object",
+      "properties": {
+        "t": {
+          "format": "date-time",
+          "description": "time stamp of tick in UTC",
+          "type": "string"
+        },
+        "o": {
+          "format": "double",
+          "description": "open",
+          "type": "number"
+        },
+        "h": {
+          "format": "double",
+          "description": "high",
+          "type": "number"
+        },
+        "l": {
+          "format": "double",
+          "description": "low",
+          "type": "number"
+        },
+        "c": {
+          "format": "double",
+          "description": "close",
+          "type": "number"
+        },
+        "v": {
+          "format": "double",
+          "description": "volume",
+          "type": "number"
+        },
+        "bv": {
+          "format": "double",
+          "description": "base volume",
+          "type": "number"
+        }
+      }
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "description": "unique ID of this order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "marketId": {
+          "description": "unique ID of the market this order is being placed on",
+          "type": "string"
+        },
+        "direction": {
+          "description": "order direction",
+          "enum": [
+            "BUY",
+            "SELL"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "description": "order type",
+          "enum": [
+            "LIMIT",
+            "MARKET"
+          ],
+          "type": "string"
+        },
+        "quantity": {
+          "format": "double",
+          "description": "quantity",
+          "type": "number"
+        },
+        "limit": {
+          "format": "double",
+          "description": "limit price, if present",
+          "type": "number"
+        },
+        "timeInForce": {
+          "description": "time in force",
+          "enum": [
+            "GOOD_TIL_CANCELLED",
+            "IMMEDIATE_OR_CANCEL",
+            "FILL_OR_KILL"
+          ],
+          "type": "string"
+        },
+        "trigger": {
+          "description": "trigger specification, if present",
+          "enum": [
+            "NONE",
+            "GREATER_THAN",
+            "LESS_THAN",
+            "STOP_LOSS_FIXED",
+            "STOP_LOSS_PERCENTAGE"
+          ],
+          "type": "string"
+        },
+        "triggerTargetPrice": {
+          "format": "double",
+          "description": "if trigger (price-related) is present, target price for that trigger",
+          "type": "number"
+        },
+        "quantityRemaining": {
+          "format": "double",
+          "description": "quantity remaining",
+          "type": "number"
+        },
+        "commission": {
+          "format": "double",
+          "description": "commission",
+          "type": "number"
+        },
+        "price": {
+          "format": "double",
+          "description": "price",
+          "type": "number"
+        },
+        "pricePerUnit": {
+          "format": "double",
+          "description": "price-per-unit",
+          "type": "number"
+        },
+        "status": {
+          "description": "order status",
+          "enum": [
+            "OPEN",
+            "FILLED",
+            "CANCELLED"
+          ],
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "description": "timestamp (UTC) of order creation",
+          "type": "string"
+        },
+        "closedAt": {
+          "format": "date-time",
+          "description": "timestamp (UTC) when this order was closed",
+          "type": "string"
+        }
+      }
+    },
+    "NewOrder": {
+      "required": [
+        "marketId",
+        "direction",
+        "type",
+        "quantity"
+      ],
+      "type": "object",
+      "properties": {
+        "marketId": {
+          "description": "unique ID of the market this order is being placed on",
+          "type": "string"
+        },
+        "direction": {
+          "description": "order direction",
+          "enum": [
+            "BUY",
+            "SELL"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "description": "order type",
+          "enum": [
+            "LIMIT",
+            "MARKET"
+          ],
+          "type": "string"
+        },
+        "quantity": {
+          "format": "double",
+          "description": "quantity",
+          "type": "number"
+        },
+        "limit": {
+          "format": "double",
+          "description": "limit, if present",
+          "type": "number"
+        },
+        "timeInForce": {
+          "description": "time in force",
+          "enum": [
+            "GOOD_TIL_CANCELLED",
+            "IMMEDIATE_OR_CANCEL",
+            "FILL_OR_KILL"
+          ],
+          "type": "string"
+        },
+        "trigger": {
+          "description": "trigger specification, if present",
+          "enum": [
+            "NONE",
+            "GREATER_THAN",
+            "LESS_THAN",
+            "STOP_LOSS_FIXED",
+            "STOP_LOSS_PERCENTAGE"
+          ],
+          "type": "string"
+        },
+        "triggerTargetPrice": {
+          "format": "double",
+          "description": "if trigger (price-related) is present, target price for that trigger",
+          "type": "number"
+        },
+        "clientId": {
+          "format": "uuid",
+          "description": "client-provided identifier for advanced order tracking (NYI)",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ServiceStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "overall service status",
+          "enum": [
+            "GREEN",
+            "YELLOW",
+            "RED"
+          ],
+          "type": "string"
+        },
+        "serverTime": {
+          "format": "date-time",
+          "description": "server time in UTC",
+          "type": "string"
+        }
+      }
+    },
+    "Withdrawal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "description": "unique ID for this withdrawal",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "currencyId": {
+          "description": "currency to withdraw",
+          "type": "string"
+        },
+        "quantity": {
+          "format": "double",
+          "description": "quantity to withdraw",
+          "type": "number"
+        },
+        "address": {
+          "description": "crypto address for this withdrawal",
+          "type": "string"
+        },
+        "txCost": {
+          "format": "double",
+          "description": "TxCost of this withdrawal",
+          "type": "number"
+        },
+        "txId": {
+          "description": "TxID associated with this withdrawal",
+          "type": "string"
+        },
+        "isAuthorized": {
+          "description": "true if this deposit has been authorized",
+          "type": "boolean"
+        },
+        "hasInvalidAddress": {
+          "description": "true if this withdrawal has an invalid target crypto address",
+          "type": "boolean"
+        },
+        "status": {
+          "description": "current status of this withdrawal",
+          "enum": [
+            "PENDING",
+            "COMPLETED",
+            "CANCELLED",
+            "ERROR"
+          ],
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "description": "time stamp when this withdrawal was initiated",
+          "type": "string"
+        },
+        "completedAt": {
+          "format": "date-time",
+          "description": "time stamp when this withdrawal was completed",
+          "type": "string"
+        }
+      }
+    },
+    "NewWithdrawal": {
+      "required": [
+        "currencyId",
+        "quantity",
+        "address"
+      ],
+      "type": "object",
+      "properties": {
+        "currencyId": {
+          "description": "unique ID of currency to withdraw from",
+          "type": "string"
+        },
+        "quantity": {
+          "format": "double",
+          "description": "quantity to withdraw",
+          "type": "number"
+        },
+        "address": {
+          "description": "crypto address to withdraw funds to",
+          "type": "string"
+        },
+        "paymentId": {
+          "description": "payment ID (optional, depends on the currency being withdrawn)",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
