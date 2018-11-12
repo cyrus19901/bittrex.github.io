@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "jekyll serve",
     "build": "npm run build:spectacle:v1",
-    "build:spectacle:v1": "node ./spectacle/bin/spectacle -e -t api/v1/assets _data/api-spec-v1-1.json"
+    "build:spectacle:v1": "node ./spectacle/bin/spectacle -e -t v1/api-reference/assets _data/api-spec-v1-1.json"
   },
   "devDependencies": {
     "bluebird": "^3.4.7",
