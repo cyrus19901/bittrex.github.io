@@ -1,5 +1,6 @@
 ---
 layout: markdown
+version: v1
 ---
 
 # Websocket API Reference

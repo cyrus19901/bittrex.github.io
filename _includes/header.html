@@ -5,8 +5,25 @@
             <img src="/assets/img/bittrex-word-mark.svg" alt="Bittrex Word Mark"/>
             <!-- <span style="font-size: 12px;">Developers</span> -->
         </a>
-        <a href="/v1/api-reference" class="nav-link">API Reference</a>
-        <a href="/v1/websocket" class="nav-link">Websocket</a>
+
+        {% if page.version == 'v1' %}
+            {% assign v1LinkClass = 'active' %}
+        {% endif %}
+        {% if page.version == 'v3' %}
+            {% assign v3LinkClass = 'active' %}
+        {% endif %}
+
+        <div class="nav-link"> {{page.version}} <i class="arrow down"></i>
+            <ul class="dropdown">
+                <li><a href="/v1" class="nav-link version-link {{v1LinkClass}}">v1</a></li>
+                <li><a href="/v3" class="nav-link version-link {{v3LinkClass}}">v3</a></li>
+            </ul>
+        </div>
+        
+        
+        
+        <a href="/{{page.version}}/api-reference" class="nav-link">API Reference</a>
+        <a href="/{{page.version}}/websocket" class="nav-link">Websocket</a>
     </nav>
     <a href="https://bittrex.com" target="_blank" class="external-link hidden-sm">Go to Bittrex.com</a>
 </header>
