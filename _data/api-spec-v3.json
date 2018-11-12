@@ -20,12 +20,49 @@
         "tags": [
           "Account"
         ],
-        "summary": "Retrieve account information.",
+        "description": "Retrieve account information. _(NOT YET IMPLEMENTED)_",
         "operationId": "Account_Get",
         "consumes": [],
         "produces": [
           "application/json",
           "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -42,7 +79,7 @@
         "tags": [
           "Addresses"
         ],
-        "description": "List deposit addresses.",
+        "description": "List deposit addresses. _(NOT YET IMPLEMENTED)_",
         "operationId": "Addresses_List",
         "consumes": [],
         "produces": [
@@ -50,13 +87,6 @@
           "text/json"
         ],
         "parameters": [
-          {
-            "name": "accountId",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "uuid"
-          },
           {
             "name": "limit",
             "in": "query",
@@ -72,6 +102,41 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -111,102 +176,39 @@
             }
           },
           {
-            "name": "accountId",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Address"
-            }
-          }
-        }
-      }
-    },
-    "/v3/accounts/{accountId}/addresses": {
-      "get": {
-        "tags": [
-          "Addresses"
-        ],
-        "description": "List deposit addresses.",
-        "operationId": "Addresses_List",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "accountId",
-            "in": "path",
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
             "required": true,
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "maximum number of items to return",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
           },
           {
-            "name": "skip",
-            "in": "query",
-            "description": "number of items to skip",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Address"
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Addresses"
-        ],
-        "description": "Request provisioning of a deposit address.",
-        "operationId": "Addresses_Create",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "newAddress",
-            "in": "body",
-            "description": "information including ID of the currency to provision a deposit address for",
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/NewAddress"
-            }
+            "type": "string"
           },
           {
-            "name": "accountId",
-            "in": "path",
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
             "required": true,
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -240,49 +242,39 @@
             "type": "string"
           },
           {
-            "name": "accountId",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "uuid"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Address"
-            }
-          }
-        }
-      }
-    },
-    "/v3/accounts/{accountId}/addresses/{currencyId}": {
-      "get": {
-        "tags": [
-          "Addresses"
-        ],
-        "description": "Retrieve the deposit address for a particular currency.",
-        "operationId": "Addresses_Get",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "name": "currencyId",
-            "in": "path",
-            "description": "ID of the currency to retrieve the deposit address for",
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
             "required": true,
             "type": "string"
           },
           {
-            "name": "accountId",
-            "in": "path",
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
             "required": true,
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -300,7 +292,7 @@
         "tags": [
           "Balances"
         ],
-        "summary": "List account balances across available currencies.",
+        "description": "List account balances across available currencies.",
         "operationId": "Balances_List",
         "consumes": [],
         "produces": [
@@ -323,6 +315,41 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -343,7 +370,7 @@
         "tags": [
           "Balances"
         ],
-        "summary": "Retrieve account balance for a specific currency.",
+        "description": "Retrieve account balance for a specific currency.",
         "operationId": "Balances_Get",
         "consumes": [],
         "produces": [
@@ -356,6 +383,41 @@
             "in": "path",
             "description": "ID of the currency to retrieve the account balance for",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
             "type": "string"
           }
         ],
@@ -374,7 +436,7 @@
         "tags": [
           "Currencies"
         ],
-        "summary": "List currencies with optional health info.",
+        "description": "List currencies with optional health info.",
         "operationId": "Currencies_List",
         "consumes": [],
         "produces": [
@@ -424,7 +486,7 @@
         "tags": [
           "Currencies"
         ],
-        "summary": "Retrieve info on a specified currency.",
+        "description": "Retrieve info on a specified currency.",
         "operationId": "Currencies_Get",
         "consumes": [],
         "produces": [
@@ -462,7 +524,7 @@
         "tags": [
           "Deposits"
         ],
-        "summary": "List historical deposits.",
+        "description": "List historical deposits.",
         "operationId": "Deposits_List",
         "consumes": [],
         "produces": [
@@ -504,6 +566,41 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -524,7 +621,7 @@
         "tags": [
           "Deposits"
         ],
-        "summary": "List pending deposits.",
+        "description": "List pending deposits.",
         "operationId": "Deposits_ListPending",
         "consumes": [],
         "produces": [
@@ -536,6 +633,41 @@
             "name": "currencyId",
             "in": "query",
             "description": "filter by currency ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
             "required": false,
             "type": "string"
           }
@@ -558,7 +690,7 @@
         "tags": [
           "Deposits"
         ],
-        "summary": "Retrieve information for a specific deposit.",
+        "description": "Retrieve information for a specific deposit. _(NOT YET IMPLEMENTED)_",
         "operationId": "Deposits_Get",
         "consumes": [],
         "produces": [
@@ -573,6 +705,41 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -590,7 +757,7 @@
         "tags": [
           "Markets"
         ],
-        "summary": "List markets with optional summary information.",
+        "description": "List markets with optional summary information.",
         "operationId": "Markets_List",
         "consumes": [],
         "produces": [
@@ -640,7 +807,7 @@
         "tags": [
           "Markets"
         ],
-        "summary": "Retrieve information for a specific market.",
+        "description": "Retrieve information for a specific market.",
         "operationId": "Markets_Get",
         "consumes": [],
         "produces": [
@@ -678,7 +845,7 @@
         "tags": [
           "Markets"
         ],
-        "summary": "Retrieve the order book for a specific market.",
+        "description": "Retrieve the order book for a specific market.",
         "operationId": "Markets_GetOrderBook",
         "consumes": [],
         "produces": [
@@ -728,7 +895,7 @@
         "tags": [
           "Markets"
         ],
-        "summary": "Retrieve the order history for a specific market.",
+        "description": "Retrieve the order history for a specific market.",
         "operationId": "Markets_GetHistory",
         "consumes": [],
         "produces": [
@@ -762,7 +929,7 @@
         "tags": [
           "Markets"
         ],
-        "summary": "Retrieve ticks for a specific market.",
+        "description": "Retrieve ticks for a specific market.",
         "operationId": "Markets_GetTicks",
         "consumes": [],
         "produces": [
@@ -810,7 +977,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "List historical orders.",
+        "description": "List historical orders.",
         "operationId": "Orders_List",
         "consumes": [],
         "produces": [
@@ -852,6 +1019,41 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -870,7 +1072,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Create a new order.",
+        "description": "Create a new order.",
         "operationId": "Orders_Create",
         "consumes": [
           "application/json",
@@ -889,6 +1091,41 @@
             "schema": {
               "$ref": "#/definitions/NewOrder"
             }
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -906,7 +1143,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "List open orders.",
+        "description": "List open orders.",
         "operationId": "Orders_ListOpen",
         "consumes": [],
         "produces": [
@@ -918,6 +1155,41 @@
             "name": "marketId",
             "in": "query",
             "description": "filter by market ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
             "required": false,
             "type": "string"
           }
@@ -940,7 +1212,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Retrieve information on a specific order.",
+        "description": "Retrieve information on a specific order.",
         "operationId": "Orders_Get",
         "consumes": [],
         "produces": [
@@ -955,6 +1227,41 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -970,7 +1277,7 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Cancel an order.",
+        "description": "Cancel an order.",
         "operationId": "Orders_Delete",
         "consumes": [],
         "produces": [
@@ -985,6 +1292,41 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1002,7 +1344,7 @@
         "tags": [
           "Status"
         ],
-        "summary": "Check service status.",
+        "description": "Check service status.",
         "operationId": "Status_Get",
         "consumes": [],
         "produces": [
@@ -1019,12 +1361,226 @@
         }
       }
     },
+    "/v3/subaccounts": {
+      "get": {
+        "tags": [
+          "Subaccounts"
+        ],
+        "description": "List subaccounts. (NOT YET IMPLEMENTED)",
+        "operationId": "Subaccounts_List",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum number of items to return",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "number of items to skip",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Subaccount"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Subaccounts"
+        ],
+        "description": "Create a new subaccount.",
+        "operationId": "Subaccounts_Create",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "newSubaccount",
+            "in": "body",
+            "description": "information specifying the subaccount to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewSubaccount"
+            }
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Subaccount"
+            }
+          }
+        }
+      }
+    },
+    "/v3/subaccounts/{subaccountId}": {
+      "get": {
+        "tags": [
+          "Subaccounts"
+        ],
+        "description": "Retrieve details for a specified subaccount. _(NOT YET IMPLEMENTED)_",
+        "operationId": "Subaccounts_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "subaccountId",
+            "in": "path",
+            "description": "ID of the subaccount to retrieve details for",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Subaccount"
+            }
+          }
+        }
+      }
+    },
     "/v3/withdrawals": {
       "get": {
         "tags": [
           "Withdrawals"
         ],
-        "summary": "List historical withdrawals.",
+        "description": "List historical withdrawals.",
         "operationId": "Withdrawals_List",
         "consumes": [],
         "produces": [
@@ -1067,6 +1623,41 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1085,7 +1676,7 @@
         "tags": [
           "Withdrawals"
         ],
-        "summary": "Create a new withdrawal.",
+        "description": "Create a new withdrawal.",
         "operationId": "Withdrawals_Create",
         "consumes": [
           "application/json",
@@ -1104,6 +1695,41 @@
             "schema": {
               "$ref": "#/definitions/NewWithdrawal"
             }
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1121,7 +1747,7 @@
         "tags": [
           "Withdrawals"
         ],
-        "summary": "List pending withdrawals.",
+        "description": "List pending withdrawals.",
         "operationId": "Withdrawals_ListPending",
         "consumes": [],
         "produces": [
@@ -1133,6 +1759,41 @@
             "name": "currencyId",
             "in": "query",
             "description": "filter by currency",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
             "required": false,
             "type": "string"
           }
@@ -1155,7 +1816,7 @@
         "tags": [
           "Withdrawals"
         ],
-        "summary": "Retrieve information on a specified withdrawal.",
+        "description": "Retrieve information on a specified withdrawal. _(NOT YET IMPLEMENTED)_",
         "operationId": "Withdrawals_Get",
         "consumes": [],
         "produces": [
@@ -1170,6 +1831,41 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1185,7 +1881,7 @@
         "tags": [
           "Withdrawals"
         ],
-        "summary": "Cancel a withdrawal.",
+        "description": "Cancel a withdrawal.",
         "operationId": "Withdrawals_Delete",
         "consumes": [],
         "produces": [
@@ -1200,6 +1896,41 @@
             "required": true,
             "type": "string",
             "format": "uuid"
+          },
+          {
+            "name": "Api-Key",
+            "in": "header",
+            "description": "API Key of the account user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Timestamp",
+            "in": "header",
+            "description": "current timestamp of request, in ISO 8601 format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Content-Hash",
+            "in": "header",
+            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Signature",
+            "in": "header",
+            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Api-Subaccount-Id",
+            "in": "header",
+            "description": "subaccount ID to use as account context for current request",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1345,6 +2076,10 @@
         },
         "isActive": {
           "description": "determines whether this currency is currently active",
+          "type": "boolean"
+        },
+        "isInternational": {
+          "description": "true if this market is restricted to international users",
           "type": "boolean"
         },
         "minConfirmations": {
@@ -1496,6 +2231,10 @@
         },
         "isActive": {
           "description": "true if this market is currently active",
+          "type": "boolean"
+        },
+        "isInternational": {
+          "description": "true if this market is restricted to international users",
           "type": "boolean"
         },
         "createdAt": {
@@ -1922,6 +2661,21 @@
           "type": "string"
         }
       }
+    },
+    "Subaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "description": "unique ID of this subaccount",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "NewSubaccount": {
+      "type": "object",
+      "properties": {}
     },
     "Withdrawal": {
       "type": "object",

@@ -12,7 +12,7 @@
           <a href="#tag-Account">Account</a>
           <ul>
             <li>
-              <a href="#operation--v3-account-get"> Retrieve account information. </a>
+              <a href="#operation--v3-account-get"> GET /v3/account </a>
             </li>
           </ul>
         </section>
@@ -26,16 +26,7 @@
               <a href="#operation--v3-addresses-post"> POST /v3/addresses </a>
             </li>
             <li>
-              <a href="#operation--v3-accounts--accountId--addresses-get"> GET /v3/accounts/{accountId}/addresses </a>
-            </li>
-            <li>
-              <a href="#operation--v3-accounts--accountId--addresses-post"> POST /v3/accounts/{accountId}/addresses </a>
-            </li>
-            <li>
               <a href="#operation--v3-addresses--currencyId--get"> GET /v3/addresses/{currencyId} </a>
-            </li>
-            <li>
-              <a href="#operation--v3-accounts--accountId--addresses--currencyId--get"> GET /v3/accounts/{accountId}/addresses/{currencyId} </a>
             </li>
           </ul>
         </section>
@@ -43,10 +34,10 @@
           <a href="#tag-Balances">Balances</a>
           <ul>
             <li>
-              <a href="#operation--v3-balances-get"> List account balances across available currencies. </a>
+              <a href="#operation--v3-balances-get"> GET /v3/balances </a>
             </li>
             <li>
-              <a href="#operation--v3-balances--currencyId--get"> Retrieve account balance for a specific currency. </a>
+              <a href="#operation--v3-balances--currencyId--get"> GET /v3/balances/{currencyId} </a>
             </li>
           </ul>
         </section>
@@ -54,10 +45,10 @@
           <a href="#tag-Currencies">Currencies</a>
           <ul>
             <li>
-              <a href="#operation--v3-currencies-get"> List currencies with optional health info. </a>
+              <a href="#operation--v3-currencies-get"> GET /v3/currencies </a>
             </li>
             <li>
-              <a href="#operation--v3-currencies--currencyId--get"> Retrieve info on a specified currency. </a>
+              <a href="#operation--v3-currencies--currencyId--get"> GET /v3/currencies/{currencyId} </a>
             </li>
           </ul>
         </section>
@@ -65,13 +56,13 @@
           <a href="#tag-Deposits">Deposits</a>
           <ul>
             <li>
-              <a href="#operation--v3-deposits-get"> List historical deposits. </a>
+              <a href="#operation--v3-deposits-get"> GET /v3/deposits </a>
             </li>
             <li>
-              <a href="#operation--v3-deposits-pending-get"> List pending deposits. </a>
+              <a href="#operation--v3-deposits-pending-get"> GET /v3/deposits/pending </a>
             </li>
             <li>
-              <a href="#operation--v3-deposits--depositId--get"> Retrieve information for a specific deposit. </a>
+              <a href="#operation--v3-deposits--depositId--get"> GET /v3/deposits/{depositId} </a>
             </li>
           </ul>
         </section>
@@ -79,19 +70,19 @@
           <a href="#tag-Markets">Markets</a>
           <ul>
             <li>
-              <a href="#operation--v3-markets-get"> List markets with optional summary information. </a>
+              <a href="#operation--v3-markets-get"> GET /v3/markets </a>
             </li>
             <li>
-              <a href="#operation--v3-markets--marketId--get"> Retrieve information for a specific market. </a>
+              <a href="#operation--v3-markets--marketId--get"> GET /v3/markets/{marketId} </a>
             </li>
             <li>
-              <a href="#operation--v3-markets--marketId--orderbook-get"> Retrieve the order book for a specific market. </a>
+              <a href="#operation--v3-markets--marketId--orderbook-get"> GET /v3/markets/{marketId}/orderbook </a>
             </li>
             <li>
-              <a href="#operation--v3-markets--marketId--history-get"> Retrieve the order history for a specific market. </a>
+              <a href="#operation--v3-markets--marketId--history-get"> GET /v3/markets/{marketId}/history </a>
             </li>
             <li>
-              <a href="#operation--v3-markets--marketId--ticks-get"> Retrieve ticks for a specific market. </a>
+              <a href="#operation--v3-markets--marketId--ticks-get"> GET /v3/markets/{marketId}/ticks </a>
             </li>
           </ul>
         </section>
@@ -99,19 +90,19 @@
           <a href="#tag-Orders">Orders</a>
           <ul>
             <li>
-              <a href="#operation--v3-orders-get"> List historical orders. </a>
+              <a href="#operation--v3-orders-get"> GET /v3/orders </a>
             </li>
             <li>
-              <a href="#operation--v3-orders-post"> Create a new order. </a>
+              <a href="#operation--v3-orders-post"> POST /v3/orders </a>
             </li>
             <li>
-              <a href="#operation--v3-orders-open-get"> List open orders. </a>
+              <a href="#operation--v3-orders-open-get"> GET /v3/orders/open </a>
             </li>
             <li>
-              <a href="#operation--v3-orders--orderId--get"> Retrieve information on a specific order. </a>
+              <a href="#operation--v3-orders--orderId--get"> GET /v3/orders/{orderId} </a>
             </li>
             <li>
-              <a href="#operation--v3-orders--orderId--delete"> Cancel an order. </a>
+              <a href="#operation--v3-orders--orderId--delete"> DELETE /v3/orders/{orderId} </a>
             </li>
           </ul>
         </section>
@@ -119,7 +110,21 @@
           <a href="#tag-Status">Status</a>
           <ul>
             <li>
-              <a href="#operation--v3-status-get"> Check service status. </a>
+              <a href="#operation--v3-status-get"> GET /v3/status </a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <a href="#tag-Subaccounts">Subaccounts</a>
+          <ul>
+            <li>
+              <a href="#operation--v3-subaccounts-get"> GET /v3/subaccounts </a>
+            </li>
+            <li>
+              <a href="#operation--v3-subaccounts-post"> POST /v3/subaccounts </a>
+            </li>
+            <li>
+              <a href="#operation--v3-subaccounts--subaccountId--get"> GET /v3/subaccounts/{subaccountId} </a>
             </li>
           </ul>
         </section>
@@ -127,19 +132,19 @@
           <a href="#tag-Withdrawals">Withdrawals</a>
           <ul>
             <li>
-              <a href="#operation--v3-withdrawals-get"> List historical withdrawals. </a>
+              <a href="#operation--v3-withdrawals-get"> GET /v3/withdrawals </a>
             </li>
             <li>
-              <a href="#operation--v3-withdrawals-post"> Create a new withdrawal. </a>
+              <a href="#operation--v3-withdrawals-post"> POST /v3/withdrawals </a>
             </li>
             <li>
-              <a href="#operation--v3-withdrawals-pending-get"> List pending withdrawals. </a>
+              <a href="#operation--v3-withdrawals-pending-get"> GET /v3/withdrawals/pending </a>
             </li>
             <li>
-              <a href="#operation--v3-withdrawals--withdrawalId--get"> Retrieve information on a specified withdrawal. </a>
+              <a href="#operation--v3-withdrawals--withdrawalId--get"> GET /v3/withdrawals/{withdrawalId} </a>
             </li>
             <li>
-              <a href="#operation--v3-withdrawals--withdrawalId--delete"> Cancel a withdrawal. </a>
+              <a href="#operation--v3-withdrawals--withdrawalId--delete"> DELETE /v3/withdrawals/{withdrawalId} </a>
             </li>
           </ul>
         </section>
@@ -161,6 +166,8 @@
         <a href="#definition-Order"> Order </a>
         <a href="#definition-NewOrder"> NewOrder </a>
         <a href="#definition-ServiceStatus"> ServiceStatus </a>
+        <a href="#definition-Subaccount"> Subaccount </a>
+        <a href="#definition-NewSubaccount"> NewSubaccount </a>
         <a href="#definition-Withdrawal"> Withdrawal </a>
         <a href="#definition-NewWithdrawal"> NewWithdrawal </a>
       </nav>
@@ -208,18 +215,99 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve account information.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/account</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/account</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve account information.
+                  <em>(NOT YET IMPLEMENTED)</em>
+                </p>
               </section>
             </div>
           </div>
           <div class="doc-row">
-            <div class="doc-copy"> </div>
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
+                  </div>
+                </div>
+              </section>
+            </div>
             <div class="doc-examples"></div>
           </div>
           <div class="doc-row">
@@ -278,28 +366,15 @@
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-operation-description">
-                <p>List deposit addresses.</p>
+                <p>List deposit addresses.
+                  <em>(NOT YET IMPLEMENTED)</em>
+                </p>
               </section>
             </div>
           </div>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">accountId:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-format">(uuid)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p class="no-description">(no description)</p>
-                  </div>
-                </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
                     <div class="prop-title">limit:
@@ -328,6 +403,80 @@
                   </div>
                   <div class="prop-value">
                     <p>number of items to skip</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -428,254 +577,76 @@
               <section class="swagger-request-params">
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">accountId:
+                    <div class="prop-title">Api-Key:
                       <span class="prop-type">
                         <span class="json-property-type">string</span>
-                        <span class="json-property-format">(uuid)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p class="no-description">(no description)</p>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="doc-examples">
-              <section>
-                <h5>Request Content-Types:
-                  <span>application/json, text/json</span>
-                </h5>
-                <h5>Request Example</h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-}
-</code></pre>
-                <!-- </div> -->
-              </section>
-            </div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-responses">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">200 OK</div>
-                    <div class="prop-ref">
-                      <span class="">
-                        <a class="json-schema-ref" href="#/definitions/Address">Address</a>
-                      </span>
-                    </div>
-                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
-                  </div>
-                  <div class="prop-value">
-                    <p>OK</p>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="doc-examples">
-              <h5>Response Content-Types:
-                <span>application/json, text/json</span>
-              </h5>
-              <section>
-                <h5>Response Example
-                  <span>(200 OK)</span>
-                </h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;cryptoAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-}
-</code></pre>
-                <!-- </div> -->
-              </section>
-            </div>
-          </div>
-        </div>
-        <div id="operation--v3-accounts--accountId--addresses-get" class="operation panel" data-traverse-target="operation--v3-accounts--accountId--addresses-get">
-          <!-- <section class="operation-tags row"> -->
-          <!-- <div class="doc-copy"> -->
-          <div class="operation-tags">
-            <a class="label" href="#tag-Addresses">Addresses</a>
-            <!---->
-          </div>
-          <!-- </div> -->
-          <!-- </section> -->
-          <h2 class="operation-title">
-            <span class="operation-name">
-              <span class="operation-name">GET</span>
-              <span class="operation-path">/v3/accounts/{accountId}/addresses</span>
-            </span>
-          </h2>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-operation-description">
-                <p>List deposit addresses.</p>
-              </section>
-            </div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">accountId:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-format">(uuid)</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in path </div>
+                    <div class="prop-subtitle"> in header </div>
                   </div>
                   <div class="prop-value">
-                    <p class="no-description">(no description)</p>
+                    <p>API Key of the account user</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">limit:
-                      <span class="prop-type">
-                        <span class="json-property-type">integer</span>
-                        <span class="json-property-format">(int32)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>maximum number of items to return</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">skip:
-                      <span class="prop-type">
-                        <span class="json-property-type">integer</span>
-                        <span class="json-property-format">(int32)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>number of items to skip</p>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="doc-examples"></div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-responses">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">200 OK</div>
-                    <div class="prop-ref">
-                      <span class="json-schema-ref-array">
-                        <a class="json-schema-ref" href="#/definitions/Address">Address</a>
-                      </span>
-                    </div>
-                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
-                  </div>
-                  <div class="prop-value">
-                    <p>OK</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-inner">
-                  <div class="prop-name">type</div>
-                  <div class="prop-value">
-                    <span class="json-property-type">
-                      <span class="json-schema-ref-array">
-                        <a class="json-schema-ref" href="#/definitions/Address">Address</a>
-                      </span>
-                    </span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="doc-examples">
-              <h5>Response Content-Types:
-                <span>application/json, text/json</span>
-              </h5>
-              <section>
-                <h5>Response Example
-                  <span>(200 OK)</span>
-                </h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
-  {
-    <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;cryptoAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-  }
-]
-</code></pre>
-                <!-- </div> -->
-              </section>
-            </div>
-          </div>
-        </div>
-        <div id="operation--v3-accounts--accountId--addresses-post" class="operation panel" data-traverse-target="operation--v3-accounts--accountId--addresses-post">
-          <!-- <section class="operation-tags row"> -->
-          <!-- <div class="doc-copy"> -->
-          <div class="operation-tags">
-            <a class="label" href="#tag-Addresses">Addresses</a>
-            <!---->
-          </div>
-          <!-- </div> -->
-          <!-- </section> -->
-          <h2 class="operation-title">
-            <span class="operation-name">
-              <span class="operation-name">POST</span>
-              <span class="operation-path">/v3/accounts/{accountId}/addresses</span>
-            </span>
-          </h2>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-operation-description">
-                <p>Request provisioning of a deposit address.</p>
-              </section>
-            </div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-request-body">
-                <div class="prop-row">
-                  <div class="prop-name">
-                    <div class="swagger-request-model">
-                      <span class="">
-                        <a class="json-schema-ref" href="#/definitions/NewAddress">NewAddress</a>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="prop-value columns small-6">
-                    <!-- <div class="swagger-request-description"> -->
-                    <p>information including ID of the currency to provision a deposit address for</p>
-                    <!-- </div> -->
-                  </div>
-                </div>
-              </section>
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">accountId:
+                    <div class="prop-title">Api-Timestamp:
                       <span class="prop-type">
                         <span class="json-property-type">string</span>
-                        <span class="json-property-format">(uuid)</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in path </div>
+                    <div class="prop-subtitle"> in header </div>
                   </div>
                   <div class="prop-value">
-                    <p class="no-description">(no description)</p>
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -774,115 +745,76 @@
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">accountId:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-format">(uuid)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p class="no-description">(no description)</p>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="doc-examples"></div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-responses">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">200 OK</div>
-                    <div class="prop-ref">
-                      <span class="">
-                        <a class="json-schema-ref" href="#/definitions/Address">Address</a>
-                      </span>
-                    </div>
-                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
-                  </div>
-                  <div class="prop-value">
-                    <p>OK</p>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="doc-examples">
-              <h5>Response Content-Types:
-                <span>application/json, text/json</span>
-              </h5>
-              <section>
-                <h5>Response Example
-                  <span>(200 OK)</span>
-                </h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;cryptoAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-}
-</code></pre>
-                <!-- </div> -->
-              </section>
-            </div>
-          </div>
-        </div>
-        <div id="operation--v3-accounts--accountId--addresses--currencyId--get" class="operation panel" data-traverse-target="operation--v3-accounts--accountId--addresses--currencyId--get">
-          <!-- <section class="operation-tags row"> -->
-          <!-- <div class="doc-copy"> -->
-          <div class="operation-tags">
-            <a class="label" href="#tag-Addresses">Addresses</a>
-            <!---->
-          </div>
-          <!-- </div> -->
-          <!-- </section> -->
-          <h2 class="operation-title">
-            <span class="operation-name">
-              <span class="operation-name">GET</span>
-              <span class="operation-path">/v3/accounts/{accountId}/addresses/{currencyId}</span>
-            </span>
-          </h2>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-operation-description">
-                <p>Retrieve the deposit address for a particular currency.</p>
-              </section>
-            </div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">currencyId:
+                    <div class="prop-title">Api-Key:
                       <span class="prop-type">
                         <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in path </div>
+                    <div class="prop-subtitle"> in header </div>
                   </div>
                   <div class="prop-value">
-                    <p>ID of the currency to retrieve the deposit address for</p>
+                    <p>API Key of the account user</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">accountId:
+                    <div class="prop-title">Api-Timestamp:
                       <span class="prop-type">
                         <span class="json-property-type">string</span>
-                        <span class="json-property-format">(uuid)</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in path </div>
+                    <div class="prop-subtitle"> in header </div>
                   </div>
                   <div class="prop-value">
-                    <p class="no-description">(no description)</p>
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -938,13 +870,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List account balances across available currencies.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/balances</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/balances</span>
+              <section class="swagger-operation-description">
+                <p>List account balances across available currencies.</p>
               </section>
             </div>
           </div>
@@ -979,6 +913,80 @@
                   </div>
                   <div class="prop-value">
                     <p>number of items to skip</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -1047,13 +1055,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve account balance for a specific currency.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/balances/{currencyId}</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/balances/{currencyId}</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve account balance for a specific currency.</p>
               </section>
             </div>
           </div>
@@ -1073,6 +1083,80 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of the currency to retrieve the account balance for</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -1129,13 +1213,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List currencies with optional health info.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/currencies</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/currencies</span>
+              <section class="swagger-operation-description">
+                <p>List currencies with optional health info.</p>
               </section>
             </div>
           </div>
@@ -1235,6 +1321,7 @@
     <span class="hljs-attr">&quot;baseAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;coinType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;isActive&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
     <span class="hljs-attr">&quot;minConfirmations&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
     <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;txFee&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -1266,13 +1353,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve info on a specified currency.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/currencies/{currencyId}</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/currencies/{currencyId}</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve info on a specified currency.</p>
               </section>
             </div>
           </div>
@@ -1345,6 +1434,7 @@
   <span class="hljs-attr">&quot;baseAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;coinType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;isActive&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;minConfirmations&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
   <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;txFee&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -1376,13 +1466,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List historical deposits.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/deposits</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/deposits</span>
+              <section class="swagger-operation-description">
+                <p>List historical deposits.</p>
               </section>
             </div>
           </div>
@@ -1450,6 +1542,80 @@
                   </div>
                   <div class="prop-value">
                     <p>number of items to skip</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -1523,13 +1689,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List pending deposits.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/deposits/pending</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/deposits/pending</span>
+              <section class="swagger-operation-description">
+                <p>List pending deposits.</p>
               </section>
             </div>
           </div>
@@ -1548,6 +1716,80 @@
                   </div>
                   <div class="prop-value">
                     <p>filter by currency ID</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -1621,13 +1863,17 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve information for a specific deposit.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/deposits/{depositId}</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/deposits/{depositId}</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve information for a specific deposit.
+                  <em>(NOT YET IMPLEMENTED)</em>
+                </p>
               </section>
             </div>
           </div>
@@ -1648,6 +1894,80 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of the deposit to retrieve</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -1709,13 +2029,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List markets with optional summary information.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/markets</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/markets</span>
+              <section class="swagger-operation-description">
+                <p>List markets with optional summary information.</p>
               </section>
             </div>
           </div>
@@ -1818,6 +2140,7 @@
     <span class="hljs-attr">&quot;quoteCurrencyName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;minTradeSize&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;isActive&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
     <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;isSponsored&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
@@ -1855,13 +2178,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve information for a specific market.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/markets/{marketId}</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/markets/{marketId}</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve information for a specific market.</p>
               </section>
             </div>
           </div>
@@ -1937,6 +2262,7 @@
   <span class="hljs-attr">&quot;quoteCurrencyName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;minTradeSize&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;isActive&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;isSponsored&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
@@ -1973,13 +2299,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve the order book for a specific market.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/markets/{marketId}/orderbook</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/markets/{marketId}/orderbook</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve the order book for a specific market.</p>
               </section>
             </div>
           </div>
@@ -2099,13 +2427,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve the order history for a specific market.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/markets/{marketId}/history</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/markets/{marketId}/history</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve the order history for a specific market.</p>
               </section>
             </div>
           </div>
@@ -2196,13 +2526,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve ticks for a specific market.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/markets/{marketId}/ticks</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/markets/{marketId}/ticks</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve ticks for a specific market.</p>
               </section>
             </div>
           </div>
@@ -2315,13 +2647,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List historical orders.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/orders</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/orders</span>
+              <section class="swagger-operation-description">
+                <p>List historical orders.</p>
               </section>
             </div>
           </div>
@@ -2389,6 +2723,80 @@
                   </div>
                   <div class="prop-value">
                     <p>number of items to skip</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -2469,13 +2877,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Create a new order.</span>
+            <span class="operation-name">
+              <span class="operation-name">POST</span>
+              <span class="operation-path">/v3/orders</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">POST</span>
-                <span class="operation-path">/v3/orders</span>
+              <section class="swagger-operation-description">
+                <p>Create a new order.</p>
               </section>
             </div>
           </div>
@@ -2494,6 +2904,82 @@
                     <!-- <div class="swagger-request-description"> -->
                     <p>information specifying the order to create</p>
                     <!-- </div> -->
+                  </div>
+                </div>
+              </section>
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -2581,13 +3067,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List open orders.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/orders/open</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/orders/open</span>
+              <section class="swagger-operation-description">
+                <p>List open orders.</p>
               </section>
             </div>
           </div>
@@ -2606,6 +3094,80 @@
                   </div>
                   <div class="prop-value">
                     <p>filter by market ID</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -2686,13 +3248,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve information on a specific order.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/orders/{orderId}</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/orders/{orderId}</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve information on a specific order.</p>
               </section>
             </div>
           </div>
@@ -2713,6 +3277,80 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of order to retrieve</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -2780,13 +3418,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Cancel an order.</span>
+            <span class="operation-name">
+              <span class="operation-name">DELETE</span>
+              <span class="operation-path">/v3/orders/{orderId}</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">DELETE</span>
-                <span class="operation-path">/v3/orders/{orderId}</span>
+              <section class="swagger-operation-description">
+                <p>Cancel an order.</p>
               </section>
             </div>
           </div>
@@ -2807,6 +3447,80 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of order to cancel</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -2861,13 +3575,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Check service status.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/status</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/status</span>
+              <section class="swagger-operation-description">
+                <p>Check service status.</p>
               </section>
             </div>
           </div>
@@ -2912,6 +3628,511 @@
             </div>
           </div>
         </div>
+        <h1 id="tag-Subaccounts" class="swagger-summary-tag" data-traverse-target="tag-Subaccounts">Subaccounts</h1>
+        <div id="operation--v3-subaccounts-get" class="operation panel" data-traverse-target="operation--v3-subaccounts-get">
+          <!-- <section class="operation-tags row"> -->
+          <!-- <div class="doc-copy"> -->
+          <div class="operation-tags">
+            <a class="label" href="#tag-Subaccounts">Subaccounts</a>
+            <!---->
+          </div>
+          <!-- </div> -->
+          <!-- </section> -->
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/subaccounts</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>List subaccounts. (NOT YET IMPLEMENTED)</p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">limit:
+                      <span class="prop-type">
+                        <span class="json-property-type">integer</span>
+                        <span class="json-property-format">(int32)</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>maximum number of items to return</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">skip:
+                      <span class="prop-type">
+                        <span class="json-property-type">integer</span>
+                        <span class="json-property-format">(int32)</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in query </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>number of items to skip</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples"></div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">200 OK</div>
+                    <div class="prop-ref">
+                      <span class="json-schema-ref-array">
+                        <a class="json-schema-ref" href="#/definitions/Subaccount">Subaccount</a>
+                      </span>
+                    </div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>OK</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-inner">
+                  <div class="prop-name">type</div>
+                  <div class="prop-value">
+                    <span class="json-property-type">
+                      <span class="json-schema-ref-array">
+                        <a class="json-schema-ref" href="#/definitions/Subaccount">Subaccount</a>
+                      </span>
+                    </span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <h5>Response Content-Types:
+                <span>application/json, text/json</span>
+              </h5>
+              <section>
+                <h5>Response Example
+                  <span>(200 OK)</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
+  {
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+  }
+]
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="operation--v3-subaccounts-post" class="operation panel" data-traverse-target="operation--v3-subaccounts-post">
+          <!-- <section class="operation-tags row"> -->
+          <!-- <div class="doc-copy"> -->
+          <div class="operation-tags">
+            <a class="label" href="#tag-Subaccounts">Subaccounts</a>
+            <!---->
+          </div>
+          <!-- </div> -->
+          <!-- </section> -->
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-name">POST</span>
+              <span class="operation-path">/v3/subaccounts</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Create a new subaccount.</p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-body">
+                <div class="prop-row">
+                  <div class="prop-name">
+                    <div class="swagger-request-model">
+                      <span class="">
+                        <a class="json-schema-ref" href="#/definitions/NewSubaccount">NewSubaccount</a>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="prop-value columns small-6">
+                    <!-- <div class="swagger-request-description"> -->
+                    <p>information specifying the subaccount to create</p>
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </section>
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Request Content-Types:
+                  <span>application/json, text/json</span>
+                </h5>
+                <h5>Request Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">200 OK</div>
+                    <div class="prop-ref">
+                      <span class="">
+                        <a class="json-schema-ref" href="#/definitions/Subaccount">Subaccount</a>
+                      </span>
+                    </div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>OK</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <h5>Response Content-Types:
+                <span>application/json, text/json</span>
+              </h5>
+              <section>
+                <h5>Response Example
+                  <span>(200 OK)</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="operation--v3-subaccounts--subaccountId--get" class="operation panel" data-traverse-target="operation--v3-subaccounts--subaccountId--get">
+          <!-- <section class="operation-tags row"> -->
+          <!-- <div class="doc-copy"> -->
+          <div class="operation-tags">
+            <a class="label" href="#tag-Subaccounts">Subaccounts</a>
+            <!---->
+          </div>
+          <!-- </div> -->
+          <!-- </section> -->
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/subaccounts/{subaccountId}</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Retrieve details for a specified subaccount.
+                  <em>(NOT YET IMPLEMENTED)</em>
+                </p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">subaccountId:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-format">(uuid)</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in path </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>ID of the subaccount to retrieve details for</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples"></div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">200 OK</div>
+                    <div class="prop-ref">
+                      <span class="">
+                        <a class="json-schema-ref" href="#/definitions/Subaccount">Subaccount</a>
+                      </span>
+                    </div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>OK</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <h5>Response Content-Types:
+                <span>application/json, text/json</span>
+              </h5>
+              <section>
+                <h5>Response Example
+                  <span>(200 OK)</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
         <h1 id="tag-Withdrawals" class="swagger-summary-tag" data-traverse-target="tag-Withdrawals">Withdrawals</h1>
         <div id="operation--v3-withdrawals-get" class="operation panel" data-traverse-target="operation--v3-withdrawals-get">
           <!-- <section class="operation-tags row"> -->
@@ -2923,13 +4144,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List historical withdrawals.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/withdrawals</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/withdrawals</span>
+              <section class="swagger-operation-description">
+                <p>List historical withdrawals.</p>
               </section>
             </div>
           </div>
@@ -2998,6 +4221,80 @@
                   </div>
                   <div class="prop-value">
                     <p>number of items to skip</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -3073,13 +4370,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Create a new withdrawal.</span>
+            <span class="operation-name">
+              <span class="operation-name">POST</span>
+              <span class="operation-path">/v3/withdrawals</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">POST</span>
-                <span class="operation-path">/v3/withdrawals</span>
+              <section class="swagger-operation-description">
+                <p>Create a new withdrawal.</p>
               </section>
             </div>
           </div>
@@ -3098,6 +4397,82 @@
                     <!-- <div class="swagger-request-description"> -->
                     <p>information specifying the withdrawal to create</p>
                     <!-- </div> -->
+                  </div>
+                </div>
+              </section>
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -3175,13 +4550,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">List pending withdrawals.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/withdrawals/pending</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/withdrawals/pending</span>
+              <section class="swagger-operation-description">
+                <p>List pending withdrawals.</p>
               </section>
             </div>
           </div>
@@ -3200,6 +4577,80 @@
                   </div>
                   <div class="prop-value">
                     <p>filter by currency</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -3275,13 +4726,17 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Retrieve information on a specified withdrawal.</span>
+            <span class="operation-name">
+              <span class="operation-name">GET</span>
+              <span class="operation-path">/v3/withdrawals/{withdrawalId}</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">GET</span>
-                <span class="operation-path">/v3/withdrawals/{withdrawalId}</span>
+              <section class="swagger-operation-description">
+                <p>Retrieve information on a specified withdrawal.
+                  <em>(NOT YET IMPLEMENTED)</em>
+                </p>
               </section>
             </div>
           </div>
@@ -3302,6 +4757,80 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of withdrawal to retrieve</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -3364,13 +4893,15 @@
           <!-- </div> -->
           <!-- </section> -->
           <h2 class="operation-title">
-            <span class="operation-summary">Cancel a withdrawal.</span>
+            <span class="operation-name">
+              <span class="operation-name">DELETE</span>
+              <span class="operation-path">/v3/withdrawals/{withdrawalId}</span>
+            </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-operation-path">
-                <span class="operation-method">DELETE</span>
-                <span class="operation-path">/v3/withdrawals/{withdrawalId}</span>
+              <section class="swagger-operation-description">
+                <p>Cancel a withdrawal.</p>
               </section>
             </div>
           </div>
@@ -3391,6 +4922,80 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of withdrawal to cancel</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Key:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>API Key of the account user</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Timestamp:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>current timestamp of request, in ISO 8601 format</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Content-Hash:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Signature:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Api-Subaccount-Id:
+                      <span class="prop-type">
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in header </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -3766,6 +5371,14 @@
                   <dd>
                     <p>determines whether this currency is currently active</p>
                   </dd>
+                  <dt data-property-name="isInternational" class="has-description">
+                    <span class="json-property-name">isInternational:</span>
+                    <span class="json-property-type">boolean</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>true if this market is restricted to international users</p>
+                  </dd>
                   <dt data-property-name="minConfirmations" class="has-description">
                     <span class="json-property-name">minConfirmations:</span>
                     <span class="json-property-type">integer</span>
@@ -3816,6 +5429,7 @@
   <span class="hljs-attr">&quot;baseAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;coinType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;isActive&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;minConfirmations&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
   <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;txFee&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -4137,6 +5751,14 @@
                   <dd>
                     <p>true if this market is currently active</p>
                   </dd>
+                  <dt data-property-name="isInternational" class="has-description">
+                    <span class="json-property-name">isInternational:</span>
+                    <span class="json-property-type">boolean</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>true if this market is restricted to international users</p>
+                  </dd>
                   <dt data-property-name="createdAt" class="has-description">
                     <span class="json-property-name">createdAt:</span>
                     <span class="json-property-type">string</span>
@@ -4197,6 +5819,7 @@
   <span class="hljs-attr">&quot;quoteCurrencyName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;minTradeSize&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;isActive&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;isSponsored&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
@@ -5129,6 +6752,68 @@
   <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;serverTime&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
 }
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="definition-Subaccount" class="definition panel" data-traverse-target="definition-Subaccount">
+          <h2 class="panel-title">
+            <a name="/definitions/Subaccount"></a>Subaccount: object
+            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+            <span class="json-property-range" title="Value limits"></span>
+            
+            
+            </span> -->
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-properties">
+                <dl>
+                  <dt data-property-name="id" class="has-description">
+                    <span class="json-property-name">id:</span>
+                    <span class="json-property-type">string</span>
+                    <span class="json-property-format">(uuid)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>unique ID of this subaccount</p>
+                  </dd>
+                </dl>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="definition-NewSubaccount" class="definition panel" data-traverse-target="definition-NewSubaccount">
+          <h2 class="panel-title">
+            <a name="/definitions/NewSubaccount"></a>NewSubaccount: object
+            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+            <span class="json-property-range" title="Value limits"></span>
+            
+            
+            </span> -->
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-properties">
+                <dl> </dl>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{}
 </code></pre>
                 <!-- </div> -->
               </section>
