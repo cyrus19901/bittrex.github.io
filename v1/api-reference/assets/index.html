@@ -7,7 +7,9 @@
       <nav id="nav" role="navigation">
         <h5>Topics</h5>
         <a href="#introduction">Introduction</a>
+        <a href="#topic-Authentication">Authentication</a>
         <a href="#topic-Getting-Started">Getting Started</a>
+        <a href="#topic-Best-Practices">Best Practices</a>
         <a href="#authentication">Authentication</a>
         <h5>Paths</h5>
         <!-- <section>
@@ -191,8 +193,11 @@
         <div id="introduction" data-traverse-target="introduction">
           <div class="doc-row">
             <div class="doc-copy">
-              <p>Bittrex provides a simple and powerful REST API to allow you to programatically perform nearly all actions you can from our web interface.</p>
-              <p> If you have any questions, feedback or recommendations for API support you can post a question in our support center.</p>
+              <p>Bittrex provides a simple and powerful API consisting of REST endpoints for transactional operations and a complementary Websocket service providing streaming market, order, and balance updates.</p>
+              <p> Use of the Bittrex API is subject to our
+                <strong>1 [Terms of Service]</strong>.</p>
+              <p> If you have any API questions, feedback, or recommendations please post a question via our
+                <a href="https://support.bittrex.com">support center</a>.</p>
             </div>
             <div class="doc-examples">
               <section>
@@ -218,22 +223,54 @@
             </div>
           </div>
         </div>
+        <h1 id="topic-Authentication" data-traverse-target="topic-Authentication">Authentication</h1>
+        <div class="panel">
+          <div class="doc-row">
+            <div class="doc-copy">
+              <p>Test</p>
+            </div>
+          </div>
+        </div>
         <h1 id="topic-Getting-Started" data-traverse-target="topic-Getting-Started">Getting Started</h1>
         <div class="panel">
           <div class="doc-row">
             <div class="doc-copy">
-              <p>All requests use the <code>application/json</code> content type and go over <code>https</code>. The base url is <code>https://bittrex.com/api/{version}/</code>. All requests are GET requests and all responses come in a default response object with the result in the result field. Always check the <code>success</code> flag to ensure that your API call succeeded.</p>
-              <p>We are currently restricting orders to 500 open orders and 200,000 orders a day. We reserve the right to change these settings as we tune the system. If you are affected by these limits as an active trader, please visit
-                <a href="https://support.bittrex.com">https://support.bittrex.com</a> and open a support ticket.</p>
-              <p> Our APIs are broken into three distinct groups:</p>
+              <p>Keep the following in mind when developing against the Bittrex API: </p>
               <ul>
-                <li>
-                  <strong>Public</strong>- Public information available without an API key</li>
-                <li>
-                  <strong>Market</strong>- For programmatic trading of cryptocurrencies</li>
-                <li>
-                  <strong>Account</strong>- For managing your account</li>
+                <li>Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.</li>
+                <li>All REST requests must be sent to <code>https://api.bittrex.com/api/v1.1</code> using the <code>application/json</code> content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.</li>
+                <li>All REST requests will result in a <code>200 Ok</code> response unless there is a server or infrastructure error. The API result will be wrapped in a JSON
+                  <strong>3
+                    <Result>
+                  </strong> object, where the <code>success</code> field indicates response status.</li>
+                <li>The public REST API (<code>https://api.bittrex.com/api/v1.1/public</code>) does not require authentication, all other requests require an
+                  <a href="#authentication">API Key and must be properly signed</a>.</li>
               </ul>
+            </div>
+          </div>
+        </div>
+        <h1 id="topic-Best-Practices" data-traverse-target="topic-Best-Practices">Best Practices</h1>
+        <div class="panel">
+          <div class="doc-row">
+            <div class="doc-copy">
+              <h2 id="call-limits">Call Limits</h2>
+              <p> The Bittrex API employs call limits on all endpoints to ensure the efficiency and availability of the platform for all customers. In general, API users are permitted to make a maximum of 60 API calls per minute. Calls after the limit will fail, with the limit resetting at the start of the next minute.</p>
+              <p>
+                <strong>Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.</strong>
+              </p>
+              <p> Example: Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it once per second. By using the Websocket API’s
+                <strong>5<code>QueryExchangeState</code></strong> and
+                <strong>6<code>SubscribeToExchangeDeltas</code></strong> functions, developers can maintain their own copies of one or more order books.</p>
+              <h2 id="socket-connections">Socket Connections</h2>
+              <p> Websocket connections may occasionally need to be recycled. If, for example, you&#39;re maintinaing local order book state, and you stop receiving updates even though you know trade activity is occurring, it may be time to resynchronize.</p>
+              <p> Because v1.1 websocket nonces are server-specific, it&#39;s crucial to maintain state on a per-connection basis. For example, to resychronize the BTC-ETH market order book:</p>
+              <ol>
+                <li>Drop existing websocket connections and flush accumulated data and state (e.g. market nonces).</li>
+                <li>Re-establish websocket connection.</li>
+                <li>Subscribe to BTC-ETH market deltas, cache received data keyed by nonce.</li>
+                <li>Query BTC-ETH market state.</li>
+                <li>Apply cached deltas sequentially, starting with nonces greater than that received in step 4.</li>
+              </ol>
             </div>
           </div>
         </div>
@@ -247,12 +284,47 @@
                 <span class="swagger-security-definition-"></span>
               </h3>
               <section class="security-definition-description">
-                <p>In the spirit of keeping things simple, we offer an easy to manage API Key authentication method. You can have multiple API keys, each with their own level of rights. To manage your API keys please go to
-                  <em>Settings &gt; Manage API Keys</em>.</p>
-                <blockquote>
-                  <p>
-                    <strong>Note</strong>: You MUST have 2FA enabled to create an API key for your own safety.</p>
-                </blockquote>
+                <h2 id="api-keys">API Keys</h2>
+                <p> Authenticating to the Bittrex API requires a valid API Key. API Keys have scoped permissions:</p>
+                <ul>
+                  <li>
+                    <p>
+                      <strong>Read Info</strong> - You can only view the balances, orders, and other details of the account</p>
+                    <ul>
+                      <li>
+                        <strong>Withdraw</strong> - We allow you to programatically withdraw any currency to an address you provide. This can be used to quick arbitrage exchanges or move money into cold storage after thresholds.</li>
+                      <li>
+                        <strong>Trade Limit</strong> - This allows the API key to place LIMIT buy and sell orders</li>
+                    </ul>
+                    <p>If you have 7
+                      <enabled 2FA> you can check existing or generate new API Keys with the appropriate permissions under 8
+                        <Manage API Keys>. We strongly recommend minimizing the scope of any given API key to limit the damage done by a leaked key/secret pair.</p>
+                    <h2 id="request-signing">Request Signing</h2>
+                    <p>When required, use the following procedure to sign an API request using a <code>message</code> value generated for the REST or Websocket API as detailed below:</p>
+                    <ol>
+                      <li>Create a SHA512 HMAC using your API Key secret and the API-specific <code>message</code> value.</li>
+                      <li>Include the resulting hash in your request:</li>
+                      <li>REST: in the <code>apisign</code> request header</li>
+                      <li>Websocket: passed to the <code>Authenticate()</code> call</li>
+                    </ol>
+                    <h3 id="rest-message">REST Message</h3>
+                    <p>The <code>message</code> value is obtained by concatenating the full request URL including any query-string parameters, your public API Key, and a user-generated nonce (we recommend a UNIX-style timestamp in epoch millisecond format). Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly:</p> <pre><code class="hljs">`message` : `https:<span class="hljs-comment">//api.bittrex.com/api/v1.1/path/call?param=value&amp;apikey=0123456789&amp;nonce=1542020339856`</span>
+`secret`  : `ABCDEFGHIJ`
+`hash`    : `FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631`
+</code></pre>
+                    <h3 id="websocket-message">Websocket Message</h3>
+                    <p>The <code>message</code> value is obtained by calling the Websocket <code>GetAuthContext()</code> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs">`message` : `top-secret-<span class="hljs-literal">and</span>-totally-fake`
+`secret`  : `ABCDEFGHIJ`
+`hash`    : `77FF28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061`
+</code></pre>
+                    <p> ------ In the spirit of keeping things simple, we offer an easy to manage API Key authentication method. You can have multiple API keys, each with their own level of rights. To manage your API keys please go to
+                      <em>Settings &gt; Manage API Keys</em>.</p>
+                    <blockquote>
+                      <p>
+                        <strong>Note</strong>: You MUST have 2FA enabled to create an API key for your own safety.</p>
+                    </blockquote>
+                  </li>
+                </ul>
                 <ul>
                   <li>
                     <strong>Read Info</strong> - You can only view the balances, orders, and other details of the account</li>
