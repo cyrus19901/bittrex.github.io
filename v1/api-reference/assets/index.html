@@ -7,7 +7,6 @@
       <nav id="nav" role="navigation">
         <h5>Topics</h5>
         <a href="#introduction">Introduction</a>
-        <a href="#topic-Authentication">Authentication</a>
         <a href="#topic-Getting-Started">Getting Started</a>
         <a href="#topic-Best-Practices">Best Practices</a>
         <a href="#authentication">Authentication</a>
@@ -223,14 +222,6 @@
             </div>
           </div>
         </div>
-        <h1 id="topic-Authentication" data-traverse-target="topic-Authentication">Authentication</h1>
-        <div class="panel">
-          <div class="doc-row">
-            <div class="doc-copy">
-              <p>Test</p>
-            </div>
-          </div>
-        </div>
         <h1 id="topic-Getting-Started" data-traverse-target="topic-Getting-Started">Getting Started</h1>
         <div class="panel">
           <div class="doc-row">
@@ -253,15 +244,16 @@
         <div class="panel">
           <div class="doc-row">
             <div class="doc-copy">
-              <h2 id="call-limits">Call Limits</h2>
+              <h3 id="call-limits">Call Limits</h3>
               <p> The Bittrex API employs call limits on all endpoints to ensure the efficiency and availability of the platform for all customers. In general, API users are permitted to make a maximum of 60 API calls per minute. Calls after the limit will fail, with the limit resetting at the start of the next minute.</p>
               <p>
                 <strong>Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.</strong>
               </p>
               <p> Example: Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it once per second. By using the Websocket API’s
-                <strong>5<code>QueryExchangeState</code></strong> and
-                <strong>6<code>SubscribeToExchangeDeltas</code></strong> functions, developers can maintain their own copies of one or more order books.</p>
-              <h2 id="socket-connections">Socket Connections</h2>
+                <strong>5 [QueryExchangeState]</strong> and
+                <strong>6 [SubscribeToExchangeDeltas]</strong> functions, developers can maintain their own copies of one or more order books.</p>
+              <hr>
+              <h3 id="socket-connections">Socket Connections</h3>
               <p> Websocket connections may occasionally need to be recycled. If, for example, you&#39;re maintinaing local order book state, and you stop receiving updates even though you know trade activity is occurring, it may be time to resynchronize.</p>
               <p> Because v1.1 websocket nonces are server-specific, it&#39;s crucial to maintain state on a per-connection basis. For example, to resychronize the BTC-ETH market order book:</p>
               <ol>
@@ -284,59 +276,41 @@
                 <span class="swagger-security-definition-"></span>
               </h3>
               <section class="security-definition-description">
-                <h2 id="api-keys">API Keys</h2>
+                <h3 id="api-keys">API Keys</h3>
                 <p> Authenticating to the Bittrex API requires a valid API Key. API Keys have scoped permissions:</p>
-                <ul>
-                  <li>
-                    <p>
-                      <strong>Read Info</strong> - You can only view the balances, orders, and other details of the account</p>
-                    <ul>
-                      <li>
-                        <strong>Withdraw</strong> - We allow you to programatically withdraw any currency to an address you provide. This can be used to quick arbitrage exchanges or move money into cold storage after thresholds.</li>
-                      <li>
-                        <strong>Trade Limit</strong> - This allows the API key to place LIMIT buy and sell orders</li>
-                    </ul>
-                    <p>If you have 7
-                      <enabled 2FA> you can check existing or generate new API Keys with the appropriate permissions under 8
-                        <Manage API Keys>. We strongly recommend minimizing the scope of any given API key to limit the damage done by a leaked key/secret pair.</p>
-                    <h2 id="request-signing">Request Signing</h2>
-                    <p>When required, use the following procedure to sign an API request using a <code>message</code> value generated for the REST or Websocket API as detailed below:</p>
-                    <ol>
-                      <li>Create a SHA512 HMAC using your API Key secret and the API-specific <code>message</code> value.</li>
-                      <li>Include the resulting hash in your request:</li>
-                      <li>REST: in the <code>apisign</code> request header</li>
-                      <li>Websocket: passed to the <code>Authenticate()</code> call</li>
-                    </ol>
-                    <h3 id="rest-message">REST Message</h3>
-                    <p>The <code>message</code> value is obtained by concatenating the full request URL including any query-string parameters, your public API Key, and a user-generated nonce (we recommend a UNIX-style timestamp in epoch millisecond format). Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly:</p> <pre><code class="hljs">`message` : `https:<span class="hljs-comment">//api.bittrex.com/api/v1.1/path/call?param=value&amp;apikey=0123456789&amp;nonce=1542020339856`</span>
-`secret`  : `ABCDEFGHIJ`
-`hash`    : `FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631`
-</code></pre>
-                    <h3 id="websocket-message">Websocket Message</h3>
-                    <p>The <code>message</code> value is obtained by calling the Websocket <code>GetAuthContext()</code> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs">`message` : `top-secret-<span class="hljs-literal">and</span>-totally-fake`
-`secret`  : `ABCDEFGHIJ`
-`hash`    : `77FF28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061`
-</code></pre>
-                    <p> ------ In the spirit of keeping things simple, we offer an easy to manage API Key authentication method. You can have multiple API keys, each with their own level of rights. To manage your API keys please go to
-                      <em>Settings &gt; Manage API Keys</em>.</p>
-                    <blockquote>
-                      <p>
-                        <strong>Note</strong>: You MUST have 2FA enabled to create an API key for your own safety.</p>
-                    </blockquote>
-                  </li>
-                </ul>
                 <ul>
                   <li>
                     <strong>Read Info</strong> - You can only view the balances, orders, and other details of the account</li>
                   <li>
                     <strong>Withdraw</strong> - We allow you to programatically withdraw any currency to an address you provide. This can be used to quick arbitrage exchanges or move money into cold storage after thresholds.</li>
                   <li>
-                    <strong>Trade Limit</strong> - This allows the API key to place LIMIT buy and sell orders</li>
+                    <strong>Trade Limit</strong> - This allows the API key to place LIMIT buy and sell orders.</li>
                 </ul>
-                <p>For this version, we use a standard HMAC-SHA512 signing. Append <code>apikey</code> and <code>nonce</code> to your request and calculate the HMAC hash and include it under an apisign header.</p>
-                <p>
-                  <strong>Note:</strong> the nonce is not respected right now but will be enforced later.</p>
-              </section>
+                <p> If you have
+                  <strong>7 [enabled 2FA]</strong> you can check existing or generate new API Keys with the appropriate permissions under
+                  <strong>8 [Manage API Keys]</strong>. We strongly recommend minimizing the scope of any given API key to limit the damage done by a leaked key/secret pair.</p>
+                <hr>
+                <h3 id="request-signing">Request Signing</h3>
+                <p> When required, use the following procedure to sign an API request using a <code>message</code> value generated for the REST or Websocket API as detailed below:</p>
+                <ol>
+                  <li>Create a SHA512 HMAC using your API Key secret and the API-specific <code>message</code> value.</li>
+                  <li>Include the resulting hash in your request:
+                    <ul>
+                      <li>REST: in the <code>apisign</code> request header</li>
+                      <li>Websocket: passed to the <code>Authenticate()</code> call</li>
+                    </ul>
+                  </li>
+                </ol>
+                <h4 id="rest-message">REST Message</h4>
+                <p> The <code>message</code> value is obtained by concatenating the full request URL including any query-string parameters, your public API Key, and a user-generated nonce (we recommend a UNIX-style timestamp in epoch millisecond format). Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly:</p> <pre><code class="hljs"> message: `https:<span class="hljs-comment">//api.bittrex.com/api/v1.1/path/call?param=value&amp;apikey=0123456789&amp;nonce=1542020339856`</span>
+ secret: `ABCDEFGHIJ` 
+ hash: `FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631`
+</code></pre>
+                <h4 id="websocket-message">Websocket Message</h4>
+                <p> The <code>message</code> value is obtained by calling the Websocket <code>GetAuthContext()</code> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs"><span class="hljs-symbol"> message:</span> `top-secret-<span class="hljs-literal">and</span>-totally-fake`
+<span class="hljs-symbol"> secret:</span> `ABCDEFGHIJ`
+<span class="hljs-symbol"> hash:</span> `77FF28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061`
+</code></pre> </section>
               <section class="swagger-security-definition-properties"> </section>
             </div>
             <div class="doc-examples">
