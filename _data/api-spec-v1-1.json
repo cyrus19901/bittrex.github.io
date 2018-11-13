@@ -23,6 +23,20 @@
     "produces": [
         "application/json"
     ],
+    "tags": [
+        {
+            "name": "Public",
+            "description": "test"
+        },
+        {
+            "name": "Market",
+            "description": "test"
+        },
+        {
+            "name": "Account",
+            "description": "test"
+        }
+    ],
     "securityDefinitions": {
         "api_key": {
             "description": "### API Keys\n Authenticating to the Bittrex API requires a valid API Key. API Keys have scoped permissions:\n - __Read Info__ - You can only view the balances, orders, and other details of the account\n - __Withdraw__ - We allow you to programatically withdraw any currency to an address you provide. This can be used to quick arbitrage exchanges or move money into cold storage after thresholds.\n - __Trade Limit__ - This allows the API key to place LIMIT buy and sell orders.\n\n\n If you have [enabled 2FA](https://bittrex.com/Manage?view=2fa) you can check existing or generate new API Keys with the appropriate permissions under [Manage API Keys](https://bittrex.com/Manage?view=api). We strongly recommend minimizing the scope of any given API key to limit the damage done by a leaked key/secret pair.\n\n\n  --- \n\n ### Request Signing\n When required, use the following procedure to sign an API request using a `message` value generated for the REST or Websocket API as detailed below:\n 1. Create a SHA512 HMAC using your API Key secret and the API-specific `message` value.\n 1. Include the resulting hash in your request:\n    - REST: in the `apisign` request header\n    - Websocket: passed to the `Authenticate()` call\n\n\n #### REST Message\n The `message` value is obtained by concatenating the full request URL including any query-string parameters, your public API Key, and a user-generated nonce (we recommend a UNIX-style timestamp in epoch millisecond format). Below are sample values for the message and secret as well as the HMAC yielded if you've done everything correctly:\n\n ```\n message: `https://api.bittrex.com/api/v1.1/path/call?param=value&apikey=0123456789&nonce=1542020339856`\n secret: `ABCDEFGHIJ` \n hash: `FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631`\n```\n\n #### Websocket Message\n\n The `message` value is obtained by calling the Websocket `GetAuthContext()` API. Below are sample values for the message and secret as well as the HMAC yielded if you've done everything correctly.\n```\n message: `top-secret-and-totally-fake`\n secret: `ABCDEFGHIJ`\n hash: `77FF28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061`\n```\n\n",
@@ -875,22 +889,18 @@
     },
     
     "x-btx-methods": {
-
-
-
-
-
         "GetAuthContext": {
             "operationId": "GetAuthContext",
             "summary": "",
-            "description": "Generates a challenge developers can sign and use in the `Authenticate` call to verify their identity and begin receiving account-level notifications.",
+            "description": "Generates a challenge developers can sign and use in the [`Authenticate`](#method-Authenticate) call to verify their identity and begin receiving account-level notifications.",
             "deprecated": false,
             "tags": [],
             "security": null,
             "parameters": [
                 {
                     "name": "apiKey",
-                    "in": "body",
+                    "type": "string",
+                    "in": "",
                     "description": "a valid API key for your account",
                     "required": true
                 }
@@ -904,32 +914,34 @@
                 }
             }
         },
-
         "Authenticate": {
             "operationId": "Authenticate",
             "summary": "",
-            "description": "Verifies a user’s identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by [`GetAuthContext`](#method-GetAuthContext) before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the `uO` and `uBevents` through their SignalR client. See [Appendix B](#) for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.",
+            "description": "Verifies a user's identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by [`GetAuthContext`](#method-GetAuthContext) before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the `uO` and `uB` events through their SignalR client. See [Appendix B](#) for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.",
             "deprecated": false,
             "tags": [],
             "security": null,
             "parameters": [
                 {
                     "name": "apiKey",
-                    "in": "body",
+                    "in": "",
                     "description": "a valid API key for your account",
-                    "required": true
+                    "required": true,
+                    "type": "string"
                 },
                 {
                     "name": "response",
-                    "in": "body",
-                    "description": "signed challenge from `GetAuthContext`"
+                    "in": "",
+                    "description": "signed challenge from `GetAuthContext`",
+                    "type": "string"
                 }
             ],
             "responses": {
                 "Success": {
                     "description": "Boolean indication of success or failure",
                     "schema": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "example": true
                     }
                 }
             }
@@ -945,7 +957,7 @@
             "parameters": [
                 {
                     "name": "market",
-                    "in": "body",
+                    "in": "",
                     "description": "the market identifier (e.g. BTC-ETH)",
                     "required": true
                 }
@@ -1024,9 +1036,6 @@
                 }
             }
         },
-
-
-
         "QuerySummaryState": {
             "operationId": "QuerySummaryState",
             "summary": "",
@@ -1037,7 +1046,7 @@
             "parameters": [
                 {
                     "name": "market",
-                    "in": "body",
+                    "in": "",
                     "description": "the market identifier (e.g. BTC-ETH)",
                     "required": true
                 }
@@ -1103,8 +1112,6 @@
                 }
             }
         },
-
-
         "SubscribeToExchangeDeltas": {
             "operationId": "SubscribeToExchangeDeltas",
             "summary": "",
@@ -1115,7 +1122,7 @@
             "parameters": [
                 {
                     "name": "marketName",
-                    "in": "body",
+                    "in": "",
                     "description": "the market identifier (e.g. BTC-ETH)",
                     "required": true
                 }
@@ -1129,11 +1136,6 @@
                 }
             }
         },
-
-
-
-
-
         "SubscribeToSummaryDeltas": {
             "operationId": "SubscribeToSummaryDeltas",
             "summary": "",
@@ -1144,7 +1146,7 @@
             "parameters": [
                 {
                     "name": "marketName",
-                    "in": "body",
+                    "in": "",
                     "description": "the market identifier (e.g. BTC-ETH)",
                     "required": true
                 }
@@ -1158,14 +1160,6 @@
                 }
             }
         }
-
-
-
-
-
-
-
-
     },
     
     "definitions": {

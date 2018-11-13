@@ -273,6 +273,11 @@ $obj = json_decode($execResult);
           </div>
         </div>
         <h1 id="tag-Public" class="swagger-summary-tag" data-traverse-target="tag-Public">Public</h1>
+        <div class="tag-description doc-row">
+          <div class="doc-copy">
+            <p>test</p>
+          </div>
+        </div>
         <div id="operation--public-getmarkets-get" class="operation panel" data-traverse-target="operation--public-getmarkets-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -918,6 +923,11 @@ $obj = json_decode($execResult);
           </div>
         </div>
         <h1 id="tag-Market" class="swagger-summary-tag" data-traverse-target="tag-Market">Market</h1>
+        <div class="tag-description doc-row">
+          <div class="doc-copy">
+            <p>test</p>
+          </div>
+        </div>
         <div id="operation--market-buylimit-get" class="operation panel" data-traverse-target="operation--market-buylimit-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1409,6 +1419,11 @@ $obj = json_decode($execResult);
           </div>
         </div>
         <h1 id="tag-Account" class="swagger-summary-tag" data-traverse-target="tag-Account">Account</h1>
+        <div class="tag-description doc-row">
+          <div class="doc-copy">
+            <p>test</p>
+          </div>
+        </div>
         <div id="operation--account-getbalances-get" class="operation panel" data-traverse-target="operation--account-getbalances-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -2286,7 +2301,8 @@ $obj = json_decode($execResult);
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-operation-description">
-                <p>Generates a challenge developers can sign and use in the <code>Authenticate</code> call to verify their identity and begin receiving account-level notifications.</p>
+                <p>Generates a challenge developers can sign and use in the
+                  <a href="#method-Authenticate"><code>Authenticate</code></a> call to verify their identity and begin receiving account-level notifications.</p>
               </section>
             </div>
           </div>
@@ -2297,12 +2313,11 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">apiKey:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in body </div>
                   </div>
                   <div class="prop-value">
                     <p>a valid API key for your account</p>
@@ -2357,8 +2372,8 @@ $obj = json_decode($execResult);
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-operation-description">
-                <p>Verifies a user’s identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by
-                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the <code>uO</code> and <code>uBevents</code> through their SignalR client. See
+                <p>Verifies a user&#39;s identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by
+                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the <code>uO</code> and <code>uB</code> events through their SignalR client. See
                   <a href="#">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
               </section>
             </div>
@@ -2370,12 +2385,11 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">apiKey:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in body </div>
                   </div>
                   <div class="prop-value">
                     <p>a valid API key for your account</p>
@@ -2385,11 +2399,10 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">response:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
-                    <div class="prop-subtitle"> in body </div>
                   </div>
                   <div class="prop-value">
                     <p>signed challenge from <code>GetAuthContext</code></p>
@@ -2428,7 +2441,7 @@ $obj = json_decode($execResult);
                 <h5>Response Example
                   <span>(Success )</span>
                 </h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json"><span class="hljs-string">&quot;boolean&quot;</span>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">true
 </code></pre>
                 <!-- </div> -->
               </section>
@@ -2460,7 +2473,6 @@ $obj = json_decode($execResult);
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in body </div>
                   </div>
                   <div class="prop-value">
                     <p>the market identifier (e.g. BTC-ETH)</p>
@@ -2557,7 +2569,6 @@ $obj = json_decode($execResult);
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in body </div>
                   </div>
                   <div class="prop-value">
                     <p>the market identifier (e.g. BTC-ETH)</p>
@@ -2652,7 +2663,6 @@ $obj = json_decode($execResult);
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in body </div>
                   </div>
                   <div class="prop-value">
                     <p>the market identifier (e.g. BTC-ETH)</p>
@@ -2728,7 +2738,6 @@ $obj = json_decode($execResult);
                       </span>
                     </div>
                     <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in body </div>
                   </div>
                   <div class="prop-value">
                     <p>the market identifier (e.g. BTC-ETH)</p>
