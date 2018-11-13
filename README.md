@@ -1,14 +1,15 @@
 # Bittrex Developers
 
-
 ## Installation
 _(Instructions coming soon...)_
 
 ## Development
 _(Instructions coming soon...)_
 
-## Custom Swagger/OpenAPI Implementations
+## Updating the Docs with a new API Spec
+_(Instructions coming soon...)_
 
+## Custom Swagger/OpenAPI Implementations
 ### `x-btx-methods`
 A section of the JSON API spec that accommodates Websocket methods. A sibling of the [Paths Object](https://swagger.io/specification/v2/#pathsObject), though each property key maps to 
 an `x-btx-method`
