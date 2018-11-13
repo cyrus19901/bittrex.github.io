@@ -123,9 +123,9 @@
               <p>
                 <strong>Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.</strong>
               </p>
-              <p> Example: Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it once per second. By using the Websocket API’s
-                <strong>5 [QueryExchangeState]</strong> and
-                <strong>6 [SubscribeToExchangeDeltas]</strong> functions, developers can maintain their own copies of one or more order books.</p>
+              <p> Example: Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it once per second. By using the Websocket API&#39;s
+                <a href="#method-QueryExchangeState">QueryExchangeState</a> and
+                <a href="#method-SubscribeToExchangeDeltas">SubscribeToExchangeDeltas</a> functions, developers can maintain their own copies of one or more order books.</p>
               <hr>
               <h3 id="socket-connections">Socket Connections</h3>
               <p> Websocket connections may occasionally need to be recycled. If, for example, you&#39;re maintinaing local order book state, and you stop receiving updates even though you know trade activity is occurring, it may be time to resynchronize.</p>
