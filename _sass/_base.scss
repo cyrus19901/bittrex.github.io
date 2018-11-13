@@ -62,9 +62,6 @@ h6 {
             img:first-child {
                 margin-right: 10px;
             }
-            > * {
-                height: $header-height * .8;
-            }
         }
         &.version-link {
             color: #999;

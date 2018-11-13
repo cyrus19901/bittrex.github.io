@@ -11,25 +11,78 @@
         <a href="#topic-Best-Practices">Best Practices</a>
         <a href="#authentication">Authentication</a>
         <h5>Rest API</h5>
-        <a href="#operation--public-getmarkets-get"> GET /public/getmarkets </a>
-        <a href="#operation--public-getcurrencies-get"> GET /public/getcurrencies </a>
-        <a href="#operation--public-getticker-get"> GET /public/getticker </a>
-        <a href="#operation--public-getmarketsummaries-get"> GET /public/getmarketsummaries </a>
-        <a href="#operation--public-getmarketsummary-get"> GET /public/getmarketsummary </a>
-        <a href="#operation--public-getorderbook-get"> GET /public/getorderbook </a>
-        <a href="#operation--public-getmarkethistory-get"> GET /public/getmarkethistory </a>
-        <a href="#operation--market-buylimit-get"> GET /market/buylimit </a>
-        <a href="#operation--market-selllimit-get"> GET /market/selllimit </a>
-        <a href="#operation--market-cancel-get"> GET /market/cancel </a>
-        <a href="#operation--market-getopenorders-get"> GET /market/getopenorders </a>
-        <a href="#operation--account-getbalances-get"> GET /account/getbalances </a>
-        <a href="#operation--account-getbalance-get"> GET /account/getbalance </a>
-        <a href="#operation--account-getdepositaddress-get"> GET /account/getdepositaddress </a>
-        <a href="#operation--account-withdraw-get"> GET /account/withdraw </a>
-        <a href="#operation--account-getorder-get"> GET /account/getorder </a>
-        <a href="#operation--account-getorderhistory-get"> GET /account/getorderhistory </a>
-        <a href="#operation--account-getwithdrawalhistory-get"> GET /account/getwithdrawalhistory </a>
-        <a href="#operation--account-getdeposithistory-get"> GET /account/getdeposithistory </a>
+        <section>
+          <a href="#tag-Public">Public</a>
+          <ul>
+            <li>
+              <a href="#operation--public-getmarkets-get"> GET /public/getmarkets </a>
+            </li>
+            <li>
+              <a href="#operation--public-getcurrencies-get"> GET /public/getcurrencies </a>
+            </li>
+            <li>
+              <a href="#operation--public-getticker-get"> GET /public/getticker </a>
+            </li>
+            <li>
+              <a href="#operation--public-getmarketsummaries-get"> GET /public/getmarketsummaries </a>
+            </li>
+            <li>
+              <a href="#operation--public-getmarketsummary-get"> GET /public/getmarketsummary </a>
+            </li>
+            <li>
+              <a href="#operation--public-getorderbook-get"> GET /public/getorderbook </a>
+            </li>
+            <li>
+              <a href="#operation--public-getmarkethistory-get"> GET /public/getmarkethistory </a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <a href="#tag-Market">Market</a>
+          <ul>
+            <li>
+              <a href="#operation--market-buylimit-get"> GET /market/buylimit </a>
+            </li>
+            <li>
+              <a href="#operation--market-selllimit-get"> GET /market/selllimit </a>
+            </li>
+            <li>
+              <a href="#operation--market-cancel-get"> GET /market/cancel </a>
+            </li>
+            <li>
+              <a href="#operation--market-getopenorders-get"> GET /market/getopenorders </a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <a href="#tag-Account">Account</a>
+          <ul>
+            <li>
+              <a href="#operation--account-getbalances-get"> GET /account/getbalances </a>
+            </li>
+            <li>
+              <a href="#operation--account-getbalance-get"> GET /account/getbalance </a>
+            </li>
+            <li>
+              <a href="#operation--account-getdepositaddress-get"> GET /account/getdepositaddress </a>
+            </li>
+            <li>
+              <a href="#operation--account-withdraw-get"> GET /account/withdraw </a>
+            </li>
+            <li>
+              <a href="#operation--account-getorder-get"> GET /account/getorder </a>
+            </li>
+            <li>
+              <a href="#operation--account-getorderhistory-get"> GET /account/getorderhistory </a>
+            </li>
+            <li>
+              <a href="#operation--account-getwithdrawalhistory-get"> GET /account/getwithdrawalhistory </a>
+            </li>
+            <li>
+              <a href="#operation--account-getdeposithistory-get"> GET /account/getdeposithistory </a>
+            </li>
+          </ul>
+        </section>
         <h5>Websocket API</h5>
         <a href="#method-GetAuthContext"> GetAuthContext </a>
         <h5>Schema Definitions</h5>
@@ -196,8 +249,7 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <h1>REST API</h1>
-        <span id="path--public-getmarkets"></span>
+        <h1 id="tag-Public" class="swagger-summary-tag" data-traverse-target="tag-Public">Public</h1>
         <div id="operation--public-getmarkets-get" class="operation panel" data-traverse-target="operation--public-getmarkets-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -276,7 +328,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--public-getcurrencies"></span>
         <div id="operation--public-getcurrencies-get" class="operation panel" data-traverse-target="operation--public-getcurrencies-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -354,7 +405,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--public-getticker"></span>
         <div id="operation--public-getticker-get" class="operation panel" data-traverse-target="operation--public-getticker-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -446,7 +496,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--public-getmarketsummaries"></span>
         <div id="operation--public-getmarketsummaries-get" class="operation panel" data-traverse-target="operation--public-getmarketsummaries-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -531,7 +580,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--public-getmarketsummary"></span>
         <div id="operation--public-getmarketsummary-get" class="operation panel" data-traverse-target="operation--public-getmarketsummary-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -634,7 +682,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--public-getorderbook"></span>
         <div id="operation--public-getorderbook-get" class="operation panel" data-traverse-target="operation--public-getorderbook-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -752,7 +799,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--public-getmarkethistory"></span>
         <div id="operation--public-getmarkethistory-get" class="operation panel" data-traverse-target="operation--public-getmarkethistory-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -848,7 +894,7 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--market-buylimit"></span>
+        <h1 id="tag-Market" class="swagger-summary-tag" data-traverse-target="tag-Market">Market</h1>
         <div id="operation--market-buylimit-get" class="operation panel" data-traverse-target="operation--market-buylimit-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -982,7 +1028,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--market-selllimit"></span>
         <div id="operation--market-selllimit-get" class="operation panel" data-traverse-target="operation--market-selllimit-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1116,7 +1161,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--market-cancel"></span>
         <div id="operation--market-cancel-get" class="operation panel" data-traverse-target="operation--market-cancel-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1220,7 +1264,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--market-getopenorders"></span>
         <div id="operation--market-getopenorders-get" class="operation panel" data-traverse-target="operation--market-getopenorders-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1342,7 +1385,7 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--account-getbalances"></span>
+        <h1 id="tag-Account" class="swagger-summary-tag" data-traverse-target="tag-Account">Account</h1>
         <div id="operation--account-getbalances-get" class="operation panel" data-traverse-target="operation--account-getbalances-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1442,7 +1485,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--account-getbalance"></span>
         <div id="operation--account-getbalance-get" class="operation panel" data-traverse-target="operation--account-getbalance-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1555,7 +1597,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--account-getdepositaddress"></span>
         <div id="operation--account-getdepositaddress-get" class="operation panel" data-traverse-target="operation--account-getdepositaddress-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1665,7 +1706,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--account-withdraw"></span>
         <div id="operation--account-withdraw-get" class="operation panel" data-traverse-target="operation--account-withdraw-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1815,7 +1855,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--account-getorder"></span>
         <div id="operation--account-getorder-get" class="operation panel" data-traverse-target="operation--account-getorder-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -1919,7 +1958,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--account-getorderhistory"></span>
         <div id="operation--account-getorderhistory-get" class="operation panel" data-traverse-target="operation--account-getorderhistory-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -2019,7 +2057,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--account-getwithdrawalhistory"></span>
         <div id="operation--account-getwithdrawalhistory-get" class="operation panel" data-traverse-target="operation--account-getwithdrawalhistory-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
@@ -2118,7 +2155,6 @@ $obj = json_decode($execResult);
             </div>
           </div>
         </div>
-        <span id="path--account-getdeposithistory"></span>
         <div id="operation--account-getdeposithistory-get" class="operation panel" data-traverse-target="operation--account-getdeposithistory-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
