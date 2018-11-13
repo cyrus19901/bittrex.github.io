@@ -10,6 +10,8 @@ _(Instructions coming soon...)_
 _(Instructions coming soon...)_
 
 ## Custom Swagger/OpenAPI Implementations
+The API reference pages use a modified version of the OpenAPI (aka Swagger) API specification version 2. Documentation for the specification can be found [here](https://swagger.io/specification/v2/). Over time, we should keep the API spec JSON files as close to the spec as we can.
+
 ### `x-btx-methods`
 A section of the JSON API spec that accommodates Websocket methods. A sibling of the [Paths Object](https://swagger.io/specification/v2/#pathsObject), though each property key maps to 
 an `x-btx-method`
