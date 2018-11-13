@@ -10,7 +10,8 @@ $(function() {
     // Setup sidebar navigation
     var traverse = new Traverse($nav, {
       threshold: 10,
-      barOffset: $sidebar.position().top
+      barOffset: 56+ 100
+      // barOffset: $sidebar.position().top
     });
 
     $nav.on('update.traverse', function(event, element) {
