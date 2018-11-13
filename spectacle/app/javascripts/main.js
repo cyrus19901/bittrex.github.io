@@ -6,7 +6,7 @@ $(function() {
     var $docs = $('#docs');
     var $nav = $sidebar.find('nav');
 
-    //
+    
     // Setup sidebar navigation
     var traverse = new Traverse($nav, {
       threshold: 10,

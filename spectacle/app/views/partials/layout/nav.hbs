@@ -22,7 +22,7 @@
   {{/if}}
 
   {{#if showTagSummary}}
-    <h5>Operations</h5>
+    <h5>Rest API</h5>
     {{#each tags}}
       <section>
         <a href="#tag-{{htmlId name}}">{{name}}</a>
@@ -44,25 +44,24 @@
   {{else}}
     <h5>Rest API</h5>
     {{#each paths}}
-      <!-- <section>
-        <a href="#path-{{htmlId @key}}">{{@key}}</a>
-        <ul> -->
-          {{#each .}}
-            <!-- <li> -->
-              <a href="#operation-{{htmlId path}}-{{htmlId method}}">
-                {{#if summary}}
-                  {{summary}}
-                {{else}}
-                  {{toUpperCase method}} {{path}}
-                {{/if}}
-              </a>
-            <!-- </li> -->
-          {{/each}}
-        <!-- </ul>
-      </section> -->
       {{#each .}}
-        {{!swagger/operation . operation=. method=@key path=../path}}
+          <a href="#operation-{{htmlId path}}-{{htmlId method}}">
+            {{#if summary}}
+              {{summary}}
+            {{else}}
+              {{toUpperCase method}} {{path}}
+            {{/if}}
+          </a>
       {{/each}}
+    {{/each}}
+  {{/if}}
+
+  {{#if x-btx-methods}}
+    <h5>Websocket API</h5>
+    {{#each x-btx-methods}}
+      <a href="#method-{{htmlId @key}}">
+        {{@key}}
+      </a>
     {{/each}}
   {{/if}}
 

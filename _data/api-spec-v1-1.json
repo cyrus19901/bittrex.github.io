@@ -882,6 +882,34 @@
 
 
     },
+    
+    "x-btx-methods": {
+        "GetAuthContext": {
+            "operationId": "",
+            "summary": "",
+            "description": "Generates a challenge developers can sign and use in the `Authenticate` call to verify their identity and begin receiving account-level notifications.",
+            "deprecated": false,
+            "tags": [],
+            "security": null,
+            "parameters": [
+                {
+                    "name": "apiKey",
+                    "in": "body",
+                    "description": "a valid API key for your account",
+                    "required": true
+                }
+            ],
+            "responses": {
+                "Success": {
+                    "description": "A string of challenge data to be used in `Authenticate`",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    
     "definitions": {
 
         "Address": {

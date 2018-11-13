@@ -6,7 +6,7 @@ $(function() {
     var $docs = $('#docs');
     var $nav = $sidebar.find('nav');
 
-    //
+    
     // Setup sidebar navigation
     var traverse = new Traverse($nav, {
       threshold: 10,
@@ -178,6 +178,8 @@ Traverse.prototype._events = function() {
 
   this.$element.on('click', 'a[href^="#"]', function(e) { //'click.zf.traverse'
       e.preventDefault();
+      // console.error('test');
+      debugger;
       var arrival   = this.getAttribute('href').replace(".", "\\."),
           scrollPos = $(arrival).offset().top - _this.options.barOffset; // - _this.options.threshold / 2 - _this.options.barOffset;
 

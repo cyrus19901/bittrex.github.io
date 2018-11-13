@@ -21,5 +21,9 @@
     {{>swagger/paths}}
   {{/if}}
 
+  {{#if x-btx-methods}}
+    {{>websocket/x-btx-methods}}
+  {{/if}}
+
   {{>swagger/definitions definitions=definitions}}
 </article>
