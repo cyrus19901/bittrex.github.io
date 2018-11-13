@@ -20,9 +20,11 @@
             {{#if required}}
               <span class="json-property-required"></span>
             {{/if}}
+            {{#if in}}
             <div class="prop-subtitle">
               in {{in}}
             </div>
+            {{/if}}
             {{!--
             {{#if schema.$ref}}
               <span class="swagger-global"></span> <span class="json-schema-reference"><a href="{{$ref}}">{{$ref}}</a></span>
