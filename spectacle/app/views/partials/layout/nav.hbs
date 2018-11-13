@@ -29,7 +29,7 @@
         <ul>
           {{#each operations}}
             <li>
-              <a href="#operation-{{htmlId path}}-{{htmlId method}}">
+              <a href="#operation-{{htmlId path}}-{{htmlId method}}" title="{{path}}">
                 {{#if summary}}
                   {{summary}}
                 {{else}}
@@ -45,7 +45,7 @@
     <h5>Rest API</h5>
     {{#each paths}}
       {{#each .}}
-          <a href="#operation-{{htmlId path}}-{{htmlId method}}">
+          <a href="#operation-{{htmlId path}}-{{htmlId method}}" title="{{path}}">
             {{#if summary}}
               {{summary}}
             {{else}}
@@ -59,7 +59,7 @@
   {{#if x-btx-methods}}
     <h5>Websocket API</h5>
     {{#each x-btx-methods}}
-      <a href="#method-{{htmlId @key}}">
+      <a href="#method-{{htmlId @key}}" title="{{@key}}">
         {{@key}}
       </a>
     {{/each}}
@@ -67,7 +67,7 @@
 
   <h5>Schema Definitions</h5>
   {{#each definitions}}
-    <a href="#definition-{{htmlId @key}}">
+    <a href="#definition-{{htmlId @key}}" title="{{@key}}">
       {{@key}}
     </a>
   {{/each}}
