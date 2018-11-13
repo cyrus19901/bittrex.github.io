@@ -6,9 +6,9 @@
             <!-- <span style="font-size: 12px;">Developers</span> -->
         </a>
 
-        <a href="/{{page.version}}/api-reference" class="nav-link">API Reference</a>
+        <a href="/api" class="nav-link">API Reference</a>
 
-        {% if page.version == 'v1' %}
+        {% if page.version == 'v1.1' %}
             {% assign v1LinkClass = 'active' %}
         {% endif %}
         {% if page.version == 'v3' %}
@@ -17,8 +17,8 @@
 
         <div class="nav-link"> {{page.version}} <i class="arrow down"></i>
             <ul class="dropdown">
-                <li><a href="/v1" class="nav-link version-link {{v1LinkClass}}">v1</a></li>
-                <li><a href="/v3" class="nav-link version-link {{v3LinkClass}}">v3</a></li>
+                <li><a href="/api/v1-1/" class="nav-link version-link {{v1LinkClass}}">v1.1</a></li>
+                <li><a href="/api/v3" class="nav-link version-link {{v3LinkClass}}">v3</a></li>
             </ul>
         </div>
  

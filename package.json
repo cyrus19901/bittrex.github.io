@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "jekyll serve",
     "build": "npm run build:spectacle:v1 && npm run build:spectacle:v3",
-    "build:spectacle:v1": "node ./spectacle/bin/spectacle -e -t v1/api-reference/assets _data/api-spec-v1-1.json",
-    "build:spectacle:v3": "node ./spectacle/bin/spectacle -e -t v3/api-reference/assets _data/api-spec-v3.json",
+    "build:spectacle": "npm run build:spectacle:v1 && npm run build:spectacle:v3",
+    "build:spectacle:v1": "node ./spectacle/bin/spectacle -e -t api/v1-1/assets _data/api-spec-v1-1.json",
+    "build:spectacle:v3": "node ./spectacle/bin/spectacle -e -t api/v3/assets _data/api-spec-v3.json",
     "watch": "npm-watch"
   },
   "watch": {
-    "build:spectacle:v1": {
+    "build:spectacle": {
       "patterns": [
         "_data",
         "spectacle"
