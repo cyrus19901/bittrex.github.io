@@ -15,7 +15,7 @@
         "_data",
         "spectacle"
       ],
-      "extensions": "json,hbs,scss",
+      "extensions": "js,json,hbs,scss",
       "quiet": false
     }
   },
