@@ -43,3 +43,4 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - spectacle/
+  - README.md
