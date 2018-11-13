@@ -869,8 +869,13 @@
     },
     
     "x-btx-methods": {
+
+
+
+
+
         "GetAuthContext": {
-            "operationId": "",
+            "operationId": "GetAuthContext",
             "summary": "",
             "description": "Generates a challenge developers can sign and use in the `Authenticate` call to verify their identity and begin receiving account-level notifications.",
             "deprecated": false,
@@ -892,7 +897,269 @@
                     }
                 }
             }
+        },
+
+        "Authenticate": {
+            "operationId": "Authenticate",
+            "summary": "",
+            "description": "Verifies a user’s identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by [`GetAuthContext`](#method-GetAuthContext) before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the `uO` and `uBevents` through their SignalR client. See [Appendix B](#) for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.",
+            "deprecated": false,
+            "tags": [],
+            "security": null,
+            "parameters": [
+                {
+                    "name": "apiKey",
+                    "in": "body",
+                    "description": "a valid API key for your account",
+                    "required": true
+                },
+                {
+                    "name": "response",
+                    "in": "body",
+                    "description": "signed challenge from `GetAuthContext`"
+                }
+            ],
+            "responses": {
+                "Success": {
+                    "description": "Boolean indication of success or failure",
+                    "schema": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+
+        "QueryExchangeState": {
+            "operationId": "QueryExchangeState",
+            "summary": "",
+            "description": "Allows the caller to retrieve the full order book for a specific market.",
+            "deprecated": false,
+            "tags": [],
+            "security": null,
+            "parameters": [
+                {
+                    "name": "market",
+                    "in": "body",
+                    "description": "the market identifier (e.g. BTC-ETH)",
+                    "required": true
+                }
+            ],
+            "responses": {
+                "Success": {
+                    "description": "JSON object containing market state",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "MarketName": {
+                                "type": "string"
+                            },
+                            "Nonce": {
+                                "type": "int"
+                            },
+                            "Buys": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Quantity": {
+                                            "type": "decimal"
+                                        },
+                                        "Rate": {
+                                            "type": "decimal"
+                                        }
+                                    }
+                                }
+                            },
+                            "Sells": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Quantity": {
+                                            "type": "decimal"
+                                        },
+                                        "Rate": {
+                                            "type": "decimal"
+                                        }
+                                    }
+                                }
+                            },
+                            "Fills": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Id": {
+                                            "type": "int"
+                                        },
+                                        "TimeStamp": {
+                                            "type": "date"
+                                        },
+                                        "Quantity": {
+                                            "type": "decimal"
+                                        },
+                                        "Price": {
+                                            "type": "decimal"
+                                        },
+                                        "Total": {
+                                            "type": "decimal"
+                                        },
+                                        "FillType": {
+                                            "type": "string"
+                                        },
+                                        "OrderType": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+
+
+        "QuerySummaryState": {
+            "operationId": "QuerySummaryState",
+            "summary": "",
+            "description": "Allows the caller to retrieve the full state for all markets.",
+            "deprecated": false,
+            "tags": [],
+            "security": null,
+            "parameters": [
+                {
+                    "name": "market",
+                    "in": "body",
+                    "description": "the market identifier (e.g. BTC-ETH)",
+                    "required": true
+                }
+            ],
+            "responses": {
+                "Success": {
+                    "description": "JSON object containing state data for all markets.",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "Nonce": {
+                                "type": "int"
+                            },
+                            "Fills": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "MarketName": {
+                                            "type": "string"
+                                        },
+                                        "High": {
+                                            "type": "decimal"
+                                        },
+                                        "Low": {
+                                            "type": "decimal"
+                                        },
+                                        "Volume": {
+                                            "type": "decimal"
+                                        },
+                                        "Last": {
+                                            "type": "decimal"
+                                        },
+                                        "BaseVolume": {
+                                            "type": "decimal"
+                                        },
+                                        "TimeStamp": {
+                                            "type": "date"
+                                        },
+                                        "Bid": {
+                                            "type": "decimal"
+                                        },
+                                        "Ask": {
+                                            "type": "decimal"
+                                        },
+                                        "OpenBuyOrders": {
+                                            "type": "int"
+                                        },
+                                        "OpenSellOrders": {
+                                            "type": "int"
+                                        },
+                                        "PrevDay": {
+                                            "type": "decimal"
+                                        },
+                                        "Created": {
+                                            "type": "date"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+
+        "SubscribeToExchangeDeltas": {
+            "operationId": "SubscribeToExchangeDeltas",
+            "summary": "",
+            "description": "Allows the caller to receive real-time updates to the state of a single market. The caller must register a callback for the `uE` event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See [Appendix B]() for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.\n\n **Note:** _This feed only contains updates to exchange state. To form a complete picture of exchange state, users must first call `QueryExchangeState` and merge deltas into the data structure returned in that call._",
+            "deprecated": false,
+            "tags": [],
+            "security": null,
+            "parameters": [
+                {
+                    "name": "marketName",
+                    "in": "body",
+                    "description": "the market identifier (e.g. BTC-ETH)",
+                    "required": true
+                }
+            ],
+            "responses": {
+                "Success": {
+                    "description": "Boolean indicating whether the user was subscribed to the feed",
+                    "schema": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+
+
+
+
+
+        "SubscribeToSummaryDeltas": {
+            "operationId": "SubscribeToSummaryDeltas",
+            "summary": "",
+            "description": "Allows the caller to receive real-time updates to the state of all markets. The caller must register a callback for the `uS` event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See [Appendix B]() for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.\n\n **Note:** _Summary delta callbacks are verbose. A subset of the same data limited to the market name, the last price, and the base currency volume can be obtained via `SubscribeToSummaryLiteDeltas` just use `uL` instead of `uS`._",
+            "deprecated": false,
+            "tags": [],
+            "security": null,
+            "parameters": [
+                {
+                    "name": "marketName",
+                    "in": "body",
+                    "description": "the market identifier (e.g. BTC-ETH)",
+                    "required": true
+                }
+            ],
+            "responses": {
+                "Success": {
+                    "description": "Boolean indicating whether the user was subscribed to the feed.",
+                    "schema": {
+                        "type": "boolean"
+                    }
+                }
+            }
         }
+
+
+
+
+
+
+
+
     },
     
     "definitions": {

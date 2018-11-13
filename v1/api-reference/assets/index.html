@@ -85,6 +85,11 @@
         </section>
         <h5>Websocket API</h5>
         <a href="#method-GetAuthContext"> GetAuthContext </a>
+        <a href="#method-Authenticate"> Authenticate </a>
+        <a href="#method-QueryExchangeState"> QueryExchangeState </a>
+        <a href="#method-QuerySummaryState"> QuerySummaryState </a>
+        <a href="#method-SubscribeToExchangeDeltas"> SubscribeToExchangeDeltas </a>
+        <a href="#method-SubscribeToSummaryDeltas"> SubscribeToSummaryDeltas </a>
         <h5>Schema Definitions</h5>
         <a href="#definition-Address"> Address </a>
         <a href="#definition-Balance"> Balance </a>
@@ -2319,6 +2324,432 @@ $obj = json_decode($execResult);
                   <span>(Success )</span>
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json"><span class="hljs-string">&quot;string&quot;</span>
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="method-Authenticate" class="operation panel" data-traverse-target="method-Authenticate">
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-path">Authenticate</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Verifies a user’s identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by
+                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the <code>uO</code> and <code>uBevents</code> through their SignalR client. See
+                  <a href="#">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">apiKey:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in body </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>a valid API key for your account</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">response:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <div class="prop-subtitle"> in body </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>signed challenge from <code>GetAuthContext</code></p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section> </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Success </div>
+                    <div class="prop-ref"></div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>Boolean indication of success or failure</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-inner">
+                  <div class="prop-name">type</div>
+                  <div class="prop-value">
+                    <span class="json-property-type">boolean</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Response Example
+                  <span>(Success )</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json"><span class="hljs-string">&quot;boolean&quot;</span>
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="method-QueryExchangeState" class="operation panel" data-traverse-target="method-QueryExchangeState">
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-path">QueryExchangeState</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Allows the caller to retrieve the full order book for a specific market.</p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">market:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in body </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>the market identifier (e.g. BTC-ETH)</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section> </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Success </div>
+                    <div class="prop-ref"></div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>JSON object containing market state</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-inner">
+                  <div class="prop-name">type</div>
+                  <div class="prop-value">
+                    <span class="json-property-type">object</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Response Example
+                  <span>(Success )</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;MarketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;Nonce&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+  <span class="hljs-attr">&quot;Buys&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;Quantity&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Rate&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;Sells&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;Quantity&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Rate&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;Fills&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;Id&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+      <span class="hljs-attr">&quot;TimeStamp&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+      <span class="hljs-attr">&quot;Quantity&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Price&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Total&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;FillType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;OrderType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ]
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="method-QuerySummaryState" class="operation panel" data-traverse-target="method-QuerySummaryState">
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-path">QuerySummaryState</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Allows the caller to retrieve the full state for all markets.</p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">market:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in body </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>the market identifier (e.g. BTC-ETH)</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section> </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Success </div>
+                    <div class="prop-ref"></div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>JSON object containing state data for all markets.</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-inner">
+                  <div class="prop-name">type</div>
+                  <div class="prop-value">
+                    <span class="json-property-type">object</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Response Example
+                  <span>(Success )</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;Nonce&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+  <span class="hljs-attr">&quot;Fills&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;MarketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;High&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Low&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Volume&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Last&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;BaseVolume&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;TimeStamp&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+      <span class="hljs-attr">&quot;Bid&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Ask&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;OpenBuyOrders&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+      <span class="hljs-attr">&quot;OpenSellOrders&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+      <span class="hljs-attr">&quot;PrevDay&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Created&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>
+    }
+  ]
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="method-SubscribeToExchangeDeltas" class="operation panel" data-traverse-target="method-SubscribeToExchangeDeltas">
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-path">SubscribeToExchangeDeltas</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Allows the caller to receive real-time updates to the state of a single market. The caller must register a callback for the <code>uE</code> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See
+                  <a href="">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
+                <p>
+                  <strong>Note:</strong>
+                  <em>This feed only contains updates to exchange state. To form a complete picture of exchange state, users must first call <code>QueryExchangeState</code> and merge deltas into the data structure returned in that call.</em>
+                </p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">marketName:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in body </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>the market identifier (e.g. BTC-ETH)</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section> </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Success </div>
+                    <div class="prop-ref"></div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>Boolean indicating whether the user was subscribed to the feed</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-inner">
+                  <div class="prop-name">type</div>
+                  <div class="prop-value">
+                    <span class="json-property-type">boolean</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Response Example
+                  <span>(Success )</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json"><span class="hljs-string">&quot;boolean&quot;</span>
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="method-SubscribeToSummaryDeltas" class="operation panel" data-traverse-target="method-SubscribeToSummaryDeltas">
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-path">SubscribeToSummaryDeltas</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Allows the caller to receive real-time updates to the state of all markets. The caller must register a callback for the <code>uS</code> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See
+                  <a href="">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
+                <p>
+                  <strong>Note:</strong>
+                  <em>Summary delta callbacks are verbose. A subset of the same data limited to the market name, the last price, and the base currency volume can be obtained via <code>SubscribeToSummaryLiteDeltas</code> just use <code>uL</code> instead of <code>uS</code>.</em>
+                </p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">marketName:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                    <div class="prop-subtitle"> in body </div>
+                  </div>
+                  <div class="prop-value">
+                    <p>the market identifier (e.g. BTC-ETH)</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section> </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Success </div>
+                    <div class="prop-ref"></div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>Boolean indicating whether the user was subscribed to the feed.</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-inner">
+                  <div class="prop-name">type</div>
+                  <div class="prop-value">
+                    <span class="json-property-type">boolean</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Response Example
+                  <span>(Success )</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json"><span class="hljs-string">&quot;boolean&quot;</span>
 </code></pre>
                 <!-- </div> -->
               </section>
