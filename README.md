@@ -41,7 +41,7 @@ Type|Description
 _*Note:* the `decimal` type is not correctly encoded in the current release. See [Beta Issue #15](https://github.com/Bittrex/beta/issues/15)._
 
 ### Connecting
-The WS API endpoint is `wss://socket.bittrex.com/signalr`. Once connected, be sure to connect to the `c2` hub. No other hubs are supported for use by Bittrex customers.
+The WS API endpoint is `https://socket.bittrex.com/signalr` (or wss:// depending on your library). Once connected, be sure to connect to the `c2` hub. No other hubs are supported for use by Bittrex customers.
 
 ### Response Handling
 All responses are compressed by the server using GZip (via a 'deflate' API - there are no headers) and base64 encoded prior to transmission. Users must reverse this process to retrieve the JSON payload. Further, field keys in the response JSON are minified. [Appendix A](#appendix-a-minified-json-keys) contains a table of the keys and their un-minified counterparts.
