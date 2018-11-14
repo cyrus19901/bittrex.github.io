@@ -75,7 +75,7 @@
             <div class="doc-examples">
               <section>
                 <h5>API Endpoint</h5>
-                <!-- <div class="hljs"> --><pre><code>https://bittrex.com/api/v1.1</code></pre>
+                <!-- <div class="hljs"> --><pre><code>https://api.bittrex.com/api/v1.1</code></pre>
                 <!-- </div> -->
                 <h5>Terms of Service:
                   <a href="https://bittrex.com/Home/terms/">https://bittrex.com/Home/terms/</a>
@@ -187,7 +187,7 @@
               <section> <pre><code class="hljs">$apikey=<span class="hljs-string">'xxx'</span>;
 $apisecret=<span class="hljs-string">'xxx'</span>;
 $nonce=<span class="hljs-keyword">time</span>();
-$uri=<span class="hljs-string">'https://bittrex.com/api/v1.1/market/getopenorders?apikey='</span>.$apikey.<span class="hljs-string">'&amp;nonce='</span>.$nonce;
+$uri=<span class="hljs-string">'https://api.bittrex.com/api/v1.1/market/getopenorders?apikey='</span>.$apikey.<span class="hljs-string">'&amp;nonce='</span>.$nonce;
 $sign=hash_hmac(<span class="hljs-string">'sha512'</span>,$uri,$apisecret); 
 $ch = curl_init($uri); 
 curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="hljs-keyword">array</span>(<span class="hljs-string">'apisign:'</span>.$sign)); 
@@ -225,7 +225,7 @@ $obj = json_decode($execResult);
             <div class="doc-copy"> </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/public/getmarkets</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/public/getmarkets</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -304,7 +304,7 @@ $obj = json_decode($execResult);
             <div class="doc-copy"> </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/public/getcurrencies</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/public/getcurrencies</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -400,7 +400,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/public/getticker?market&#x3D;BTC-LTC</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/public/getticker?market&#x3D;BTC-LTC</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -474,7 +474,7 @@ $obj = json_decode($execResult);
             <div class="doc-copy"> </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/public/getmarketsummaries</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/public/getmarketsummaries</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -577,7 +577,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/public/getmarketsummary?market&#x3D;btc-ltc</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/public/getmarketsummary?market&#x3D;btc-ltc</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -695,7 +695,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/public/getorderbook?market&#x3D;BTC-LTC&amp;type&#x3D;both</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/public/getorderbook?market&#x3D;BTC-LTC&amp;type&#x3D;both</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -798,7 +798,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/public/getmarkethistory?market&#x3D;BTC-DOGE</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/public/getmarkethistory?market&#x3D;BTC-DOGE</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -943,7 +943,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/market/buylimit?apikey&#x3D;API_KEY&amp;market&#x3D;BTC-LTC&amp;quantity&#x3D;1.2&amp;rate&#x3D;1.3</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/market/buylimit?apikey&#x3D;API_KEY&amp;market&#x3D;BTC-LTC&amp;quantity&#x3D;1.2&amp;rate&#x3D;1.3</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1077,7 +1077,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/market/selllimit?apikey&#x3D;API_KEY&amp;market&#x3D;BTC-LTC&amp;quantity&#x3D;1.2&amp;rate&#x3D;1.3</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/market/selllimit?apikey&#x3D;API_KEY&amp;market&#x3D;BTC-LTC&amp;quantity&#x3D;1.2&amp;rate&#x3D;1.3</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1181,7 +1181,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/market/buylimit?apikey&#x3D;API_KEY&amp;uuid&#x3D;ORDER_UUID</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/market/buylimit?apikey&#x3D;API_KEY&amp;uuid&#x3D;ORDER_UUID</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1284,7 +1284,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/market/getopenorders?apikey&#x3D;API_KEY&amp;market&#x3D;BTC-LTC</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/market/getopenorders?apikey&#x3D;API_KEY&amp;market&#x3D;BTC-LTC</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1392,7 +1392,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/account/getbalances?apikey&#x3D;API_KEY</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/getbalances?apikey&#x3D;API_KEY</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1507,7 +1507,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/account/getbalance?apikey&#x3D;API_KEY&amp;currency&#x3D;BTC</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/getbalance?apikey&#x3D;API_KEY&amp;currency&#x3D;BTC</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1620,7 +1620,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/account/getdepositaddress?apikey&#x3D;API_KEY&amp;currency&#x3D;BTC</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/getdepositaddress?apikey&#x3D;API_KEY&amp;currency&#x3D;BTC</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1776,7 +1776,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/account/withdraw?apikey&#x3D;API_KEY&amp;currency&#x3D;EAC&amp;quantity&#x3D;20.40&amp;address&#x3D;EAC_ADDRESS</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/withdraw?apikey&#x3D;API_KEY&amp;currency&#x3D;EAC&amp;quantity&#x3D;20.40&amp;address&#x3D;EAC_ADDRESS</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1861,7 +1861,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/account/getorder&amp;uuid&#x3D;0cb4c4e4-bdc7-4e13-8c13-430e587d2cc1</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/getorder&amp;uuid&#x3D;0cb4c4e4-bdc7-4e13-8c13-430e587d2cc1</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -1964,7 +1964,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/account/getorderhistory</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/getorderhistory</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -2064,7 +2064,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/account/getwithdrawalhistory</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/getwithdrawalhistory</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -2163,7 +2163,7 @@ $obj = json_decode($execResult);
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://bittrex.com/api/v1.1/account/getdeposithistory?currency&#x3D;BTC</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/getdeposithistory?currency&#x3D;BTC</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
