@@ -971,11 +971,13 @@
                     }
                 },
                 "Balance Callback": {
+                    "description": "",
                     "schema": {
                         "$ref":"#/definitions/Balance Delta - uB"
                     }
                 },
                 "Order Callback": {
+                    "description": "",
                     "schema": {
                         "$ref":"#/definitions/Order Delta - uO"
                     }
