@@ -18,7 +18,7 @@
                 }
             }
             &.active {
-                color: #1779ba
+                color: $blue;
             }
         }
     }
@@ -34,7 +34,7 @@
     .swagger-request-params,
     .swagger-responses {
         &::before {
-            color: #1779ba;
+            color: $blue;
         }
     }
 }

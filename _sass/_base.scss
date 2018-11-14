@@ -66,6 +66,8 @@ h6 {
         &.version-link {
             color: #999;
             background-color: rgba(0,0,0,0.15);
+            display: block;
+
             &.active {
                 color: white;
                 background-color: rgba(0,0,0,0.2);
@@ -96,6 +98,12 @@ h6 {
         top: 46%;
         transform: translateY(-50%);
         right: 5px;
+    }
+
+    .badge {
+        margin-left: 5px;
+        position: relative;
+        top: -1px; //nudge into vertical alignment
     }
 
     .dropdown {
@@ -169,4 +177,16 @@ h6 {
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
     }
+}
+
+
+
+.badge {
+    color: inherit;
+    font-size: 10px;
+    letter-spacing: 0.01em;
+    padding: 1px 4px;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.15);
+    border-radius: 3px;
 }
