@@ -52,6 +52,11 @@
         <a href="#definition-DepositHistoryEntry" title="DepositHistoryEntry"> DepositHistoryEntry </a>
         <a href="#definition-WithdrawalHistoryEntry" title="WithdrawalHistoryEntry"> WithdrawalHistoryEntry </a>
         <a href="#definition-ResponseSuccessUuid" title="ResponseSuccessUuid"> ResponseSuccessUuid </a>
+        <a href="#definition-Balance-Delta---uB" title="Balance Delta - uB"> Balance Delta - uB </a>
+        <a href="#definition-Market-Delta---uE" title="Market Delta - uE"> Market Delta - uE </a>
+        <a href="#definition-Lite-Summary-Delta---uL" title="Lite Summary Delta - uL"> Lite Summary Delta - uL </a>
+        <a href="#definition-Order-Delta---uO" title="Order Delta - uO"> Order Delta - uO </a>
+        <a href="#definition-Summary-Delta---uS" title="Summary Delta - uS"> Summary Delta - uS </a>
       </nav>
     </div>
     <div id="docs" class="row collapse expanded drawer" data-drawer>
@@ -3836,6 +3841,239 @@ $obj = json_decode($execResult);
   <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;&apos;&apos;&quot;</span>,
   <span class="hljs-attr">&quot;result&quot;</span>: {
     <span class="hljs-attr">&quot;uuid&quot;</span>: <span class="hljs-string">&quot;614c34e4-8d71-11e3-94b5-425861b86ab6&quot;</span>
+  }
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="definition-Balance-Delta---uB" class="definition panel" data-traverse-target="definition-Balance-Delta---uB">
+          <h2 class="panel-title">
+            <a name="/definitions/Balance Delta - uB"></a>Balance Delta - uB:
+            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+            <span class="json-property-range" title="Value limits"></span>
+            
+            
+            </span> -->
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-description">
+                <h3 id="callback-for">Callback For</h3>
+                <p>
+                  <a href="#method-Authenticate"><code>Authenticate</code></a>
+                </p>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;Nonce&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+  <span class="hljs-attr">&quot;Delta&quot;</span>: {
+    <span class="hljs-attr">&quot;Uuid&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+    <span class="hljs-attr">&quot;AccountId&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+    <span class="hljs-attr">&quot;Currency&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;Balance&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Available&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Pending&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;CryptoAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;Requested&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+    <span class="hljs-attr">&quot;Updated&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+    <span class="hljs-attr">&quot;AutoSell&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>
+  }
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="definition-Market-Delta---uE" class="definition panel" data-traverse-target="definition-Market-Delta---uE">
+          <h2 class="panel-title">
+            <a name="/definitions/Market Delta - uE"></a>Market Delta - uE:
+            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+            <span class="json-property-range" title="Value limits"></span>
+            
+            
+            </span> -->
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-description">
+                <h3 id="callback-for">Callback For</h3>
+                <p>
+                  <a href="#method-SubscribeToExchangeDeltas"><code>SubscribeToExchangeDeltas</code></a>
+                </p>
+                <p>
+                  <strong>Note:</strong> The <code>Type</code> key can be one of the following values: <code>0 = ADD</code>, <code>1 = REMOVE</code>, <code>2 = UPDATE</code></p>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;MarketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;Nonce&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+  <span class="hljs-attr">&quot;Buys&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;Type&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+      <span class="hljs-attr">&quot;Balance&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Available&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;Sells&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;Type&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+      <span class="hljs-attr">&quot;Balance&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Available&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;Fills&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;FillId&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+      <span class="hljs-attr">&quot;OrderType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Rate&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;Quantity&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;TimeStamp&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>
+    }
+  ]
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="definition-Lite-Summary-Delta---uL" class="definition panel" data-traverse-target="definition-Lite-Summary-Delta---uL">
+          <h2 class="panel-title">
+            <a name="/definitions/Lite Summary Delta - uL"></a>Lite Summary Delta - uL:
+            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+            <span class="json-property-range" title="Value limits"></span>
+            
+            
+            </span> -->
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-description">
+                <h3 id="callback-for">Callback For</h3>
+                <p> <code>SubscribeToSummaryLiteDeltas</code></p>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;Deltas&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;MarketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;Last&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+      <span class="hljs-attr">&quot;BaseVolume&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>
+    }
+  ]
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="definition-Order-Delta---uO" class="definition panel" data-traverse-target="definition-Order-Delta---uO">
+          <h2 class="panel-title">
+            <a name="/definitions/Order Delta - uO"></a>Order Delta - uO:
+            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+            <span class="json-property-range" title="Value limits"></span>
+            
+            
+            </span> -->
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-description">
+                <h3 id="callback-for">Callback For</h3>
+                <p>
+                  <a href="#method-Authenticate"><code>Authenticate</code></a>
+                </p>
+                <p>
+                  <strong>Note:</strong> The <code>Type</code> key can be one of the following values: <code>0 = OPEN</code>, <code>1 = PARTIAL</code>, <code>2 = FILL</code>, <code>3 = CANCEL</code></p>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;AccountUuid&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+  <span class="hljs-attr">&quot;Nonce&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+  <span class="hljs-attr">&quot;Type&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+  <span class="hljs-attr">&quot;Order&quot;</span>: {
+    <span class="hljs-attr">&quot;Uuid&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+    <span class="hljs-attr">&quot;OrderUuid&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+    <span class="hljs-attr">&quot;Id&quot;</span>: <span class="hljs-string">&quot;long&quot;</span>,
+    <span class="hljs-attr">&quot;Exchange&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;OrderType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;Quantity&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;QuantityRemaining&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Limit&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;CommissionPaid&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Price&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;PricePerUnit&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Opened&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+    <span class="hljs-attr">&quot;Closed&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+    <span class="hljs-attr">&quot;IsOpen&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+    <span class="hljs-attr">&quot;CancelInitiated&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+    <span class="hljs-attr">&quot;ImmediateOrCancel&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+    <span class="hljs-attr">&quot;IsConditional&quot;</span>: <span class="hljs-string">&quot;bool&quot;</span>,
+    <span class="hljs-attr">&quot;Condition&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;ConditionTarget&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Updated&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>
+  }
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="definition-Summary-Delta---uS" class="definition panel" data-traverse-target="definition-Summary-Delta---uS">
+          <h2 class="panel-title">
+            <a name="/definitions/Summary Delta - uS"></a>Summary Delta - uS:
+            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+            <span class="json-property-range" title="Value limits"></span>
+            
+            
+            </span> -->
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-description">
+                <h3 id="callback-for">Callback For</h3>
+                <p>
+                  <a href="#method-SubscribeToSummaryDeltas"><code>SubscribeToSummaryDeltas</code></a>
+                </p>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;Nonce&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+  <span class="hljs-attr">&quot;Delta&quot;</span>: {
+    <span class="hljs-attr">&quot;MarketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;High&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Low&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Volume&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Last&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;BaseVolume&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;TimeStamp&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
+    <span class="hljs-attr">&quot;Bid&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Ask&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;OpenBuyOrders&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+    <span class="hljs-attr">&quot;OpenSellOrders&quot;</span>: <span class="hljs-string">&quot;int&quot;</span>,
+    <span class="hljs-attr">&quot;PrevDay&quot;</span>: <span class="hljs-string">&quot;decimal&quot;</span>,
+    <span class="hljs-attr">&quot;Created&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>
   }
 }
 </code></pre>
