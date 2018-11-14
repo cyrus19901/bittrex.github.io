@@ -896,6 +896,7 @@
                     "required": true
                 }
             ],
+            "x-btx-request-example": "https://socket.bittrex.com/signalr",
             "responses": {
                 "Success": {
                     "description": "A string of challenge data to be used in `Authenticate`",
@@ -927,6 +928,7 @@
                     "type": "string"
                 }
             ],
+            "x-btx-request-example": "https://socket.bittrex.com/signalr",
             "responses": {
                 "Success": {
                     "description": "Boolean indication of success or failure",
@@ -953,6 +955,7 @@
                     "required": true
                 }
             ],
+            "x-btx-request-example": "https://socket.bittrex.com/signalr",
             "responses": {
                 "Success": {
                     "description": "JSON object containing market state",
@@ -1042,6 +1045,7 @@
                     "required": true
                 }
             ],
+            "x-btx-request-example": "https://socket.bittrex.com/signalr",
             "responses": {
                 "Success": {
                     "description": "JSON object containing state data for all markets.",
@@ -1118,6 +1122,7 @@
                     "required": true
                 }
             ],
+            "x-btx-request-example": "https://socket.bittrex.com/signalr",
             "responses": {
                 "Success": {
                     "description": "Boolean indicating whether the user was subscribed to the feed",
@@ -1142,6 +1147,7 @@
                     "required": true
                 }
             ],
+            "x-btx-request-example": "https://socket.bittrex.com/signalr",
             "responses": {
                 "Success": {
                     "description": "Boolean indicating whether the user was subscribed to the feed.",
