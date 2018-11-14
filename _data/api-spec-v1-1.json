@@ -2055,11 +2055,9 @@
                     }
                 }
             }
+        },
+
+        "Minified JSON Keys": {
+            "description": "```\n`A` = `Ask`\n`a` = `Available`\n`B` = `Bid`\n`b` = `Balance`\n`C` = `Closed`\n`c` = `Currency`\n`CI` = `CancelInitiated`\n`D` = `Deltas`\n`d` = `Delta`\n`DT` = `OrderDeltaType`\n`E` = `Exchange`\n`e` = `ExchangeDeltaType`\n`F` = `FillType`\n`FI` = `FillId`\n`f` = `Fills`\n`G` = `OpenBuyOrders`\n`g` = `OpenSellOrders`\n`H` = `High`\n`h` = `AutoSell`\n`I` = `Id`\n`i` = `IsOpen`\n`J` = `Condition`\n`j` = `ConditionTarget`\n`K` = `ImmediateOrCancel`\n`k` = `IsConditional`\n`L` = `Low`\n`l` = `Last`\n`M` = `MarketName`\n`m` = `BaseVolume`\n`N` = `Nonce`\n`n` = `CommissionPaid`\n`O` = `Orders`\n`o` = `Order`\n`OT` = `OrderType`\n`OU` = `OrderUuid`\n`P` = `Price`\n`p` = `CryptoAddress`\n`PD` = `PrevDay`\n`PU` = `PricePerUnit`\n`Q` = `Quantity`\n`q` = `QuantityRemaining`\n`R` = `Rate`\n`r` = `Requested`\n`S` = `Sells`\n`s` = `Summaries`\n`T` = `TimeStamp`\n`t` = `Total`\n`TY` = `Type`\n`U` = `Uuid`\n`u` = `Updated`\n`V` = `Volume`\n`W` = `AccountId`\n`w` = `AccountUuid`\n`X` = `Limit`\n`x` = `Created`\n`Y` = `Opened`\n`y` = `State`\n`Z` = `Buys`\n`z` = `Pending`\n```\n"        }
         }
-
-
-
-
-
-    }
 }
