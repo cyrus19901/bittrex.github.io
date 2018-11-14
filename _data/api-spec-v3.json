@@ -10,7 +10,8 @@
       "url": "https://support.bittrex.com"
     }
   },
-  "host": "localhost:25443",
+  "host": "api.bittrex.com",
+  "basePath": "/api/v3",
   "schemes": [
     "https"
   ],
