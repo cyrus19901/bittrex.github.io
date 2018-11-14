@@ -38,6 +38,7 @@
         <a href="#method-SubscribeToExchangeDeltas" title="SubscribeToExchangeDeltas"> SubscribeToExchangeDeltas </a>
         <a href="#method-SubscribeToSummaryDeltas" title="SubscribeToSummaryDeltas"> SubscribeToSummaryDeltas </a>
         <h5>Schema Definitions</h5>
+        <a href="#definition-Result" title="Result"> Result </a>
         <a href="#definition-Address" title="Address"> Address </a>
         <a href="#definition-Balance" title="Balance"> Balance </a>
         <a href="#definition-Currency" title="Currency"> Currency </a>
@@ -73,8 +74,9 @@
           <div class="doc-row">
             <div class="doc-copy">
               <p>Bittrex provides a simple and powerful API consisting of REST endpoints for transactional operations and a complementary Websocket service providing streaming market, order, and balance updates.</p>
-              <p> Use of the Bittrex API is subject to our
-                <strong>1 [Terms of Service]</strong>.</p>
+              <p> Access to and use of the API is governed by our Terms of Service. If you are a user of Bittrex.com, the applicable Terms of Service are available
+                <a href="https://support.bittrex.com/hc/en-us/articles/360000560871">here</a>. If you are a user of Bittrex International, the applicable Terms of Service are available
+                <a href="https://support.bittrex.com/hc/en-us/articles/360001411486">here</a>.</p>
               <p> If you have any API questions, feedback, or recommendations please post a question via our
                 <a href="https://support.bittrex.com">support center</a>.</p>
             </div>
@@ -83,9 +85,6 @@
                 <h5>API Endpoint</h5>
                 <!-- <div class="hljs"> --><pre><code>https://api.bittrex.com/api/v1.1</code></pre>
                 <!-- </div> -->
-                <h5>Terms of Service:
-                  <a href="https://bittrex.com/Home/terms/">https://bittrex.com/Home/terms/</a>
-                </h5>
                 <h5>Contact:
                   <a href="mailto:apiteam@bittrex.com">apiteam@bittrex.com</a>
                 </h5>
@@ -111,9 +110,7 @@
                 <li>Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.</li>
                 <li>All REST requests must be sent to <code>https://api.bittrex.com/api/v1.1</code> using the <code>application/json</code> content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.</li>
                 <li>All REST requests will result in a <code>200 Ok</code> response unless there is a server or infrastructure error. The API result will be wrapped in a JSON
-                  <strong>3
-                    <Result>
-                  </strong> object, where the <code>success</code> field indicates response status.</li>
+                  <a href="#definition-Result">Result</a> object, where the <code>success</code> field indicates response status.</li>
                 <li>The public REST API (<code>https://api.bittrex.com/api/v1.1/public</code>) does not require authentication, all other requests require an
                   <a href="#authentication">API Key and must be properly signed</a>.</li>
               </ul>
@@ -2803,15 +2800,51 @@ $obj = json_decode($execResult);
           </div>
         </div>
         <h1>Schema Definitions</h1>
+        <div id="definition-Result" class="definition panel" data-traverse-target="definition-Result">
+          <h2 class="panel-title">
+            <a name="/definitions/Result"></a>Result </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-description">
+                <p>The object that wraps an API response, where the <code>success</code> field indicates response status.</p>
+              </section>
+              <section class="json-schema-properties">
+                <dl>
+                  <dt data-property-name="success">
+                    <span class="json-property-name">success:</span>
+                    <span class="json-property-type">boolean</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dt data-property-name="message">
+                    <span class="json-property-name">message:</span>
+                    <span class="json-property-type">string</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dt data-property-name="result">
+                    <span class="json-property-name">result:</span>
+                    <span class="json-property-type">any</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                </dl>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;success&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;&apos;&apos;&quot;</span>,
+  <span class="hljs-attr">&quot;result&quot;</span>: <span class="hljs-string">&quot;any&quot;</span>
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
         <div id="definition-Address" class="definition panel" data-traverse-target="definition-Address">
           <h2 class="panel-title">
-            <a name="/definitions/Address"></a>Address: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Address"></a>Address </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -2844,13 +2877,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Balance" class="definition panel" data-traverse-target="definition-Balance">
           <h2 class="panel-title">
-            <a name="/definitions/Balance"></a>Balance: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Balance"></a>Balance </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -2916,13 +2943,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Currency" class="definition panel" data-traverse-target="definition-Currency">
           <h2 class="panel-title">
-            <a name="/definitions/Currency"></a>Currency: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Currency"></a>Currency </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3008,13 +3029,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-HistoryEntry" class="definition panel" data-traverse-target="definition-HistoryEntry">
           <h2 class="panel-title">
-            <a name="/definitions/HistoryEntry"></a>HistoryEntry: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/HistoryEntry"></a>HistoryEntry </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3129,13 +3144,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Market" class="definition panel" data-traverse-target="definition-Market">
           <h2 class="panel-title">
-            <a name="/definitions/Market"></a>Market: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Market"></a>Market </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3206,13 +3215,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-MarketTick" class="definition panel" data-traverse-target="definition-MarketTick">
           <h2 class="panel-title">
-            <a name="/definitions/MarketTick"></a>MarketTick: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/MarketTick"></a>MarketTick </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3254,13 +3257,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-MarketSummary" class="definition panel" data-traverse-target="definition-MarketSummary">
           <h2 class="panel-title">
-            <a name="/definitions/MarketSummary"></a>MarketSummary: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/MarketSummary"></a>MarketSummary </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3377,13 +3374,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Order" class="definition panel" data-traverse-target="definition-Order">
           <h2 class="panel-title">
-            <a name="/definitions/Order"></a>Order: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Order"></a>Order </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3517,13 +3508,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-OrderBook" class="definition panel" data-traverse-target="definition-OrderBook">
           <h2 class="panel-title">
-            <a name="/definitions/OrderBook"></a>OrderBook: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/OrderBook"></a>OrderBook </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3596,13 +3581,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-OrderBookEntry" class="definition panel" data-traverse-target="definition-OrderBookEntry">
           <h2 class="panel-title">
-            <a name="/definitions/OrderBookEntry"></a>OrderBookEntry: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/OrderBookEntry"></a>OrderBookEntry </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3637,13 +3616,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-MarketHistoryEntry" class="definition panel" data-traverse-target="definition-MarketHistoryEntry">
           <h2 class="panel-title">
-            <a name="/definitions/MarketHistoryEntry"></a>MarketHistoryEntry: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/MarketHistoryEntry"></a>MarketHistoryEntry </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3711,13 +3684,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-DepositHistoryEntry" class="definition panel" data-traverse-target="definition-DepositHistoryEntry">
           <h2 class="panel-title">
-            <a name="/definitions/DepositHistoryEntry"></a>DepositHistoryEntry: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/DepositHistoryEntry"></a>DepositHistoryEntry </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3808,13 +3775,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-WithdrawalHistoryEntry" class="definition panel" data-traverse-target="definition-WithdrawalHistoryEntry">
           <h2 class="panel-title">
-            <a name="/definitions/WithdrawalHistoryEntry"></a>WithdrawalHistoryEntry: object
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/WithdrawalHistoryEntry"></a>WithdrawalHistoryEntry </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-properties">
@@ -3905,13 +3866,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-ResponseSuccessUuid" class="definition panel" data-traverse-target="definition-ResponseSuccessUuid">
           <h2 class="panel-title">
-            <a name="/definitions/ResponseSuccessUuid"></a>ResponseSuccessUuid:
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/ResponseSuccessUuid"></a>ResponseSuccessUuid </h2>
           <div class="doc-row">
             <div class="doc-copy"> </div>
             <div class="doc-examples">
@@ -3932,13 +3887,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Balance-Delta---uB" class="definition panel" data-traverse-target="definition-Balance-Delta---uB">
           <h2 class="panel-title">
-            <a name="/definitions/Balance Delta - uB"></a>Balance Delta - uB:
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Balance Delta - uB"></a>Balance Delta - uB </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-description">
@@ -3974,13 +3923,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Market-Delta---uE" class="definition panel" data-traverse-target="definition-Market-Delta---uE">
           <h2 class="panel-title">
-            <a name="/definitions/Market Delta - uE"></a>Market Delta - uE:
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Market Delta - uE"></a>Market Delta - uE </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-description">
@@ -4030,13 +3973,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Lite-Summary-Delta---uL" class="definition panel" data-traverse-target="definition-Lite-Summary-Delta---uL">
           <h2 class="panel-title">
-            <a name="/definitions/Lite Summary Delta - uL"></a>Lite Summary Delta - uL:
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Lite Summary Delta - uL"></a>Lite Summary Delta - uL </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-description">
@@ -4064,13 +4001,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Order-Delta---uO" class="definition panel" data-traverse-target="definition-Order-Delta---uO">
           <h2 class="panel-title">
-            <a name="/definitions/Order Delta - uO"></a>Order Delta - uO:
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Order Delta - uO"></a>Order Delta - uO </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-description">
@@ -4120,13 +4051,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Summary-Delta---uS" class="definition panel" data-traverse-target="definition-Summary-Delta---uS">
           <h2 class="panel-title">
-            <a name="/definitions/Summary Delta - uS"></a>Summary Delta - uS:
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Summary Delta - uS"></a>Summary Delta - uS </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-description">
@@ -4165,13 +4090,7 @@ $obj = json_decode($execResult);
         </div>
         <div id="definition-Minified-JSON-Keys" class="definition panel" data-traverse-target="definition-Minified-JSON-Keys">
           <h2 class="panel-title">
-            <a name="/definitions/Minified JSON Keys"></a>Minified JSON Keys:
-            <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-            <span class="json-property-range" title="Value limits"></span>
-            
-            
-            </span> -->
-          </h2>
+            <a name="/definitions/Minified JSON Keys"></a>Minified JSON Keys </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="json-schema-description"> <pre><code class="hljs">`A` = `Ask`

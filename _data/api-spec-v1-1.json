@@ -3,8 +3,7 @@
     "info": {
         "version": "v1.1",
         "title": "API Reference",
-        "description": "Bittrex provides a simple and powerful API consisting of REST endpoints for transactional operations and a complementary Websocket service providing streaming market, order, and balance updates.\n\n Use of the Bittrex API is subject to our **1 [Terms of Service]**.\n\n If you have any API questions, feedback, or recommendations please post a question via our [support center](https://support.bittrex.com).",
-        "termsOfService": "https://bittrex.com/Home/terms/",
+        "description": "Bittrex provides a simple and powerful API consisting of REST endpoints for transactional operations and a complementary Websocket service providing streaming market, order, and balance updates.\n\n Access to and use of the API is governed by our Terms of Service.\n If you are a user of Bittrex.com, the applicable Terms of Service are available [here](https://support.bittrex.com/hc/en-us/articles/360000560871).\n If you are a user of Bittrex International, the applicable Terms of Service are available [here](https://support.bittrex.com/hc/en-us/articles/360001411486).\n\n If you have any API questions, feedback, or recommendations please post a question via our [support center](https://support.bittrex.com).",
         "contact": {
             "name": "Bittrex API Team",
             "url": "https://bittrex.com",
@@ -42,7 +41,7 @@
     },
     "x-spectacle-topics": {
         "Getting Started": {
-            "description": "Keep the following in mind when developing against the Bittrex API: \n - Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.\n - All REST requests must be sent to `https://api.bittrex.com/api/v1.1` using the `application/json` content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.\n - All REST requests will result in a `200 Ok` response unless there is a server or infrastructure error. The API result will be wrapped in a JSON **3<Result>** object, where the `success` field indicates response status.\n - The public REST API (`https://api.bittrex.com/api/v1.1/public`) does not require authentication, all other requests require an [API Key and must be properly signed](#authentication)."
+            "description": "Keep the following in mind when developing against the Bittrex API: \n - Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.\n - All REST requests must be sent to `https://api.bittrex.com/api/v1.1` using the `application/json` content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.\n - All REST requests will result in a `200 Ok` response unless there is a server or infrastructure error. The API result will be wrapped in a JSON [Result](#definition-Result) object, where the `success` field indicates response status.\n - The public REST API (`https://api.bittrex.com/api/v1.1/public`) does not require authentication, all other requests require an [API Key and must be properly signed](#authentication)."
         },
         "Best Practices": {
             "description": "### Call Limits\n The Bittrex API employs call limits on all endpoints to ensure the efficiency and availability of the platform for all customers. In general, API users are permitted to make a maximum of 60 API calls per minute. Calls after the limit will fail, with the limit resetting at the start of the next minute.\n\n __Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.__\n\n Example: Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it once per second. By using the Websocket API's [QueryExchangeState](#method-QueryExchangeState) and [SubscribeToExchangeDeltas](#method-SubscribeToExchangeDeltas) functions, developers can maintain their own copies of one or more order books.\n\n --- \n\n ### Socket Connections\n Websocket connections may occasionally need to be recycled. If, for example, you're maintinaing local order book state, and you stop receiving updates even though you know trade activity is occurring, it may be time to resynchronize.\n\n Because v1.1 websocket nonces are server-specific, it's crucial to maintain state on a per-connection basis. For example, to resychronize the BTC-ETH market order book:\n 1. Drop existing websocket connections and flush accumulated data and state (e.g. market nonces).\n 1. Re-establish websocket connection.\n 1. Subscribe to BTC-ETH market deltas, cache received data keyed by nonce.\n 1. Query BTC-ETH market state.\n 1. Apply cached deltas sequentially, starting with nonces greater than that received in step 4.\n"
@@ -1216,6 +1215,24 @@
         }
     },
     "definitions": {
+        "Result": {
+            "description": "The object that wraps an API response, where the `success` field indicates response status.",
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "message": {
+                    "type": "string",
+                    "example": "''"
+                },
+                "result": {
+                    "type": "any"
+                }
+            }
+        },
+
         "Address": {
             "type": "object",
             "properties": {
