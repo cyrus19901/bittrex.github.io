@@ -970,6 +970,16 @@
                         "type": "boolean",
                         "example": true
                     }
+                },
+                "Balance Callback": {
+                    "schema": {
+                        "$ref":"#/definitions/Balance Delta - uB"
+                    }
+                },
+                "Order Callback": {
+                    "schema": {
+                        "$ref":"#/definitions/Order Delta - uO"
+                    }
                 }
             }
         },
@@ -1160,7 +1170,14 @@
                 "Success": {
                     "description": "Boolean indicating whether the user was subscribed to the feed",
                     "schema": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "example": true
+                    }
+                },
+                "Callback": {
+                    "description": "",
+                    "schema": {
+                        "$ref": "#/definitions/Market Delta - uE"
                     }
                 }
             }
@@ -1185,7 +1202,14 @@
                 "Success": {
                     "description": "Boolean indicating whether the user was subscribed to the feed.",
                     "schema": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "example": true
+                    }
+                },
+                "Callback": {
+                    "description": "",
+                    "schema": {
+                        "$ref": "#/definitions/Summary Delta - uS"
                     }
                 }
             }
