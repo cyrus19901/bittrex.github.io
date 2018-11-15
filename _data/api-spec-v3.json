@@ -11,7 +11,6 @@
     }
   },
   "host": "api.bittrex.com",
-  "basePath": "/api/v3",
   "schemes": [
     "https"
   ],
@@ -89,17 +88,17 @@
         ],
         "parameters": [
           {
-            "name": "limit",
+            "name": "pageSize",
             "in": "query",
-            "description": "maximum number of items to return",
+            "description": "number of items per page (default 100, max 200)",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "skip",
+            "name": "pageNumber",
             "in": "query",
-            "description": "number of items to skip",
+            "description": "page number to retrieve",
             "required": false,
             "type": "integer",
             "format": "int32"
@@ -302,22 +301,6 @@
         ],
         "parameters": [
           {
-            "name": "limit",
-            "in": "query",
-            "description": "maximum number of items to return",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "skip",
-            "in": "query",
-            "description": "number of items to skip",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
             "name": "Api-Key",
             "in": "header",
             "description": "API Key of the account user",
@@ -451,22 +434,6 @@
             "description": "Include currency health information in results.",
             "required": false,
             "type": "boolean"
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "maximum number of items to return",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "skip",
-            "in": "query",
-            "description": "number of items to skip",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
           }
         ],
         "responses": {
@@ -553,17 +520,17 @@
             "type": "string"
           },
           {
-            "name": "limit",
+            "name": "pageSize",
             "in": "query",
-            "description": "maximum number of items to return",
+            "description": "number of items per page (default 100, max 200)",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "skip",
+            "name": "pageNumber",
             "in": "query",
-            "description": "number of items to skip",
+            "description": "page number to retrieve",
             "required": false,
             "type": "integer",
             "format": "int32"
@@ -772,22 +739,6 @@
             "description": "Include market summary information in results.",
             "required": false,
             "type": "boolean"
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "maximum number of items to return",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "skip",
-            "in": "query",
-            "description": "number of items to skip",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
           }
         ],
         "responses": {
@@ -1006,17 +957,17 @@
             "type": "string"
           },
           {
-            "name": "limit",
+            "name": "pageSize",
             "in": "query",
-            "description": "maximum number of items to return",
+            "description": "number of items per page (default 100, max 200)",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "skip",
+            "name": "pageNumber",
             "in": "query",
-            "description": "number of items to skip",
+            "description": "page number to retrieve",
             "required": false,
             "type": "integer",
             "format": "int32"
@@ -1376,17 +1327,17 @@
         ],
         "parameters": [
           {
-            "name": "limit",
+            "name": "pageSize",
             "in": "query",
-            "description": "maximum number of items to return",
+            "description": "number of items per page (default 100, max 200)",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "skip",
+            "name": "pageNumber",
             "in": "query",
-            "description": "number of items to skip",
+            "description": "page number to retrieve",
             "required": false,
             "type": "integer",
             "format": "int32"
@@ -1610,17 +1561,17 @@
             "type": "string"
           },
           {
-            "name": "limit",
+            "name": "pageSize",
             "in": "query",
-            "description": "maximum number of items to return",
+            "description": "number of items per page (default 100, max 200)",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "skip",
+            "name": "pageNumber",
             "in": "query",
-            "description": "number of items to skip",
+            "description": "page number to retrieve",
             "required": false,
             "type": "integer",
             "format": "int32"
@@ -1962,14 +1913,14 @@
     "PaginationParameters": {
       "type": "object",
       "properties": {
-        "limit": {
+        "pageSize": {
           "format": "int32",
-          "description": "maximum number of items to return",
+          "description": "number of items per page (default 100, max 200)",
           "type": "integer"
         },
-        "skip": {
+        "pageNumber": {
           "format": "int32",
-          "description": "number of items to skip",
+          "description": "page number to retrieve",
           "type": "integer"
         }
       }
@@ -2317,11 +2268,6 @@
           "format": "double",
           "description": "previous day",
           "type": "number"
-        },
-        "createdAt": {
-          "format": "date-time",
-          "description": "timestamp in UTC when summary was created",
-          "type": "string"
         },
         "updatedAt": {
           "format": "date-time",

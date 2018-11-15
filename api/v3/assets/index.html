@@ -189,7 +189,7 @@
             <div class="doc-examples">
               <section>
                 <h5>API Endpoint</h5>
-                <!-- <div class="hljs"> --><pre><code>https://api.bittrex.com/api/v3</code></pre>
+                <!-- <div class="hljs"> --><pre><code>https://api.bittrex.com</code></pre>
                 <!-- </div> -->
                 <h5>Terms of Service:
                   <a href="https://bittrex.com/Home/terms/">https://bittrex.com/Home/terms/</a>
@@ -379,7 +379,7 @@
               <section class="swagger-request-params">
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">limit:
+                    <div class="prop-title">pageSize:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -389,12 +389,12 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>maximum number of items to return</p>
+                    <p>number of items per page (default 100, max 200)</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">skip:
+                    <div class="prop-title">pageNumber:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -404,7 +404,7 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>number of items to skip</p>
+                    <p>page number to retrieve</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
@@ -893,36 +893,6 @@
               <section class="swagger-request-params">
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">limit:
-                      <span class="prop-type">
-                        <span class="json-property-type">integer</span>
-                        <span class="json-property-format">(int32)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>maximum number of items to return</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">skip:
-                      <span class="prop-type">
-                        <span class="json-property-type">integer</span>
-                        <span class="json-property-format">(int32)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>number of items to skip</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
                     <div class="prop-title">Api-Key:
                       <span class="prop-type">
                         <span class="json-property-type">string</span>
@@ -1252,36 +1222,6 @@
                     <p>Include currency health information in results.</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">limit:
-                      <span class="prop-type">
-                        <span class="json-property-type">integer</span>
-                        <span class="json-property-format">(int32)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>maximum number of items to return</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">skip:
-                      <span class="prop-type">
-                        <span class="json-property-type">integer</span>
-                        <span class="json-property-format">(int32)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>number of items to skip</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -1530,7 +1470,7 @@
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">limit:
+                    <div class="prop-title">pageSize:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -1540,12 +1480,12 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>maximum number of items to return</p>
+                    <p>number of items per page (default 100, max 200)</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">skip:
+                    <div class="prop-title">pageNumber:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -1555,7 +1495,7 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>number of items to skip</p>
+                    <p>page number to retrieve</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
@@ -2078,36 +2018,6 @@
                     <p>Include market summary information in results.</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">limit:
-                      <span class="prop-type">
-                        <span class="json-property-type">integer</span>
-                        <span class="json-property-format">(int32)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>maximum number of items to return</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">skip:
-                      <span class="prop-type">
-                        <span class="json-property-type">integer</span>
-                        <span class="json-property-format">(int32)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>number of items to skip</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -2179,7 +2089,6 @@
       <span class="hljs-attr">&quot;openBuyOrders&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
       <span class="hljs-attr">&quot;openSellOrders&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
       <span class="hljs-attr">&quot;previousDay&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-      <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
       <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
     }
   }
@@ -2303,7 +2212,6 @@
     <span class="hljs-attr">&quot;openBuyOrders&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
     <span class="hljs-attr">&quot;openSellOrders&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
     <span class="hljs-attr">&quot;previousDay&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-    <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
   }
 }
@@ -2727,7 +2635,7 @@
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">limit:
+                    <div class="prop-title">pageSize:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -2737,12 +2645,12 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>maximum number of items to return</p>
+                    <p>number of items per page (default 100, max 200)</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">skip:
+                    <div class="prop-title">pageNumber:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -2752,7 +2660,7 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>number of items to skip</p>
+                    <p>page number to retrieve</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
@@ -3696,7 +3604,7 @@
               <section class="swagger-request-params">
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">limit:
+                    <div class="prop-title">pageSize:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -3706,12 +3614,12 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>maximum number of items to return</p>
+                    <p>number of items per page (default 100, max 200)</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">skip:
+                    <div class="prop-title">pageNumber:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -3721,7 +3629,7 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>number of items to skip</p>
+                    <p>page number to retrieve</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
@@ -4239,7 +4147,7 @@
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">limit:
+                    <div class="prop-title">pageSize:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -4249,12 +4157,12 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>maximum number of items to return</p>
+                    <p>number of items per page (default 100, max 200)</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">skip:
+                    <div class="prop-title">pageNumber:
                       <span class="prop-type">
                         <span class="json-property-type">integer</span>
                         <span class="json-property-format">(int32)</span>
@@ -4264,7 +4172,7 @@
                     <div class="prop-subtitle"> in query </div>
                   </div>
                   <div class="prop-value">
-                    <p>number of items to skip</p>
+                    <p>page number to retrieve</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
@@ -5138,23 +5046,23 @@
             <div class="doc-copy">
               <section class="json-schema-properties">
                 <dl>
-                  <dt data-property-name="limit" class="has-description">
-                    <span class="json-property-name">limit:</span>
+                  <dt data-property-name="pageSize" class="has-description">
+                    <span class="json-property-name">pageSize:</span>
                     <span class="json-property-type">integer</span>
                     <span class="json-property-format">(int32)</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
                   <dd>
-                    <p>maximum number of items to return</p>
+                    <p>number of items per page (default 100, max 200)</p>
                   </dd>
-                  <dt data-property-name="skip" class="has-description">
-                    <span class="json-property-name">skip:</span>
+                  <dt data-property-name="pageNumber" class="has-description">
+                    <span class="json-property-name">pageNumber:</span>
                     <span class="json-property-type">integer</span>
                     <span class="json-property-format">(int32)</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
                   <dd>
-                    <p>number of items to skip</p>
+                    <p>page number to retrieve</p>
                   </dd>
                 </dl>
               </section>
@@ -5163,8 +5071,8 @@
               <section>
                 <h5>Example</h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
-  <span class="hljs-attr">&quot;skip&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>
+  <span class="hljs-attr">&quot;pageSize&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
+  <span class="hljs-attr">&quot;pageNumber&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
@@ -5834,7 +5742,6 @@
     <span class="hljs-attr">&quot;openBuyOrders&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
     <span class="hljs-attr">&quot;openSellOrders&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
     <span class="hljs-attr">&quot;previousDay&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-    <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
   }
 }
@@ -5949,15 +5856,6 @@
                   <dd>
                     <p>previous day</p>
                   </dd>
-                  <dt data-property-name="createdAt" class="has-description">
-                    <span class="json-property-name">createdAt:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(date-time)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>timestamp in UTC when summary was created</p>
-                  </dd>
                   <dt data-property-name="updatedAt" class="has-description">
                     <span class="json-property-name">updatedAt:</span>
                     <span class="json-property-type">string</span>
@@ -5985,7 +5883,6 @@
   <span class="hljs-attr">&quot;openBuyOrders&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
   <span class="hljs-attr">&quot;openSellOrders&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
   <span class="hljs-attr">&quot;previousDay&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
 }
 </code></pre>
