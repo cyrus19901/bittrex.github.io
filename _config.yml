@@ -44,5 +44,3 @@ exclude:
   - vendor/ruby/
   - spectacle/
   - README.md
-  - v1/
-  - v3/

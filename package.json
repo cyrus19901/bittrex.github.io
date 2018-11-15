@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Bittrex has released an initial version of its Websocket API.",
   "scripts": {
-    "dev": "jekyll serve",
+    "dev": "concurrently \"npm run serve\" \"npm run watch\"",
+    "serve": "jekyll serve",
     "build": "npm run build:spectacle:v1 && npm run build:spectacle:v3",
     "build:spectacle:v1": "node ./spectacle/bin/spectacle -e -t api/v1-1/assets _data/api-spec-v1-1.json",
     "build:spectacle:v3": "node ./spectacle/bin/spectacle -e -t api/v3/assets _data/api-spec-v3.json",
@@ -59,5 +60,8 @@
     "sync-request": "^4.1.0",
     "tmp": "0.0.31",
     "trace": "^1.1.0"
+  },
+  "dependencies": {
+    "concurrently": "^4.0.1"
   }
 }
