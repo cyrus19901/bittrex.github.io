@@ -6,7 +6,7 @@
     "description": "Bittrex provides a simple and powerful API consisting of REST endpoints for transactional operations and a complementary Websocket service providing streaming market, order, and balance updates.\n\n Access to and use of the API is governed by our Terms of Service.\n If you are a user of Bittrex.com, the applicable Terms of Service are available [here](https://support.bittrex.com/hc/en-us/articles/360000560871).\n If you are a user of Bittrex International, the applicable Terms of Service are available [here](https://support.bittrex.com/hc/en-us/articles/360001411486).\n\n If you have any API questions, feedback, or recommendations please post a question via our [support center](https://support.bittrex.com)."
   },
   "host": "api.bittrex.com",
-  "basePath": "/api/v3",
+  "basePath": "/v3",
   "schemes": [
     "https"
   ],
@@ -18,7 +18,7 @@
       "description": "##### **Warning** - the V3-Alpha or other pre-release API versions are not for production use.\n\n The V3-Alpha release will be subject to breaking changes, potentially without notice, until the final API is released. Pre-release APIs should only be used for testing and review.\n\nThe V3-Alpha API will operate against production (live-site) data and accounts and we recommend using test accounts and small-value transactions to validate your implementation.\n\nBy using the V3 Alpha API you understand and agree that issues may be encountered without warning, affecting your use of the website and API. Bittrex provides no warranties, either express or implied, as to the suitability or usability of pre-release APIs. Bittrex will not be liable for any loss, whether such loss is direct, indirect, special or consequential, suffered by any party as a result of their use of the V3-Alpha API or other pre-release APIs. "
     },
     "Getting Started": {
-      "description": "Keep the following in mind when developing against the Bittrex API: \n - Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.\n - All REST requests must be sent to `https://api.bittrex.com/api/v1.1` using the `application/json` content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.\n - All REST requests will result in a `200 Ok` response unless there is a server or infrastructure error."
+      "description": "Keep the following in mind when developing against the Bittrex API: \n - Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.\n - All REST requests must be sent to `https://api.bittrex.com/v3` using the `application/json` content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.\n - All REST requests will result in a `200 Ok` response unless there is a server or infrastructure error."
     },
     "Best Practices": {
       "description": "### Call Limits\n The Bittrex API employs call limits on all endpoints to ensure the efficiency and availability of the platform for all customers. In general, API users are permitted to make a maximum of 60 API calls per minute. Calls after the limit will fail, with the limit resetting at the start of the next minute.\n\n __Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.__"
@@ -79,7 +79,7 @@
             "type": "string"
           }
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/account",
+        "x-btx-request-example": "https://api.bittrex.com/v3/account",
         "responses": {
           "200": {
             "description": "OK",
@@ -155,7 +155,7 @@
             "type": "string"
           }
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/addresses",
+        "x-btx-request-example": "https://api.bittrex.com/v3/addresses",
         "responses": {
           "200": {
             "description": "OK",
@@ -228,7 +228,7 @@
             "type": "string"
           }
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/addresses",
+        "x-btx-request-example": "https://api.bittrex.com/v3/addresses",
         "responses": {
           "200": {
             "description": "OK",
@@ -295,7 +295,7 @@
             "type": "string"
           }
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/addresses/{currencyId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/addresses/{currencyId}",
         "responses": {
           "200": {
             "description": "OK",
@@ -318,7 +318,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/balances",
+        "x-btx-request-example": "https://api.bittrex.com/v3/balances",
         "parameters": [
           {
             "name": "Api-Key",
@@ -381,7 +381,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/balances/{currencyId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/balances/{currencyId}",
         "parameters": [
           {
             "name": "currencyId",
@@ -448,7 +448,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/currencies",
+        "x-btx-request-example": "https://api.bittrex.com/v3/currencies",
         "parameters": [
           {
             "name": "include_health",
@@ -483,7 +483,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/currencies/{currencyId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/currencies/{currencyId}",
         "parameters": [
           {
             "name": "currencyId",
@@ -522,7 +522,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/deposits?status=COMPLETED",
+        "x-btx-request-example": "https://api.bittrex.com/v3/deposits?status=COMPLETED",
         "parameters": [
           {
             "name": "status",
@@ -620,7 +620,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/deposits/pending",
+        "x-btx-request-example": "https://api.bittrex.com/v3/deposits/pending",
         "parameters": [
           {
             "name": "currencyId",
@@ -690,7 +690,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/deposits/{depositId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/deposits/{depositId}",
         "parameters": [
           {
             "name": "depositId",
@@ -758,7 +758,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/markets",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets",
         "parameters": [
           {
             "name": "include_summary",
@@ -793,7 +793,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/markets/{marketId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}",
         "parameters": [
           {
             "name": "marketId",
@@ -832,7 +832,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/markets/{marketId}/orderbook",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/orderbook",
         "parameters": [
           {
             "name": "marketId",
@@ -883,7 +883,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/markets/{marketId}/history",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/history",
         "parameters": [
           {
             "name": "marketId",
@@ -918,7 +918,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/markets/{marketId}/ticks",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/ticks",
         "parameters": [
           {
             "name": "marketId",
@@ -967,7 +967,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/orders",
+        "x-btx-request-example": "https://api.bittrex.com/v3/orders",
         "parameters": [
           {
             "name": "status",
@@ -1066,7 +1066,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/orders",
+        "x-btx-request-example": "https://api.bittrex.com/v3/orders",
         "parameters": [
           {
             "name": "newOrder",
@@ -1135,7 +1135,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/orders/open",
+        "x-btx-request-example": "https://api.bittrex.com/v3/orders/open",
         "parameters": [
           {
             "name": "marketId",
@@ -1205,7 +1205,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/orders/{orderId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}",
         "parameters": [
           {
             "name": "orderId",
@@ -1271,7 +1271,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/orders/{orderId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}",
         "parameters": [
           {
             "name": "orderId",
@@ -1339,7 +1339,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/status",
+        "x-btx-request-example": "https://api.bittrex.com/v3/status",
         "responses": {
           "200": {
             "description": "OK",
@@ -1415,7 +1415,7 @@
             "type": "string"
           }
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/subaccounts",
+        "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts",
         "responses": {
           "200": {
             "description": "OK",
@@ -1442,7 +1442,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/subaccounts",
+        "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts",
         "parameters": [
           {
             "name": "newSubaccount",
@@ -1511,7 +1511,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/subaccounts/{subaccountId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts/{subaccountId}",
         "parameters": [
           {
             "name": "subaccountId",
@@ -1579,7 +1579,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/withdrawals",
+        "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals",
         "parameters": [
           {
             "name": "status",
@@ -1679,7 +1679,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/withdrawals",
+        "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals",
         "parameters": [
           {
             "name": "newWithdrawal",
@@ -1748,7 +1748,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/withdrawals/pending",
+        "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/pending",
         "parameters": [
           {
             "name": "currencyId",
@@ -1818,7 +1818,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/withdrawals/{withdrawalId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}",
         "parameters": [
           {
             "name": "withdrawalId",
@@ -1884,7 +1884,7 @@
           "application/json",
           "text/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/api/v3/withdrawals/{withdrawalId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}",
         "parameters": [
           {
             "name": "withdrawalId",
