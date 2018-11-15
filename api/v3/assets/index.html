@@ -11,6 +11,7 @@
         <a href="#topic-Pre-Release-Warning">Pre-Release Warning</a>
         <a href="#topic-Getting-Started">Getting Started</a>
         <a href="#topic-Best-Practices">Best Practices</a>
+        <a href="#authentication">Authentication</a>
         <h5>Rest API</h5>
         <section>
           <a href="#tag-Account">Account</a>
@@ -269,6 +270,56 @@
                 <li>Query BTC-ETH market state.</li>
                 <li>Apply cached deltas sequentially, starting with nonces greater than that received in step 4.</li>
               </ol>
+            </div>
+          </div>
+        </div>
+        <!-- <h1 id="security" data-traverse-target="security">Security</h1> -->
+        <h1 id="authentication" data-traverse-target="authentication">Authentication</h1>
+        <div id="security-definition-api_key" class="panel">
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="security-definition-description">
+                <h3 id="overview">Overview</h3>
+                <p> In order to properly sign an authenticated request for the Bittrex v3 API, the following headers must be included:</p>
+                <ul>
+                  <li>
+                    <p><code>Api-Key</code></p>
+                  </li>
+                  <li>
+                    <p><code>Api-Timestamp</code></p>
+                  </li>
+                  <li>
+                    <p><code>Api-Content-Hash</code></p>
+                  </li>
+                  <li>
+                    <p><code>Api-Signature</code></p>
+                  </li>
+                </ul>
+                <p>The following sections are instructions for properly populating these headers.</p>
+                <h3 id="api-key">Api-Key</h3>
+                <p>Populate this header with your API key. Example Value: <code>4894xxxxxxxx407e827d05xxxxxxxxxx</code></p>
+                <h3 id="api-timestamp">Api-Timestamp</h3>
+                <p>Populate this header with the current time represented as an ISO 8601 string. Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> timestamp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toISOString().split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">0</span>]+<span class="hljs-string">'Z'</span>;
+</code></pre>
+                <p>Example Value: <code>2018-11-11T19:09:01Z</code></p>
+                <h3 id="api-content-hash">Api-Content-Hash</h3>
+                <p>Populate this header with a SHA512 hash of the request contents, ASCII-encoded. Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> timestamp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toISOString().split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">0</span>]+<span class="hljs-string">'Z'</span>;
+</code></pre>
+                <p>Example Value:</p> <pre><code class="hljs">cf<span class="hljs-number">83e1357</span>eefb<span class="hljs-number">8</span>bdf<span class="hljs-number">1542850</span>d<span class="hljs-number">66</span>d<span class="hljs-number">8007</span>d<span class="hljs-number">620e4050</span>b<span class="hljs-number">5715</span>dc<span class="hljs-number">83</span>f<span class="hljs-number">4</span>a<span class="hljs-number">921</span>d<span class="hljs-number">36</span>ce<span class="hljs-number">9</span>ce<span class="hljs-number">47</span>d<span class="hljs-number">0</span>d<span class="hljs-number">13</span><span class="hljs-keyword">c</span><span class="hljs-number">5</span>d<span class="hljs-number">85</span>f<span class="hljs-number">2</span>b<span class="hljs-number">0</span>ff<span class="hljs-number">8318</span>d<span class="hljs-number">2877</span>eec<span class="hljs-number">2</span>f<span class="hljs-number">63</span>b<span class="hljs-number">931</span>bd<span class="hljs-number">47417</span>a<span class="hljs-number">81</span>a<span class="hljs-number">538327</span>af<span class="hljs-number">927</span>da<span class="hljs-number">3</span>e
+</code></pre>
+                <h3 id="api-signature">Api-Signature</h3>
+                <p>Create a pre-sign string formed from the following items and joined by comma (,):</p>
+                <ol>
+                  <li>contents of your Api-Timestamp header</li>
+                  <li>the full URI you are using to make the request (including query string)</li>
+                  <li>contents of your ApiContent-Hash header Once you have created this pre-sign string, sign it via HmacSHA512, using your API secret as the signing secret. ASCII-encode the result of this operation and populate the Api-Signature header with it. Sample JS Code Snippet:<pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> preSign = [apiTimestamp, uri, contentHash].join(<span class="hljs-string">','</span>);
+<span class="hljs-keyword">var</span> signature = CryptoJS.HmacSHA512(preSign, apiSecret).toString(CryptoJS.enc.ASCII);
+</code></pre> Example Pre-Signed Value:<pre><code class="hljs"><span class="hljs-number">2018</span><span class="hljs-number">-11</span><span class="hljs-number">-11</span>T19:<span class="hljs-number">09</span>:<span class="hljs-number">01</span>Z,https:<span class="hljs-comment">//api.bittrex.com/v3/balances,cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e</span>
+</code></pre> </li>
+                </ol>
+                <p>Example Post-Signed Value:</p> <pre><code class="hljs"><span class="hljs-number">939047623</span>f<span class="hljs-number">0</span>efbe<span class="hljs-number">10</span>bfbb<span class="hljs-number">32</span>f<span class="hljs-number">18e5</span>d<span class="hljs-number">8885</span>b<span class="hljs-number">2</span>a<span class="hljs-number">91</span>be<span class="hljs-number">3</span><span class="hljs-keyword">c</span><span class="hljs-number">3</span>cea<span class="hljs-number">82</span>adf<span class="hljs-number">0</span>dd<span class="hljs-number">2</span>d<span class="hljs-number">20892</span>b<span class="hljs-number">20</span>bcb<span class="hljs-number">6</span>a<span class="hljs-number">10</span>a<span class="hljs-number">91</span>fec<span class="hljs-number">3</span>afcedcc<span class="hljs-number">009</span>f<span class="hljs-number">2</span>b<span class="hljs-number">2</span>a<span class="hljs-number">86</span><span class="hljs-keyword">c</span><span class="hljs-number">5366974</span>cfadcf<span class="hljs-number">671</span>fe<span class="hljs-number">0490582568</span>f<span class="hljs-number">51</span>f
+</code></pre> </section>
+              <section class="swagger-security-definition-properties"> </section>
             </div>
           </div>
         </div>
