@@ -105,7 +105,8 @@
             <div class="doc-copy">
               <p>Keep the following in mind when developing against the Bittrex API: </p>
               <ul>
-                <li>Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.</li>
+                <li>
+                  <a href="https://bittrex.com/Manage?view=2fa">Enable 2FA on your account</a>. API Keys cannot be generated unless 2FA is enabled.</li>
                 <li>All REST requests must be sent to <code>https://api.bittrex.com/api/v1.1</code> using the <code>application/json</code> content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.</li>
                 <li>All REST requests will result in a <code>200 Ok</code> response unless there is a server or infrastructure error. The API result will be wrapped in a JSON
                   <a href="#definition-Result">Result</a> object, where the <code>success</code> field indicates response status.</li>
@@ -124,9 +125,12 @@
               <p>
                 <strong>Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.</strong>
               </p>
-              <p> Example: Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it once per second. By using the Websocket API&#39;s
-                <a href="#method-QueryExchangeState">QueryExchangeState</a> and
-                <a href="#method-SubscribeToExchangeDeltas">SubscribeToExchangeDeltas</a> functions, developers can maintain their own copies of one or more order books.</p>
+              <blockquote>
+                <p>
+                  <strong>Example:</strong> Many users poll the REST API as quickly as possible for updated order data. At very high call rates, the API most often returns the same data because we only update it once per second. By using the Websocket API&#39;s
+                  <a href="#method-QueryExchangeState">QueryExchangeState</a> and
+                  <a href="#method-SubscribeToExchangeDeltas">SubscribeToExchangeDeltas</a> functions, developers can maintain their own copies of one or more order books.</p>
+              </blockquote>
               <hr>
               <h3 id="socket-connections">Socket Connections</h3>
               <p> Websocket connections may occasionally need to be recycled. If, for example, you&#39;re maintinaing local order book state, and you stop receiving updates even though you know trade activity is occurring, it may be time to resynchronize.</p>
@@ -174,15 +178,15 @@
                   </li>
                 </ol>
                 <h4 id="rest-message">REST Message</h4>
-                <p> The <code>message</code> value is obtained by concatenating the full request URL including any query-string parameters, your public API Key, and a user-generated nonce (we recommend a UNIX-style timestamp in epoch millisecond format). Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly:</p> <pre><code class="hljs"> message: `https:<span class="hljs-comment">//api.bittrex.com/api/v1.1/path/call?param=value&amp;apikey=0123456789&amp;nonce=1542020339856`</span>
- secret: `ABCDEFGHIJ` 
- hash: `FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631`
+                <p> The <code>message</code> value is obtained by concatenating the full request URL including any query-string parameters, your public API Key, and a user-generated nonce (we recommend a UNIX-style timestamp in epoch millisecond format). Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly:</p> <pre><code class="hljs"> <span class="hljs-attribute">message</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//api.bittrex.com/api/v1.1/path/call?param=value&amp;apikey=0123456789&amp;nonce=1542020339856</span>
+ <span class="hljs-attribute">secret</span>: ABCDEFGHIJ 
+ <span class="hljs-attribute">hash</span>: FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631
 </code></pre>
                 <h4 id="websocket-message">Websocket Message</h4>
                 <p> The <code>message</code> value is obtained by calling the Websocket
-                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs"><span class="hljs-symbol"> message:</span> `top-secret-<span class="hljs-literal">and</span>-totally-fake`
-<span class="hljs-symbol"> secret:</span> `ABCDEFGHIJ`
-<span class="hljs-symbol"> hash:</span> `77FF28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061`
+                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs"><span class="hljs-symbol"> message:</span> top-secret-and-totally-fake
+<span class="hljs-symbol"> secret:</span> ABCDEFGHIJ
+<span class="hljs-symbol"> hash:</span> <span class="hljs-number">77F</span>F28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061
 </code></pre> </section>
               <section class="swagger-security-definition-properties"> </section>
             </div>
@@ -241,7 +245,7 @@ $obj = json_decode($execResult);
                     <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
                   </div>
                   <div class="prop-value">
-                    <p>OK</p>
+                    <p>Success</p>
                   </div>
                 </div>
                 <div class="prop-row prop-inner">
@@ -320,7 +324,7 @@ $obj = json_decode($execResult);
                     <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
                   </div>
                   <div class="prop-value">
-                    <p>OK</p>
+                    <p>Success</p>
                   </div>
                 </div>
                 <div class="prop-row prop-inner">
@@ -388,7 +392,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -416,7 +420,7 @@ $obj = json_decode($execResult);
                     <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
                   </div>
                   <div class="prop-value">
-                    <p>OK</p>
+                    <p>Success</p>
                   </div>
                 </div>
                 <div class="prop-row prop-inner">
@@ -490,7 +494,7 @@ $obj = json_decode($execResult);
                     <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
                   </div>
                   <div class="prop-value">
-                    <p>OK</p>
+                    <p>Success</p>
                   </div>
                 </div>
                 <div class="prop-row prop-inner">
@@ -565,7 +569,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -593,7 +597,7 @@ $obj = json_decode($execResult);
                     <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
                   </div>
                   <div class="prop-value">
-                    <p>OK</p>
+                    <p>Success</p>
                   </div>
                 </div>
                 <div class="prop-row prop-inner">
@@ -668,7 +672,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -683,7 +687,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">type:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -786,7 +790,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -882,7 +886,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -897,7 +901,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">quantity:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">decimal</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -912,7 +916,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">rate:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">decimal</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -921,25 +925,6 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>the rate at which to place the order</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">apikey:
-                      <span class="prop-type">
-                        <span class="json-property-type">object</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>your api key
-                      <small>
-                        <a href="#authentication">(?)</a>
-                      </small>
-                    </p>
                   </div>
                 </div>
               </section>
@@ -1016,7 +1001,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1031,7 +1016,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">quantity:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">decimal</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1046,7 +1031,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">rate:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">decimal</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1055,25 +1040,6 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>the rate at which to place the order</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">apikey:
-                      <span class="prop-type">
-                        <span class="json-property-type">object</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>your api key
-                      <small>
-                        <a href="#authentication">(?)</a>
-                      </small>
-                    </p>
                   </div>
                 </div>
               </section>
@@ -1150,7 +1116,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">uuid:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1159,25 +1125,6 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>uuid of buy or sell order</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">apikey:
-                      <span class="prop-type">
-                        <span class="json-property-type">object</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>your api key
-                      <small>
-                        <a href="#authentication">(?)</a>
-                      </small>
-                    </p>
                   </div>
                 </div>
               </section>
@@ -1254,7 +1201,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1262,25 +1209,6 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>a string literal for the market (ie. BTC-LTC)</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">apikey:
-                      <span class="prop-type">
-                        <span class="json-property-type">object</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>your api key
-                      <small>
-                        <a href="#authentication">(?)</a>
-                      </small>
-                    </p>
                   </div>
                 </div>
               </section>
@@ -1370,29 +1298,7 @@ $obj = json_decode($execResult);
             </div>
           </div>
           <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">apikey:
-                      <span class="prop-type">
-                        <span class="json-property-type">object</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>your api key
-                      <small>
-                        <a href="#authentication">(?)</a>
-                      </small>
-                    </p>
-                  </div>
-                </div>
-              </section>
-            </div>
+            <div class="doc-copy"> </div>
             <div class="doc-examples">
               <section>
                 <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/api/v1.1/account/getbalances?apikey&#x3D;API_KEY</code></pre> </section>
@@ -1476,7 +1382,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">currency:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1485,25 +1391,6 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>a string literal for the currency (ie. BTC)</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">apikey:
-                      <span class="prop-type">
-                        <span class="json-property-type">object</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>your api key
-                      <small>
-                        <a href="#authentication">(?)</a>
-                      </small>
-                    </p>
                   </div>
                 </div>
               </section>
@@ -1589,7 +1476,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">currency:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1598,25 +1485,6 @@ $obj = json_decode($execResult);
                   </div>
                   <div class="prop-value">
                     <p>a string literal for the currency (ie. BTC)</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">apikey:
-                      <span class="prop-type">
-                        <span class="json-property-type">object</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>your api key
-                      <small>
-                        <a href="#authentication">(?)</a>
-                      </small>
-                    </p>
                   </div>
                 </div>
               </section>
@@ -1701,7 +1569,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">currency:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1716,7 +1584,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">quantity:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">decimal</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1731,7 +1599,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">address:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1744,28 +1612,9 @@ $obj = json_decode($execResult);
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">apikey:
-                      <span class="prop-type">
-                        <span class="json-property-type">object</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>your api key
-                      <small>
-                        <a href="#authentication">(?)</a>
-                      </small>
-                    </p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
                     <div class="prop-title">paymentid:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1849,7 +1698,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">uuid:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1953,7 +1802,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -2053,7 +1902,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">currency:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -2412,7 +2261,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -2474,7 +2323,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">market:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -2543,7 +2392,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">marketName:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -2626,7 +2475,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">marketName:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -2701,7 +2550,7 @@ $obj = json_decode($execResult);
                   <div class="prop-name">
                     <div class="prop-title">marketName:
                       <span class="prop-type">
-                        <span class="json-property-type">object</span>
+                        <span class="json-property-type">string</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
