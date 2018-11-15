@@ -37,6 +37,7 @@
         <a href="#method-QuerySummaryState" title="QuerySummaryState"> QuerySummaryState </a>
         <a href="#method-SubscribeToExchangeDeltas" title="SubscribeToExchangeDeltas"> SubscribeToExchangeDeltas </a>
         <a href="#method-SubscribeToSummaryDeltas" title="SubscribeToSummaryDeltas"> SubscribeToSummaryDeltas </a>
+        <a href="#method-SubscribeToSummaryLiteDeltas" title="SubscribeToSummaryLiteDeltas"> SubscribeToSummaryLiteDeltas </a>
         <h5>Schema Definitions</h5>
         <a href="#definition-Result" title="Result"> Result </a>
         <a href="#definition-Address" title="Address"> Address </a>
@@ -170,7 +171,8 @@
                   <li>Include the resulting hash in your request:
                     <ul>
                       <li>REST: in the <code>apisign</code> request header</li>
-                      <li>Websocket: passed to the <code>Authenticate()</code> call</li>
+                      <li>Websocket: passed to the
+                        <a href="#method-Authenticate"><code>Authenticate</code></a> call</li>
                     </ul>
                   </li>
                 </ol>
@@ -180,7 +182,8 @@
  hash: `FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631`
 </code></pre>
                 <h4 id="websocket-message">Websocket Message</h4>
-                <p> The <code>message</code> value is obtained by calling the Websocket <code>GetAuthContext()</code> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs"><span class="hljs-symbol"> message:</span> `top-secret-<span class="hljs-literal">and</span>-totally-fake`
+                <p> The <code>message</code> value is obtained by calling the Websocket
+                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs"><span class="hljs-symbol"> message:</span> `top-secret-<span class="hljs-literal">and</span>-totally-fake`
 <span class="hljs-symbol"> secret:</span> `ABCDEFGHIJ`
 <span class="hljs-symbol"> hash:</span> `77FF28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061`
 </code></pre> </section>
@@ -2270,7 +2273,9 @@ $obj = json_decode($execResult);
                     <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
                   </div>
                   <div class="prop-value">
-                    <p>A string of challenge data to be used in <code>Authenticate</code></p>
+                    <p>A string of challenge data to be used in
+                      <a href="#method-Authenticate"><code>Authenticate</code></a>
+                    </p>
                   </div>
                 </div>
                 <div class="prop-row prop-inner">
@@ -2295,7 +2300,9 @@ $obj = json_decode($execResult);
             <div class="doc-copy">
               <section class="swagger-operation-description">
                 <p>Verifies a user&#39;s identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by
-                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the <code>uO</code> and <code>uB</code> events through their SignalR client. See
+                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the
+                  <a href="#definition-Order-Delta---uO"><code>uO</code></a> and
+                  <a href="#definition-Balance-Delta---uB"><code>uB</code></a> events through their SignalR client. See
                   <a href="#">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
               </section>
             </div>
@@ -2327,7 +2334,9 @@ $obj = json_decode($execResult);
                     </div>
                   </div>
                   <div class="prop-value">
-                    <p>signed challenge from <code>GetAuthContext</code></p>
+                    <p>signed challenge from
+                      <a href="#method-GetAuthContext"><code>GetAuthContext</code></a>
+                    </p>
                   </div>
                 </div>
               </section>
@@ -2519,11 +2528,13 @@ $obj = json_decode($execResult);
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-operation-description">
-                <p>Allows the caller to receive real-time updates to the state of a single market. The caller must register a callback for the <code>uE</code> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See
+                <p>Allows the caller to receive real-time updates to the state of a single market. The caller must register a callback for the
+                  <a href="#definition-Market-Delta---uE"><code>uE</code></a> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See
                   <a href="">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
                 <p>
                   <strong>Note:</strong>
-                  <em>This feed only contains updates to exchange state. To form a complete picture of exchange state, users must first call <code>QueryExchangeState</code> and merge deltas into the data structure returned in that call.</em>
+                  <em>This feed only contains updates to exchange state. To form a complete picture of exchange state, users must first call
+                    <a href="#method-QueryExchangeState"><code>QueryExchangeState</code></a> and merge deltas into the data structure returned in that call.</em>
                 </p>
               </section>
             </div>
@@ -2598,11 +2609,15 @@ $obj = json_decode($execResult);
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-operation-description">
-                <p>Allows the caller to receive real-time updates to the state of all markets. The caller must register a callback for the <code>uS</code> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See
+                <p>Allows the caller to receive real-time updates to the state of all markets. The caller must register a callback for the
+                  <a href="#definition-Summary-Delta---uS"><code>uS</code></a> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See
                   <a href="">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
                 <p>
                   <strong>Note:</strong>
-                  <em>Summary delta callbacks are verbose. A subset of the same data limited to the market name, the last price, and the base currency volume can be obtained via <code>SubscribeToSummaryLiteDeltas</code> just use <code>uL</code> instead of <code>uS</code>.</em>
+                  <em>Summary delta callbacks are verbose. A subset of the same data limited to the market name, the last price, and the base currency volume can be obtained via
+                    <a href="#method-SubscribeToSummaryLiteDeltas"><code>SubscribeToSummaryLiteDeltas</code></a> just use
+                    <a href="#definition-Lite-Summary-Delta---uL"><code>uL</code></a> instead of
+                    <a href="#definition-Summary-Delta---uS"><code>uS</code></a>.</em>
                 </p>
               </section>
             </div>
@@ -2657,6 +2672,81 @@ $obj = json_decode($execResult);
                     <div class="prop-ref">
                       <span class="">
                         <a class="json-schema-ref" href="#/definitions/Summary Delta - uS">Summary Delta - uS</a>
+                      </span>
+                    </div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value"> </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples"> </div>
+          </div>
+        </div>
+        <div id="method-SubscribeToSummaryLiteDeltas" class="operation panel" data-traverse-target="method-SubscribeToSummaryLiteDeltas">
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-path">SubscribeToSummaryLiteDeltas</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Allows the caller to receive real-time updates to the state of all markets. The caller must register a callback for the
+                  <a href="#definition-Lite-Summary-Delta---uL"><code>uL</code></a> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur.</p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-params">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">marketName:
+                      <span class="prop-type">
+                        <span class="json-property-type">object</span>
+                        <span class="json-property-range" title="Value limits"></span>
+                      </span>
+                    </div>
+                    <span class="json-property-required"></span>
+                  </div>
+                  <div class="prop-value">
+                    <p>the market identifier (e.g. BTC-ETH)</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Request Url Example</h5> <pre><code>https://socket.bittrex.com/signalr</code></pre> </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Success </div>
+                    <div class="prop-ref"></div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>Boolean indicating whether the user was subscribed to the feed.</p>
+                  </div>
+                </div>
+                <div class="prop-row prop-inner">
+                  <div class="prop-name">type</div>
+                  <div class="prop-value">
+                    <span class="json-property-type">boolean</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </div>
+                </div>
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">Callback </div>
+                    <div class="prop-ref">
+                      <span class="">
+                        <a class="json-schema-ref" href="#/definitions/Lite Summary Delta - uL">Lite Summary Delta - uL</a>
                       </span>
                     </div>
                     <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
@@ -3847,7 +3937,9 @@ $obj = json_decode($execResult);
             <div class="doc-copy">
               <section class="json-schema-description">
                 <h3 id="callback-for">Callback For</h3>
-                <p> <code>SubscribeToSummaryLiteDeltas</code></p>
+                <p>
+                  <a href="#method-SubscribeToSummaryLiteDeltas"><code>SubscribeToSummaryLiteDeltas</code></a>
+                </p>
               </section>
             </div>
             <div class="doc-examples">
