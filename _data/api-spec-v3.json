@@ -39,8 +39,7 @@
         "operationId": "Account_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -99,8 +98,7 @@
         "operationId": "Addresses_List",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -175,12 +173,10 @@
         "description": "Request provisioning of a deposit address.",
         "operationId": "Addresses_Create",
         "consumes": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -248,8 +244,7 @@
         "operationId": "Addresses_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -315,8 +310,7 @@
         "operationId": "Balances_List",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/balances",
         "parameters": [
@@ -378,8 +372,7 @@
         "operationId": "Balances_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/balances/{currencyId}",
         "parameters": [
@@ -445,8 +438,7 @@
         "operationId": "Currencies_List",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/currencies",
         "parameters": [
@@ -480,8 +472,7 @@
         "operationId": "Currencies_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/currencies/{currencyId}",
         "parameters": [
@@ -519,8 +510,7 @@
         "operationId": "Deposits_List",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits?status=COMPLETED",
         "parameters": [
@@ -617,8 +607,7 @@
         "operationId": "Deposits_ListPending",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits/pending",
         "parameters": [
@@ -687,8 +676,7 @@
         "operationId": "Deposits_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits/{depositId}",
         "parameters": [
@@ -755,8 +743,7 @@
         "operationId": "Markets_List",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/markets",
         "parameters": [
@@ -790,8 +777,7 @@
         "operationId": "Markets_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}",
         "parameters": [
@@ -829,8 +815,7 @@
         "operationId": "Markets_GetOrderBook",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/orderbook",
         "parameters": [
@@ -880,8 +865,7 @@
         "operationId": "Markets_GetHistory",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/history",
         "parameters": [
@@ -915,8 +899,7 @@
         "operationId": "Markets_GetTicks",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/ticks",
         "parameters": [
@@ -964,8 +947,7 @@
         "operationId": "Orders_List",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders",
         "parameters": [
@@ -1059,12 +1041,10 @@
         "description": "Create a new order.",
         "operationId": "Orders_Create",
         "consumes": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders",
         "parameters": [
@@ -1132,8 +1112,7 @@
         "operationId": "Orders_ListOpen",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/open",
         "parameters": [
@@ -1202,8 +1181,7 @@
         "operationId": "Orders_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}",
         "parameters": [
@@ -1268,8 +1246,7 @@
         "operationId": "Orders_Delete",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}",
         "parameters": [
@@ -1336,8 +1313,7 @@
         "operationId": "Status_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/status",
         "responses": {
@@ -1359,8 +1335,7 @@
         "operationId": "Subaccounts_List",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1435,12 +1410,10 @@
         "description": "Create a new subaccount.",
         "operationId": "Subaccounts_Create",
         "consumes": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts",
         "parameters": [
@@ -1508,8 +1481,7 @@
         "operationId": "Subaccounts_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts/{subaccountId}",
         "parameters": [
@@ -1576,8 +1548,7 @@
         "operationId": "Withdrawals_List",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals",
         "parameters": [
@@ -1672,12 +1643,10 @@
         "description": "Create a new withdrawal.",
         "operationId": "Withdrawals_Create",
         "consumes": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals",
         "parameters": [
@@ -1745,8 +1714,7 @@
         "operationId": "Withdrawals_ListPending",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/pending",
         "parameters": [
@@ -1815,8 +1783,7 @@
         "operationId": "Withdrawals_Get",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}",
         "parameters": [
@@ -1881,8 +1848,7 @@
         "operationId": "Withdrawals_Delete",
         "consumes": [],
         "produces": [
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}",
         "parameters": [
