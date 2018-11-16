@@ -1,0 +1,29 @@
+<div class="doc-row">
+    <div class="doc-copy">
+        {{!-- Query param --}}
+        {{>swagger/parameters parameters=parameters}}
+        {{#if _show_requst_body_section}}
+        {{! The _request_body variable is filled with the parameter `body` by the preprocessor. }}
+        {{>swagger/request-body consumes=consumes body=_request_body}}
+        {{/if}}
+    </div>
+
+    {{! Print examples without whitespace }}
+    <div class="doc-examples">
+        <section>
+            {{#if x-btx-request-example}}
+            <h5>Request Url Example</h5>
+            <pre><code>{{x-btx-request-example}}</code></pre>
+            {{/if}}
+            {{#if consumes}}
+            <h5>Request Content-Types:
+                <span>{{#each consumes}}{{.}}{{#unless @last}}, {{/unless}}{{/each}}</span>
+            </h5>
+            {{/if}}
+            {{#if _show_requst_body_section}}
+            <h5>Request Body Example</h5>
+            {{>swagger/print-example _request_body showReadOnly=false}}
+            {{/if}}
+        </section>
+    </div>
+</div>

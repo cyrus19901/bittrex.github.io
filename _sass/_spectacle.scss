@@ -1,0 +1,40 @@
+@import 'vars';
+
+#spectacle {
+    position: relative;
+
+    #sidebar {
+        height: calc(100vh - #{$header-height});
+        top: $header-height;
+    }
+
+    #nav {
+        a {
+            font-size: 0.9rem;
+            &:not(.active) {
+                color: #797F85;
+                &:hover {
+                    color: #4a5055;
+                }
+            }
+            &.active {
+                color: $blue;
+            }
+        }
+    }
+
+    .drawer-layout {
+        .floating-menu-icon {
+            z-index: $header-z-index + 1;
+            top: calc(#{$header-height} + .75rem);
+        }
+    }
+
+    .swagger-operation-description,
+    .swagger-request-params,
+    .swagger-responses {
+        &::before {
+            color: $blue;
+        }
+    }
+}

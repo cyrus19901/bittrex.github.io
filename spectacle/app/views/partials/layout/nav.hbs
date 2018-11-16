@@ -1,0 +1,76 @@
+{{!--
+  Renders the sidebar navigation
+  @param {object} $context$ the whole swagger definition
+  @api public
+--}}
+<nav id="nav" role="navigation">
+  <h5>Topics</h5>
+  {{#unless info.x-spectacle-hide}}
+    <a href="#introduction">Introduction</a>
+  {{/unless}}
+  
+  {{#if x-spectacle-topics}}
+  {{#each x-spectacle-topics}}
+  <a href="#topic-{{htmlId @key}}">{{@key}}</a>
+  {{/each}}
+  {{/if}}
+
+  {{#if securityDefinitions}}
+   {{#unless securityDefinitions.x-spectacle-hide}}
+     <a href="#authentication">Authentication</a>
+   {{/unless}}
+  {{/if}}
+
+  {{#if showTagSummary}}
+    <h5>Rest API</h5>
+    {{#each tags}}
+      <section>
+        <a href="#tag-{{htmlId name}}">{{name}}</a>
+        <ul>
+          {{#each operations}}
+            <li>
+              <a href="#operation-{{htmlId path}}-{{htmlId method}}" title="{{path}}">
+                {{#if summary}}
+                  {{summary}}
+                {{else}}
+                  {{toUpperCase method}} {{path}}
+                {{/if}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    {{/each}}
+  {{else}}
+    <h5>Rest API</h5>
+    {{#each paths}}
+      {{#each .}}
+          <a href="#operation-{{htmlId path}}-{{htmlId method}}" title="{{path}}">
+            {{#if summary}}
+              {{summary}}
+            {{else}}
+              {{toUpperCase method}} {{path}}
+            {{/if}}
+          </a>
+      {{/each}}
+    {{/each}}
+  {{/if}}
+
+  {{#if x-btx-methods}}
+    <h5>Websocket API</h5>
+    {{#each x-btx-methods}}
+      <a href="#method-{{htmlId @key}}" title="{{@key}}">
+        {{@key}}
+      </a>
+    {{/each}}
+  {{/if}}
+
+  <h5>Schema Definitions</h5>
+  {{#each definitions}}
+    <a href="#definition-{{htmlId @key}}" title="{{@key}}">
+      {{@key}}
+    </a>
+  {{/each}}
+
+
+</nav>

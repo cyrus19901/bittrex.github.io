@@ -1,0 +1,29 @@
+{{!--
+  This partial renders the documentation content
+  @api public
+--}}
+
+<article>
+  <h1 class="doc-title">{{info.title}}
+    <span>API Reference</span>
+  </h1>
+   {{#unless info.x-spectacle-hide}}
+    {{>swagger/introduction}}
+  {{/unless}}
+  {{>swagger/x-spectacle-topics}}
+  {{#unless securityDefinitions.x-spectacle-hide}}
+    {{>swagger/securityDefinitions}}
+  {{/unless}}  
+
+  {{#if showTagSummary}}
+    {{>swagger/tags}}
+  {{else}}
+    {{>swagger/paths}}
+  {{/if}}
+
+  {{#if x-btx-methods}}
+    {{>websocket/x-btx-methods}}
+  {{/if}}
+
+  {{>swagger/definitions definitions=definitions}}
+</article>
