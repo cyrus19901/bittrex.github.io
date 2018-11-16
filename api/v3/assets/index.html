@@ -883,7 +883,7 @@
               <section class="swagger-request-params">
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">include_health:
+                    <div class="prop-title">includeHealth:
                       <span class="prop-type">
                         <span class="json-property-type">boolean</span>
                         <span class="json-property-range" title="Value limits"></span>
@@ -1011,7 +1011,7 @@
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">include_health:
+                    <div class="prop-title">includeHealth:
                       <span class="prop-type">
                         <span class="json-property-type">boolean</span>
                         <span class="json-property-range" title="Value limits"></span>
@@ -1465,7 +1465,7 @@
               <section class="swagger-request-params">
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">include_summary:
+                    <div class="prop-title">includeSummary:
                       <span class="prop-type">
                         <span class="json-property-type">boolean</span>
                         <span class="json-property-range" title="Value limits"></span>
@@ -1601,7 +1601,7 @@
                 </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
-                    <div class="prop-title">include_summary:
+                    <div class="prop-title">includeSummary:
                       <span class="prop-type">
                         <span class="json-property-type">boolean</span>
                         <span class="json-property-range" title="Value limits"></span>
@@ -2671,7 +2671,7 @@
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
   <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;serverTime&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+  <span class="hljs-attr">&quot;serverTime&quot;</span>: <span class="hljs-string">&quot;integer (int64)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
@@ -5105,12 +5105,12 @@
                   </dd>
                   <dt data-property-name="serverTime" class="has-description">
                     <span class="json-property-name">serverTime:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(date-time)</span>
+                    <span class="json-property-type">integer</span>
+                    <span class="json-property-format">(int64)</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
                   <dd>
-                    <p>server time in UTC</p>
+                    <p>server time in epoch millisecond format</p>
                   </dd>
                 </dl>
               </section>
@@ -5120,7 +5120,7 @@
                 <h5>Example</h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
   <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;serverTime&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+  <span class="hljs-attr">&quot;serverTime&quot;</span>: <span class="hljs-string">&quot;integer (int64)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
