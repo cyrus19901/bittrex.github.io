@@ -14,7 +14,7 @@ const jsonic = require('jsonic');
 const zlib = require('zlib');
 
 const client  = new signalR.client (
-  'wss://beta.bittrex.com/signalr',
+  'wss://socket.bittrex.com/signalr',
   ['c2']
 );
 
