@@ -206,8 +206,13 @@ blockquote {
     margin-bottom: 1rem;
     padding: 10px 20px;
     background-color: #FFF8DE;
+    
     border: 0;
     strong {
         color: #75735B;
+    }
+    &,
+    & p {
+        color: #5a5a5a;
     }
 }
