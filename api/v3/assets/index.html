@@ -284,29 +284,30 @@
                 <p>Example Value:</p>
                 <p><code>4894xxxxxxxx407e827d05xxxxxxxxxx</code></p>
                 <h4 id="api-timestamp">Api-Timestamp</h4>
-                <p>Populate this header with the current time represented as an ISO 8601 string.</p>
-                <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> timestamp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toISOString().split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">0</span>]+<span class="hljs-string">'Z'</span>;
+                <p>Populate this header with the current time as a UNIX timestamp, in epoch-millisecond format.</p>
+                <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> timestamp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();
 </code></pre>
                 <p>Example Value:</p>
-                <p><code>2018-11-11T19:09:01Z</code></p>
+                <p><code>1542323450016</code></p>
                 <h4 id="api-content-hash">Api-Content-Hash</h4>
-                <p>Populate this header with a SHA512 hash of the request contents, ASCII-encoded.</p>
+                <p>Populate this header with a SHA512 hash of the request contents, ASCII-encoded. If there are no request contents, populate this header with a SHA512 hash of an empty string.</p>
                 <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> contentHash = CryptoJS.SHA512(content).toString(CryptoJS.enc.ASCII);
 </code></pre>
                 <p>Example Value:</p> <pre><code class="hljs lang-markdown">cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 </code></pre>
                 <h4 id="api-signature">Api-Signature</h4>
-                <p>Create a pre-sign string formed from the following items and joined by comma (,):</p>
+                <p>Create a pre-sign string formed from the following items and concatenating them together:</p>
                 <ol>
                   <li>contents of your Api-Timestamp header</li>
                   <li>the full URI you are using to make the request (including query string)</li>
                   <li>contents of your ApiContent-Hash header</li>
                 </ol>
-                <p>Once you have created this pre-sign string, sign it via HmacSHA512, using your API secret as the signing secret. ASCII-encode the result of this operation and populate the Api-Signature header with it.</p>
-                <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> preSign = [apiTimestamp, uri, contentHash].join(<span class="hljs-string">','</span>);
+                <p>Once you have created this pre-sign string, sign it via HMACSHA512, using your API secret as the signing secret. ASCII-encode the result of this operation and populate the Api-Signature header with it.</p>
+                <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> uri = <span class="hljs-string">'https://api.bittrex.com/v3/balances'</span>;
+<span class="hljs-keyword">var</span> preSign = [timestamp, uri, contentHash].join(<span class="hljs-string">''</span>);
 <span class="hljs-keyword">var</span> signature = CryptoJS.HmacSHA512(preSign, apiSecret).toString(CryptoJS.enc.ASCII);
 </code></pre>
-                <p>Example Pre-Signed Value:</p> <pre><code class="hljs lang-markdown">2018-11-11T19:09:01Z,https://api.bittrex.com/v3/balances,cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
+                <p>Example Pre-Signed Value:</p> <pre><code class="hljs lang-markdown">1542323450016https://api.bittrex.com/v3/balancescf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 </code></pre>
                 <p>Example Post-Signed Value:</p> <pre><code class="hljs lang-markdown">939047623f0efbe10bfbb32f18e5d8885b2a91be3c3cea82adf0dd2d20892b20bcb6a10a91fec3afcedcc009f2b2a86c5366974cfadcf671fe0490582568f51f
 </code></pre> </section>
