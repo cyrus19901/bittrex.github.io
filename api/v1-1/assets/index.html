@@ -191,15 +191,12 @@
               <section class="swagger-security-definition-properties"> </section>
             </div>
             <div class="doc-examples">
-              <section> <pre><code class="hljs lang-bash"><span class="hljs-variable">$apikey</span>=<span class="hljs-string">'xxx'</span>;
-<span class="hljs-variable">$apisecret</span>=<span class="hljs-string">'xxx'</span>;
-<span class="hljs-variable">$nonce</span>=time();
-<span class="hljs-variable">$uri</span>=<span class="hljs-string">'https://api.bittrex.com/api/v1.1/market/getopenorders?apikey='</span>.<span class="hljs-variable">$apikey</span>.<span class="hljs-string">'&amp;nonce='</span>.<span class="hljs-variable">$nonce</span>;
-<span class="hljs-variable">$sign</span>=hash_hmac(<span class="hljs-string">'sha512'</span>,<span class="hljs-variable">$uri</span>,<span class="hljs-variable">$apisecret</span>); 
-<span class="hljs-variable">$ch</span> = curl_init(<span class="hljs-variable">$uri</span>); 
-curl_setopt(<span class="hljs-variable">$ch</span>, CURLOPT_HTTPHEADER, array(<span class="hljs-string">'apisign:'</span>.<span class="hljs-variable">$sign</span>)); 
-<span class="hljs-variable">$execResult</span> = curl_exec(<span class="hljs-variable">$ch</span>); 
-<span class="hljs-variable">$obj</span> = json_decode(<span class="hljs-variable">$execResult</span>);
+              <section> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">const</span> Crypto = <span class="hljs-built_in">require</span>(<span class="hljs-string">'crypto'</span>);
+<span class="hljs-keyword">const</span> message = <span class="hljs-string">'https://api.bittrex.com/api/v1.1/path/call?param=value&amp;apikey=0123456789&amp;nonce=1542020339856'</span>;
+<span class="hljs-keyword">const</span> secret = <span class="hljs-string">'ABCDEFGHIJ'</span>;
+<span class="hljs-keyword">const</span> signature = Crypto.createHmac(<span class="hljs-string">'sha512'</span>, secret)
+        .update(message)
+        .digest(<span class="hljs-string">'hex'</span>);
 </code></pre> </section>
             </div>
           </div>
