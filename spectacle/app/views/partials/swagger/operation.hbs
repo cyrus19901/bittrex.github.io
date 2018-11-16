@@ -15,6 +15,9 @@
     <!-- <section class="operation-tags row"> -->
       <!-- <div class="doc-copy"> -->
       <div class="operation-tags">
+        {{#if x-btx-authenticated}}
+          <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
+        {{/if}}
         {{#each tags}}
           <a class="label" href="#tag-{{htmlId .}}">{{.}}</a><!--{{#unless @last}}, {{/unless}}-->
         {{/each}}

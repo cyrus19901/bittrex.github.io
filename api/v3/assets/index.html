@@ -319,6 +319,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
@@ -340,84 +341,7 @@
             </div>
           </div>
           <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
-              </section>
-            </div>
+            <div class="doc-copy"> </div>
             <div class="doc-examples">
               <section>
                 <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/account</code></pre> </section>
@@ -465,6 +389,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Addresses">Addresses</a>
             <!---->
           </div>
@@ -516,80 +441,6 @@
                   </div>
                   <div class="prop-value">
                     <p>page number to retrieve</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -654,6 +505,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Addresses">Addresses</a>
             <!---->
           </div>
@@ -674,82 +526,6 @@
           </div>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
-              </section>
               <section class="swagger-request-body">
                 <div class="prop-row">
                   <div class="prop-name">
@@ -824,6 +600,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Addresses">Addresses</a>
             <!---->
           </div>
@@ -858,80 +635,6 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of the currency to retrieve the deposit address for</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -984,6 +687,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Balances">Balances</a>
             <!---->
           </div>
@@ -1003,84 +707,7 @@
             </div>
           </div>
           <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
-              </section>
-            </div>
+            <div class="doc-copy"> </div>
             <div class="doc-examples">
               <section>
                 <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/balances</code></pre> </section>
@@ -1142,6 +769,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Balances">Balances</a>
             <!---->
           </div>
@@ -1176,80 +804,6 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of the currency to retrieve the account balance for</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -1532,6 +1086,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Deposits">Deposits</a>
             <!---->
           </div>
@@ -1616,80 +1171,6 @@
                     <p>page number to retrieve</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -1737,7 +1218,7 @@
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
   {
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
     <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -1758,6 +1239,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Deposits">Deposits</a>
             <!---->
           </div>
@@ -1791,80 +1273,6 @@
                   </div>
                   <div class="prop-value">
                     <p>filter by currency ID</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -1914,7 +1322,7 @@
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
   {
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
     <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -1935,6 +1343,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Deposits">Deposits</a>
             <!---->
           </div>
@@ -1963,7 +1372,6 @@
                     <div class="prop-title">depositId:
                       <span class="prop-type">
                         <span class="json-property-type">string</span>
-                        <span class="json-property-format">(uuid)</span>
                         <span class="json-property-range" title="Value limits"></span>
                       </span>
                     </div>
@@ -1971,81 +1379,8 @@
                     <div class="prop-subtitle"> in path </div>
                   </div>
                   <div class="prop-value">
-                    <p>ID of the deposit to retrieve</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
+                    <p>
+                      <em>(guid-formatted string)</em> - ID of the deposit to retrieve</p>
                   </div>
                 </div>
               </section>
@@ -2083,7 +1418,7 @@
                   <span>(200 OK)</span>
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
   <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -2705,6 +2040,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Orders">Orders</a>
             <!---->
           </div>
@@ -2789,80 +2125,6 @@
                     <p>page number to retrieve</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -2910,7 +2172,7 @@
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
   {
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
     <span class="hljs-attr">&quot;marketId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -2938,6 +2200,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Orders">Orders</a>
             <!---->
           </div>
@@ -2958,82 +2221,6 @@
           </div>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
-              </section>
               <section class="swagger-request-body">
                 <div class="prop-row">
                   <div class="prop-name">
@@ -3067,7 +2254,7 @@
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;trigger&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;triggerTargetPrice&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+  <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
@@ -3102,7 +2289,7 @@
                   <span>(200 OK)</span>
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
   <span class="hljs-attr">&quot;marketId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3129,6 +2316,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Orders">Orders</a>
             <!---->
           </div>
@@ -3162,80 +2350,6 @@
                   </div>
                   <div class="prop-value">
                     <p>filter by market ID</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -3285,7 +2399,7 @@
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
   {
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
     <span class="hljs-attr">&quot;marketId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3313,6 +2427,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Orders">Orders</a>
             <!---->
           </div>
@@ -3350,80 +2465,6 @@
                     <p>ID of order to retrieve</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -3459,7 +2500,7 @@
                   <span>(200 OK)</span>
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
   <span class="hljs-attr">&quot;marketId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3486,6 +2527,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Orders">Orders</a>
             <!---->
           </div>
@@ -3521,80 +2563,6 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of order to cancel</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -3713,6 +2681,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Subaccounts">Subaccounts</a>
             <!---->
           </div>
@@ -3764,80 +2733,6 @@
                     <p>page number to retrieve</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -3885,7 +2780,7 @@
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
   {
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
   }
 ]
 </code></pre>
@@ -3898,6 +2793,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Subaccounts">Subaccounts</a>
             <!---->
           </div>
@@ -3918,82 +2814,6 @@
           </div>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
-              </section>
               <section class="swagger-request-body">
                 <div class="prop-row">
                   <div class="prop-name">
@@ -4052,7 +2872,7 @@
                   <span>(200 OK)</span>
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
@@ -4064,6 +2884,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Subaccounts">Subaccounts</a>
             <!---->
           </div>
@@ -4103,80 +2924,6 @@
                     <p>ID of the subaccount to retrieve details for</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -4212,7 +2959,7 @@
                   <span>(200 OK)</span>
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
@@ -4225,6 +2972,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Withdrawals">Withdrawals</a>
             <!---->
           </div>
@@ -4310,80 +3058,6 @@
                     <p>page number to retrieve</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -4431,7 +3105,7 @@
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
   {
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
     <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -4454,6 +3128,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Withdrawals">Withdrawals</a>
             <!---->
           </div>
@@ -4474,82 +3149,6 @@
           </div>
           <div class="doc-row">
             <div class="doc-copy">
-              <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
-              </section>
               <section class="swagger-request-body">
                 <div class="prop-row">
                   <div class="prop-name">
@@ -4613,7 +3212,7 @@
                   <span>(200 OK)</span>
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
   <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -4635,6 +3234,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Withdrawals">Withdrawals</a>
             <!---->
           </div>
@@ -4668,80 +3268,6 @@
                   </div>
                   <div class="prop-value">
                     <p>filter by currency</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -4791,7 +3317,7 @@
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">[
   {
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
     <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -4814,6 +3340,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Withdrawals">Withdrawals</a>
             <!---->
           </div>
@@ -4853,80 +3380,6 @@
                     <p>ID of withdrawal to retrieve</p>
                   </div>
                 </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
-                  </div>
-                </div>
               </section>
             </div>
             <div class="doc-examples">
@@ -4962,7 +3415,7 @@
                   <span>(200 OK)</span>
                 </h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
   <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -4984,6 +3437,7 @@
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Withdrawals">Withdrawals</a>
             <!---->
           </div>
@@ -5019,80 +3473,6 @@
                   </div>
                   <div class="prop-value">
                     <p>ID of withdrawal to cancel</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Key:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>API Key of the account user</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Timestamp:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>current timestamp of request, in ISO 8601 format</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Content-Hash:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Signature:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <span class="json-property-required"></span>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">Api-Subaccount-Id:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in header </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>subaccount ID to use as account context for current request</p>
                   </div>
                 </div>
               </section>
@@ -5709,7 +4089,7 @@
               <section>
                 <h5>Example</h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
   <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -6547,7 +4927,7 @@
               <section>
                 <h5>Example</h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
   <span class="hljs-attr">&quot;marketId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -6692,7 +5072,7 @@
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;trigger&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;triggerTargetPrice&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+  <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
@@ -6768,7 +5148,7 @@
               <section>
                 <h5>Example</h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
@@ -6908,7 +5288,7 @@
               <section>
                 <h5>Example</h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;00000000-0000-0000-0000-000000000000&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
   <span class="hljs-attr">&quot;currencyId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,

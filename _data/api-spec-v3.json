@@ -41,43 +41,8 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
-          }
-        ],
+        "x-btx-authenticated": true,
+        "parameters": [],
         "x-btx-request-example": "https://api.bittrex.com/v3/account",
         "responses": {
           "200": {
@@ -100,6 +65,7 @@
         "produces": [
           "application/json"
         ],
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "pageSize",
@@ -116,41 +82,6 @@
             "required": false,
             "type": "integer",
             "format": "int32"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/addresses",
@@ -178,6 +109,7 @@
         "produces": [
           "application/json"
         ],
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "newAddress",
@@ -187,41 +119,6 @@
             "schema": {
               "$ref": "#/definitions/NewAddress"
             }
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/addresses",
@@ -246,47 +143,13 @@
         "produces": [
           "application/json"
         ],
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "currencyId",
             "in": "path",
             "description": "ID of the currency to retrieve the deposit address for",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
             "type": "string"
           }
         ],
@@ -313,43 +176,8 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/balances",
-        "parameters": [
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
-          }
-        ],
+        "x-btx-authenticated": true,
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -375,47 +203,13 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/balances/{currencyId}",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "currencyId",
             "in": "path",
             "description": "ID of the currency to retrieve the account balance for",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
             "type": "string"
           }
         ],
@@ -513,6 +307,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits?status=COMPLETED",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "status",
@@ -548,41 +343,6 @@
             "required": false,
             "type": "integer",
             "format": "int32"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -610,46 +370,12 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits/pending",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "currencyId",
             "in": "query",
             "description": "filter by currency ID",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
             "required": false,
             "type": "string"
           }
@@ -679,48 +405,13 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits/{depositId}",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "depositId",
             "in": "path",
-            "description": "ID of the deposit to retrieve",
+            "description": "_(guid-formatted string)_ - ID of the deposit to retrieve",
             "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
             "type": "string"
           }
         ],
@@ -950,6 +641,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "status",
@@ -985,41 +677,6 @@
             "required": false,
             "type": "integer",
             "format": "int32"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1047,6 +704,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "newOrder",
@@ -1056,41 +714,6 @@
             "schema": {
               "$ref": "#/definitions/NewOrder"
             }
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1115,46 +738,12 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/open",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "marketId",
             "in": "query",
             "description": "filter by market ID",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
             "required": false,
             "type": "string"
           }
@@ -1184,6 +773,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -1192,41 +782,6 @@
             "required": true,
             "type": "string",
             "format": "uuid"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1249,6 +804,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -1257,41 +813,6 @@
             "required": true,
             "type": "string",
             "format": "uuid"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1337,6 +858,7 @@
         "produces": [
           "application/json"
         ],
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "pageSize",
@@ -1353,41 +875,6 @@
             "required": false,
             "type": "integer",
             "format": "int32"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts",
@@ -1416,6 +903,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "newSubaccount",
@@ -1425,41 +913,6 @@
             "schema": {
               "$ref": "#/definitions/NewSubaccount"
             }
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1484,6 +937,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts/{subaccountId}",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "subaccountId",
@@ -1492,41 +946,6 @@
             "required": true,
             "type": "string",
             "format": "uuid"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1551,6 +970,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "status",
@@ -1587,41 +1007,6 @@
             "required": false,
             "type": "integer",
             "format": "int32"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1649,6 +1034,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "newWithdrawal",
@@ -1658,41 +1044,6 @@
             "schema": {
               "$ref": "#/definitions/NewWithdrawal"
             }
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1717,46 +1068,12 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/pending",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "currencyId",
             "in": "query",
             "description": "filter by currency",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
             "required": false,
             "type": "string"
           }
@@ -1786,6 +1103,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "withdrawalId",
@@ -1794,41 +1112,6 @@
             "required": true,
             "type": "string",
             "format": "uuid"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1851,6 +1134,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}",
+        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "withdrawalId",
@@ -1859,41 +1143,6 @@
             "required": true,
             "type": "string",
             "format": "uuid"
-          },
-          {
-            "name": "Api-Key",
-            "in": "header",
-            "description": "API Key of the account user",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Timestamp",
-            "in": "header",
-            "description": "current timestamp of request, in ISO 8601 format",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Content-Hash",
-            "in": "header",
-            "description": "SHA512 hash of request contents (hash of empty string if no content), ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Signature",
-            "in": "header",
-            "description": "HMACSHA512-signed hash of [timestamp, URI, contentHash] (joined by comma), using API Secret as signing secret, ASCII-encoded",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Api-Subaccount-Id",
-            "in": "header",
-            "description": "subaccount ID to use as account context for current request",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -2114,8 +1363,7 @@
         "id": {
           "format": "uuid",
           "description": "unique ID for this deposit",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+          "type": "string"
         },
         "currencyId": {
           "description": "unique ID of currency being deposited to",
@@ -2430,8 +1678,7 @@
         "id": {
           "format": "uuid",
           "description": "unique ID of this order",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+          "type": "string"
         },
         "marketId": {
           "description": "unique ID of the market this order is being placed on",
@@ -2596,8 +1843,7 @@
         "clientId": {
           "format": "uuid",
           "description": "client-provided identifier for advanced order tracking (NYI)",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+          "type": "string"
         }
       }
     },
@@ -2626,8 +1872,7 @@
         "id": {
           "format": "uuid",
           "description": "unique ID of this subaccount",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+          "type": "string"
         }
       }
     },
@@ -2641,8 +1886,7 @@
         "id": {
           "format": "uuid",
           "description": "unique ID for this withdrawal",
-          "type": "string",
-          "example": "00000000-0000-0000-0000-000000000000"
+          "type": "string"
         },
         "currencyId": {
           "description": "currency to withdraw",
