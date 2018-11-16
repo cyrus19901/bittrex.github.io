@@ -17,12 +17,11 @@
 
 @mixin small-label($color: $alert-color) {
   @include label();
-  // @extend .label.#{$style};
-  background: $color;
-  color: color-pick-contrast($color);
+  color: $color;
   font-size: 0.75rem;
-  border-radius: 4px;
-  padding: 3px 6px;
+  padding: 3px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 @mixin named-label($name, $color: $alert-color) {

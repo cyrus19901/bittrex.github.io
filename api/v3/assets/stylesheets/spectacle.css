@@ -56,11 +56,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
     line-height: 1;
     white-space: nowrap;
     cursor: default;
-    background: #cc4b37;
-    color: #fefefe;
+    color: #cc4b37;
     font-size: 0.75rem;
-    border-radius: 4px;
-    padding: 3px 6px;
+    padding: 3px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
     content: "global"; }
   #spectacle table.table th.swagger-param-key {
     width: auto; }
@@ -215,11 +215,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
     line-height: 1;
     white-space: nowrap;
     cursor: default;
-    background: #cc4b37;
-    color: #fefefe;
+    color: #cc4b37;
     font-size: 0.75rem;
-    border-radius: 4px;
-    padding: 3px 6px;
+    padding: 3px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
     content: "discriminator"; }
   #spectacle .json-property-required:before {
     display: inline-block;
@@ -229,11 +229,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
     line-height: 1;
     white-space: nowrap;
     cursor: default;
-    background: #cc4b37;
-    color: #fefefe;
+    color: #cc4b37;
     font-size: 0.75rem;
-    border-radius: 4px;
-    padding: 3px 6px;
+    padding: 3px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
     content: "required"; }
   #spectacle .json-property-read-only:before {
     display: inline-block;
@@ -243,11 +243,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
     line-height: 1;
     white-space: nowrap;
     cursor: default;
-    background: #cc4b37;
-    color: #fefefe;
+    color: #cc4b37;
     font-size: 0.75rem;
-    border-radius: 4px;
-    padding: 3px 6px;
+    padding: 3px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
     content: "read only"; }
   #spectacle .json-property-format {
     font-style: italic; }
@@ -280,11 +280,11 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
     line-height: 1;
     white-space: nowrap;
     cursor: default;
-    background: #767676;
-    color: #fefefe;
+    color: #767676;
     font-size: 0.75rem;
-    border-radius: 4px;
-    padding: 3px 6px; }
+    padding: 3px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.01em; }
   #spectacle #logo {
     text-align: center;
     padding-right: 0.5rem;
