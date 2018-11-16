@@ -178,28 +178,28 @@
                   </li>
                 </ol>
                 <h4 id="rest-message">REST Message</h4>
-                <p> The <code>message</code> value is obtained by concatenating the full request URL including any query-string parameters, your public API Key, and a user-generated nonce (we recommend a UNIX-style timestamp in epoch millisecond format). Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly:</p> <pre><code class="hljs"> <span class="hljs-attribute">message</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//api.bittrex.com/api/v1.1/path/call?param=value&amp;apikey=0123456789&amp;nonce=1542020339856</span>
- <span class="hljs-attribute">secret</span>: ABCDEFGHIJ 
- <span class="hljs-attribute">hash</span>: FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631
+                <p> The <code>message</code> value is obtained by concatenating the full request URL including any query-string parameters, your public API Key, and a user-generated nonce (we recommend a UNIX-style timestamp in epoch millisecond format). Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly:</p> <pre><code class="hljs lang-markdown"> message: https://api.bittrex.com/api/v1.1/path/call?param=value&amp;apikey=0123456789&amp;nonce=1542020339856
+ secret: ABCDEFGHIJ 
+ hash: FC70DD6467C916FBAA14EB89942644F9CF3F4CBF179923EE677413DC2E1CF2D8C5AA60C85A0A0BB3174960B8AA4FCFB0BC20CDE19BF21D567C671811C52CE631
 </code></pre>
                 <h4 id="websocket-message">Websocket Message</h4>
                 <p> The <code>message</code> value is obtained by calling the Websocket
-                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs"><span class="hljs-symbol"> message:</span> top-secret-and-totally-fake
-<span class="hljs-symbol"> secret:</span> ABCDEFGHIJ
-<span class="hljs-symbol"> hash:</span> <span class="hljs-number">77F</span>F28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061
+                  <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> API. Below are sample values for the message and secret as well as the HMAC yielded if you&#39;ve done everything correctly.</p> <pre><code class="hljs lang-markdown"> message: top-secret-and-totally-fake
+ secret: ABCDEFGHIJ
+ hash: 77FF28CAEDCD944F5E6F0F5DD16B1FFDFC7D5A589B7F2DE4CF722F81EE5580652FA3C85D1EDDE9F497F5B6C792A93DBDBFB9E649D3F9FD7AEBC304C41AA68061
 </code></pre> </section>
               <section class="swagger-security-definition-properties"> </section>
             </div>
             <div class="doc-examples">
-              <section> <pre><code class="hljs">$apikey=<span class="hljs-string">'xxx'</span>;
-$apisecret=<span class="hljs-string">'xxx'</span>;
-$nonce=<span class="hljs-keyword">time</span>();
-$uri=<span class="hljs-string">'https://api.bittrex.com/api/v1.1/market/getopenorders?apikey='</span>.$apikey.<span class="hljs-string">'&amp;nonce='</span>.$nonce;
-$sign=hash_hmac(<span class="hljs-string">'sha512'</span>,$uri,$apisecret); 
-$ch = curl_init($uri); 
-curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="hljs-keyword">array</span>(<span class="hljs-string">'apisign:'</span>.$sign)); 
-$execResult = curl_exec($ch); 
-$obj = json_decode($execResult);
+              <section> <pre><code class="hljs lang-bash"><span class="hljs-variable">$apikey</span>=<span class="hljs-string">'xxx'</span>;
+<span class="hljs-variable">$apisecret</span>=<span class="hljs-string">'xxx'</span>;
+<span class="hljs-variable">$nonce</span>=time();
+<span class="hljs-variable">$uri</span>=<span class="hljs-string">'https://api.bittrex.com/api/v1.1/market/getopenorders?apikey='</span>.<span class="hljs-variable">$apikey</span>.<span class="hljs-string">'&amp;nonce='</span>.<span class="hljs-variable">$nonce</span>;
+<span class="hljs-variable">$sign</span>=hash_hmac(<span class="hljs-string">'sha512'</span>,<span class="hljs-variable">$uri</span>,<span class="hljs-variable">$apisecret</span>); 
+<span class="hljs-variable">$ch</span> = curl_init(<span class="hljs-variable">$uri</span>); 
+curl_setopt(<span class="hljs-variable">$ch</span>, CURLOPT_HTTPHEADER, array(<span class="hljs-string">'apisign:'</span>.<span class="hljs-variable">$sign</span>)); 
+<span class="hljs-variable">$execResult</span> = curl_exec(<span class="hljs-variable">$ch</span>); 
+<span class="hljs-variable">$obj</span> = json_decode(<span class="hljs-variable">$execResult</span>);
 </code></pre> </section>
             </div>
           </div>
@@ -861,6 +861,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Market">Market</a>
             <!---->
           </div>
@@ -976,6 +977,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Market">Market</a>
             <!---->
           </div>
@@ -1091,6 +1093,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Market">Market</a>
             <!---->
           </div>
@@ -1176,6 +1179,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Market">Market</a>
             <!---->
           </div>
@@ -1279,6 +1283,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
@@ -1357,6 +1362,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
@@ -1451,6 +1457,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
@@ -1542,6 +1549,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
@@ -1673,6 +1681,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
@@ -1777,6 +1786,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
@@ -1877,6 +1887,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
@@ -1976,6 +1987,7 @@ $obj = json_decode($execResult);
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
             <a class="label" href="#tag-Account">Account</a>
             <!---->
           </div>
