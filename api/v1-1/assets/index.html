@@ -2157,8 +2157,7 @@
                 <p>Verifies a user&#39;s identity to the server and begins receiving account-level notifications. Users must sign the challenge returned by
                   <a href="#method-GetAuthContext"><code>GetAuthContext</code></a> before calling this function. To receive the account-level notifications enabled by authenticating, the caller must register callbacks for the
                   <a href="#definition-Order-Delta---uO"><code>uO</code></a> and
-                  <a href="#definition-Balance-Delta---uB"><code>uB</code></a> events through their SignalR client. See
-                  <a href="#">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
+                  <a href="#definition-Balance-Delta---uB"><code>uB</code></a> events through their SignalR client.</p>
               </section>
             </div>
           </div>
@@ -2384,8 +2383,7 @@
             <div class="doc-copy">
               <section class="swagger-operation-description">
                 <p>Allows the caller to receive real-time updates to the state of a single market. The caller must register a callback for the
-                  <a href="#definition-Market-Delta---uE"><code>uE</code></a> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See
-                  <a href="">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
+                  <a href="#definition-Market-Delta---uE"><code>uE</code></a> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. </p>
                 <p>
                   <strong>Note:</strong>
                   <em>This feed only contains updates to exchange state. To form a complete picture of exchange state, users must first call
@@ -2465,8 +2463,7 @@
             <div class="doc-copy">
               <section class="swagger-operation-description">
                 <p>Allows the caller to receive real-time updates to the state of all markets. The caller must register a callback for the
-                  <a href="#definition-Summary-Delta---uS"><code>uS</code></a> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur. See
-                  <a href="">Appendix B</a> for event payload details and see the sample code for an example of how to subscribe using the C# SignalR library.</p>
+                  <a href="#definition-Summary-Delta---uS"><code>uS</code></a> event through their SignalR client. Upon subscribing, the callback will be invoked with market deltas as they occur.</p>
                 <p>
                   <strong>Note:</strong>
                   <em>Summary delta callbacks are verbose. A subset of the same data limited to the market name, the last price, and the base currency volume can be obtained via
