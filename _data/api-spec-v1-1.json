@@ -299,7 +299,7 @@
                                 "result": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/definitions/MarketSummary"
+                                        "$ref": "#/definitions/OrderBook"
                                     }
                                 }
                             }
