@@ -1,4 +1,6 @@
 # Bittrex Developers
+URL: [https://bittrex.github.io](https://bittrex.github.io)
+
 
 ## Installation
 1. Install Jekyll
