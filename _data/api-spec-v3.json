@@ -41,7 +41,6 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-authenticated": true,
         "parameters": [],
         "x-btx-request-example": "https://api.bittrex.com/v3/account",
         "responses": {
@@ -51,7 +50,8 @@
               "$ref": "#/definitions/Account"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/addresses": {
@@ -65,25 +65,7 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-authenticated": true,
-        "parameters": [
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "number of items per page (default 100, max 200)",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "description": "page number to retrieve",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
+        "parameters": [],
         "x-btx-request-example": "https://api.bittrex.com/v3/addresses",
         "responses": {
           "200": {
@@ -95,7 +77,8 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       },
       "post": {
         "tags": [
@@ -109,7 +92,6 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "newAddress",
@@ -129,10 +111,11 @@
               "$ref": "#/definitions/Address"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
-    "/addresses/{currencyId}": {
+    "/addresses/{currencySymbol}": {
       "get": {
         "tags": [
           "Addresses"
@@ -143,17 +126,16 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-authenticated": true,
         "parameters": [
           {
-            "name": "currencyId",
+            "name": "currencySymbol",
             "in": "path",
-            "description": "ID of the currency to retrieve the deposit address for",
+            "description": "symbol of the currency to retrieve the deposit address for",
             "required": true,
             "type": "string"
           }
         ],
-        "x-btx-request-example": "https://api.bittrex.com/v3/addresses/{currencyId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/addresses/{currencySymbol}",
         "responses": {
           "200": {
             "description": "OK",
@@ -161,7 +143,8 @@
               "$ref": "#/definitions/Address"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/balances": {
@@ -176,7 +159,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/balances",
-        "x-btx-authenticated": true,
         "parameters": [],
         "responses": {
           "200": {
@@ -188,10 +170,11 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
-    "/balances/{currencyId}": {
+    "/balances/{currencySymbol}": {
       "get": {
         "tags": [
           "Balances"
@@ -202,13 +185,12 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/v3/balances/{currencyId}",
-        "x-btx-authenticated": true,
+        "x-btx-request-example": "https://api.bittrex.com/v3/balances/{currencySymbol}",
         "parameters": [
           {
-            "name": "currencyId",
+            "name": "currencySymbol",
             "in": "path",
-            "description": "ID of the currency to retrieve the account balance for",
+            "description": "unique symbol of the currency to retrieve the account balance for",
             "required": true,
             "type": "string"
           }
@@ -220,7 +202,8 @@
               "$ref": "#/definitions/Balance"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/currencies": {
@@ -235,15 +218,7 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/currencies",
-        "parameters": [
-          {
-            "name": "includeHealth",
-            "in": "query",
-            "description": "Include currency health information in results.",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -257,7 +232,7 @@
         }
       }
     },
-    "/currencies/{currencyId}": {
+    "/currencies/{symbol}": {
       "get": {
         "tags": [
           "Currencies"
@@ -268,21 +243,14 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/v3/currencies/{currencyId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/currencies/{symbol}",
         "parameters": [
           {
-            "name": "currencyId",
+            "name": "symbol",
             "in": "path",
-            "description": "ID of the currency to retrieve",
+            "description": "symbol of the currency to retrieve",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "includeHealth",
-            "in": "query",
-            "description": "Include currency health information in results.",
-            "required": false,
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -307,7 +275,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits?status=COMPLETED",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "status",
@@ -322,27 +289,11 @@
             ]
           },
           {
-            "name": "currencyId",
+            "name": "currencySymbol",
             "in": "query",
-            "description": "filter by currency ID",
+            "description": "filter by currency",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "number of items per page (default 100, max 200)",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "description": "page number to retrieve",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
           }
         ],
         "responses": {
@@ -355,7 +306,8 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/deposits/pending": {
@@ -370,12 +322,11 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits/pending",
-        "x-btx-authenticated": true,
         "parameters": [
           {
-            "name": "currencyId",
+            "name": "currencySymbol",
             "in": "query",
-            "description": "filter by currency ID",
+            "description": "filter by currency",
             "required": false,
             "type": "string"
           }
@@ -390,7 +341,8 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/deposits/{depositId}": {
@@ -405,7 +357,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/deposits/{depositId}",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "depositId",
@@ -422,7 +373,8 @@
               "$ref": "#/definitions/Deposit"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/markets": {
@@ -459,7 +411,7 @@
         }
       }
     },
-    "/markets/{marketId}": {
+    "/markets/{marketName}": {
       "get": {
         "tags": [
           "Markets"
@@ -470,12 +422,12 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}",
         "parameters": [
           {
-            "name": "marketId",
+            "name": "marketName",
             "in": "path",
-            "description": "ID of market to retrieve",
+            "description": "name of market to retrieve",
             "required": true,
             "type": "string"
           },
@@ -497,7 +449,7 @@
         }
       }
     },
-    "/markets/{marketId}/orderbook": {
+    "/markets/{marketName}/orderbook": {
       "get": {
         "tags": [
           "Markets"
@@ -508,12 +460,12 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/orderbook",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/orderbook",
         "parameters": [
           {
-            "name": "marketId",
+            "name": "marketName",
             "in": "path",
-            "description": "ID of market to retrieve order book for",
+            "description": "name of market to retrieve order book for",
             "required": true,
             "type": "string"
           },
@@ -547,7 +499,7 @@
         }
       }
     },
-    "/markets/{marketId}/history": {
+    "/markets/{marketName}/history": {
       "get": {
         "tags": [
           "Markets"
@@ -558,12 +510,12 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/history",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/history",
         "parameters": [
           {
-            "name": "marketId",
+            "name": "marketName",
             "in": "path",
-            "description": "ID of market to retrieve history for",
+            "description": "name of market to retrieve history for",
             "required": true,
             "type": "string"
           }
@@ -581,7 +533,7 @@
         }
       }
     },
-    "/markets/{marketId}/ticks": {
+    "/markets/{marketName}/ticks": {
       "get": {
         "tags": [
           "Markets"
@@ -592,17 +544,17 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketId}/ticks",
+        "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/ticks",
         "parameters": [
           {
-            "name": "marketId",
+            "name": "marketName",
             "in": "path",
-            "description": "ID of market to retrieve ticks for",
+            "description": "name of market to retrieve ticks for",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tick_interval",
+            "name": "tickInterval",
             "in": "query",
             "description": "desired time interval between ticks",
             "required": false,
@@ -641,7 +593,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "status",
@@ -689,7 +640,8 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       },
       "post": {
         "tags": [
@@ -704,7 +656,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "newOrder",
@@ -723,7 +674,8 @@
               "$ref": "#/definitions/Order"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/orders/open": {
@@ -738,7 +690,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/open",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "marketId",
@@ -758,7 +709,8 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/orders/{orderId}": {
@@ -773,7 +725,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -791,7 +742,8 @@
               "$ref": "#/definitions/Order"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       },
       "delete": {
         "tags": [
@@ -804,7 +756,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "orderId",
@@ -822,7 +773,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/status": {
@@ -858,7 +810,6 @@
         "produces": [
           "application/json"
         ],
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "pageSize",
@@ -888,13 +839,14 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       },
       "post": {
         "tags": [
           "Subaccounts"
         ],
-        "description": "Create a new subaccount.",
+        "description": "Create a new subaccount. _(NOTE: This API is limited to partners and not available for traders.)_",
         "operationId": "Subaccounts_Create",
         "consumes": [
           "application/json"
@@ -903,7 +855,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "newSubaccount",
@@ -922,7 +873,8 @@
               "$ref": "#/definitions/Subaccount"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/subaccounts/{subaccountId}": {
@@ -937,7 +889,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts/{subaccountId}",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "subaccountId",
@@ -955,7 +906,8 @@
               "$ref": "#/definitions/Subaccount"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/withdrawals": {
@@ -970,7 +922,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "status",
@@ -986,27 +937,11 @@
             ]
           },
           {
-            "name": "currencyId",
+            "name": "currencySymbol",
             "in": "query",
             "description": "filter by currency",
             "required": false,
             "type": "string"
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "number of items per page (default 100, max 200)",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "description": "page number to retrieve",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
           }
         ],
         "responses": {
@@ -1019,7 +954,8 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       },
       "post": {
         "tags": [
@@ -1034,7 +970,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "newWithdrawal",
@@ -1053,7 +988,8 @@
               "$ref": "#/definitions/Withdrawal"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/withdrawals/pending": {
@@ -1068,10 +1004,9 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/pending",
-        "x-btx-authenticated": true,
         "parameters": [
           {
-            "name": "currencyId",
+            "name": "currencySymbol",
             "in": "query",
             "description": "filter by currency",
             "required": false,
@@ -1088,7 +1023,8 @@
               }
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     },
     "/withdrawals/{withdrawalId}": {
@@ -1103,7 +1039,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "withdrawalId",
@@ -1121,7 +1056,8 @@
               "$ref": "#/definitions/Withdrawal"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       },
       "delete": {
         "tags": [
@@ -1134,7 +1070,6 @@
           "application/json"
         ],
         "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}",
-        "x-btx-authenticated": true,
         "parameters": [
           {
             "name": "withdrawalId",
@@ -1152,7 +1087,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "x-btx-authenticated": true
       }
     }
   },
@@ -1170,21 +1106,6 @@
         }
       }
     },
-    "PaginationParameters": {
-      "type": "object",
-      "properties": {
-        "pageSize": {
-          "format": "int32",
-          "description": "number of items per page (default 100, max 200)",
-          "type": "integer"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "description": "page number to retrieve",
-          "type": "integer"
-        }
-      }
-    },
     "Address": {
       "type": "object",
       "properties": {
@@ -1196,7 +1117,7 @@
           ],
           "type": "string"
         },
-        "currencyId": {
+        "currencySymbol": {
           "description": "the unique ID of the currency this deposit address is for",
           "type": "string"
         },
@@ -1208,11 +1129,11 @@
     },
     "NewAddress": {
       "required": [
-        "currencyId"
+        "currencySymbol"
       ],
       "type": "object",
       "properties": {
-        "currencyId": {
+        "currencySymbol": {
           "description": "the currency ID to provision a new address for",
           "type": "string"
         }
@@ -1221,7 +1142,7 @@
     "Balance": {
       "type": "object",
       "properties": {
-        "currencyId": {
+        "currencySymbol": {
           "description": "unique ID for the currency this balance is associated with",
           "type": "string"
         },
@@ -1234,19 +1155,14 @@
           "format": "double",
           "description": "available amount",
           "type": "number"
-        },
-        "pending": {
-          "format": "double",
-          "description": "reserved amount",
-          "type": "number"
         }
       }
     },
     "Currency": {
       "type": "object",
       "properties": {
-        "id": {
-          "description": "unique ID for this currency",
+        "symbol": {
+          "description": "unique symbol for this currency",
           "type": "string"
         },
         "name": {
@@ -1307,53 +1223,6 @@
           "format": "double",
           "description": "transaction fee for this currency",
           "type": "number"
-        },
-        "health": {
-          "$ref": "#/definitions/CurrencyHealth",
-          "description": "optional health information for this currency"
-        }
-      }
-    },
-    "CurrencyHealth": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "unique ID for this currency",
-          "type": "string"
-        },
-        "depositQueueDepth": {
-          "format": "int32",
-          "description": "deposit queue depth for this currency",
-          "type": "integer"
-        },
-        "withdrawQueueDepth": {
-          "format": "int32",
-          "description": "withdraw queue depth for this currency",
-          "type": "integer"
-        },
-        "blockHeight": {
-          "format": "int64",
-          "description": "block height for this currency",
-          "type": "integer"
-        },
-        "walletBalance": {
-          "format": "double",
-          "description": "wallet balance for this currency",
-          "type": "number"
-        },
-        "walletConnections": {
-          "format": "int32",
-          "description": "optional health information for this currency",
-          "type": "integer"
-        },
-        "checkedAt": {
-          "format": "date-time",
-          "description": "time stamp when this currency's health was lasted checked",
-          "type": "string"
-        },
-        "isActive": {
-          "description": "determines whether the currency is currently active",
-          "type": "boolean"
         }
       }
     },
@@ -1365,8 +1234,8 @@
           "description": "unique ID for this deposit",
           "type": "string"
         },
-        "currencyId": {
-          "description": "unique ID of currency being deposited to",
+        "currencySymbol": {
+          "description": "unique symbol of the currency being deposited to",
           "type": "string"
         },
         "quantity": {
@@ -1411,24 +1280,20 @@
     "Market": {
       "type": "object",
       "properties": {
-        "id": {
-          "description": "unique ID for this market",
-          "type": "string"
-        },
         "name": {
-          "description": "desired sort order",
+          "description": "unique name for this market",
           "type": "string"
         },
-        "baseCurrencyId": {
-          "description": "unique ID for base currency",
+        "baseCurrencySymbol": {
+          "description": "unique symbol for base currency",
           "type": "string"
         },
         "baseCurrencyName": {
           "description": "long name for base currency",
           "type": "string"
         },
-        "quoteCurrencyId": {
-          "description": "unique ID for quote currency",
+        "quoteCurrencySymbol": {
+          "description": "unique symbol for quote currency",
           "type": "string"
         },
         "quoteCurrencyName": {
@@ -1474,8 +1339,8 @@
     "MarketSummary": {
       "type": "object",
       "properties": {
-        "id": {
-          "description": "unique ID for this market",
+        "name": {
+          "description": "unique name for this market",
           "type": "string"
         },
         "high": {
@@ -1608,11 +1473,6 @@
           "description": "price",
           "type": "number"
         },
-        "total": {
-          "format": "double",
-          "description": "total",
-          "type": "number"
-        },
         "fillType": {
           "description": "fill type",
           "enum": [
@@ -1672,6 +1532,21 @@
         }
       }
     },
+    "PaginationParameters": {
+      "type": "object",
+      "properties": {
+        "pageSize": {
+          "format": "int32",
+          "description": "number of items per page (default 100, max 200)",
+          "type": "integer"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "description": "page number to retrieve",
+          "type": "integer"
+        }
+      }
+    },
     "Order": {
       "type": "object",
       "properties": {
@@ -1680,8 +1555,8 @@
           "description": "unique ID of this order",
           "type": "string"
         },
-        "marketId": {
-          "description": "unique ID of the market this order is being placed on",
+        "marketName": {
+          "description": "unique name of the market this order is being placed on",
           "type": "string"
         },
         "direction": {
@@ -1722,7 +1597,6 @@
         "trigger": {
           "description": "trigger specification, if present",
           "enum": [
-            "NONE",
             "GREATER_THAN",
             "LESS_THAN",
             "STOP_LOSS_FIXED",
@@ -1735,9 +1609,9 @@
           "description": "if trigger (price-related) is present, target price for that trigger",
           "type": "number"
         },
-        "quantityRemaining": {
+        "fillQuantity": {
           "format": "double",
-          "description": "quantity remaining",
+          "description": "fill quantity",
           "type": "number"
         },
         "commission": {
@@ -1748,11 +1622,6 @@
         "price": {
           "format": "double",
           "description": "price",
-          "type": "number"
-        },
-        "pricePerUnit": {
-          "format": "double",
-          "description": "price-per-unit",
           "type": "number"
         },
         "status": {
@@ -1778,15 +1647,15 @@
     },
     "NewOrder": {
       "required": [
-        "marketId",
+        "marketName",
         "direction",
         "type",
         "quantity"
       ],
       "type": "object",
       "properties": {
-        "marketId": {
-          "description": "unique ID of the market this order is being placed on",
+        "marketName": {
+          "description": "unique name of the market this order is being placed on",
           "type": "string"
         },
         "direction": {
@@ -1827,7 +1696,6 @@
         "trigger": {
           "description": "trigger specification, if present",
           "enum": [
-            "NONE",
             "GREATER_THAN",
             "LESS_THAN",
             "STOP_LOSS_FIXED",
@@ -1888,8 +1756,8 @@
           "description": "unique ID for this withdrawal",
           "type": "string"
         },
-        "currencyId": {
-          "description": "currency to withdraw",
+        "currencySymbol": {
+          "description": "unique symbol of currency to withdraw",
           "type": "string"
         },
         "quantity": {
@@ -1942,14 +1810,14 @@
     },
     "NewWithdrawal": {
       "required": [
-        "currencyId",
+        "currencySymbol",
         "quantity",
         "address"
       ],
       "type": "object",
       "properties": {
-        "currencyId": {
-          "description": "unique ID of currency to withdraw from",
+        "currencySymbol": {
+          "description": "unique symbol of the currency to withdraw from",
           "type": "string"
         },
         "quantity": {
@@ -1961,8 +1829,8 @@
           "description": "crypto address to withdraw funds to",
           "type": "string"
         },
-        "paymentId": {
-          "description": "payment ID (optional, depends on the currency being withdrawn)",
+        "message": {
+          "description": "custom message (optional, depends on the currency being withdrawn)",
           "type": "string"
         }
       }
