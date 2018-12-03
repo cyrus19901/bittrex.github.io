@@ -2057,17 +2057,13 @@
   <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;&apos;&apos;&quot;</span>,
   <span class="hljs-attr">&quot;result&quot;</span>: [
     {
-      <span class="hljs-attr">&quot;PaymentUuid&quot;</span>: <span class="hljs-string">&quot;b52c7a5c-90c6-4c6e-835c-e16df12708b1&quot;</span>,
+      <span class="hljs-attr">&quot;Id&quot;</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">&quot;Amount&quot;</span>: <span class="hljs-number">2.12345678</span>,
       <span class="hljs-attr">&quot;Currency&quot;</span>: <span class="hljs-string">&quot;BTC&quot;</span>,
-      <span class="hljs-attr">&quot;Amount&quot;</span>: <span class="hljs-number">0.00156121</span>,
-      <span class="hljs-attr">&quot;Address&quot;</span>: <span class="hljs-string">&quot;1DeaaFBdbB5nrHj87x3NHS4onvw1GPNyAu&quot;</span>,
-      <span class="hljs-attr">&quot;Opened&quot;</span>: <span class="hljs-string">&quot;2014-07-11T03:41:25.323&quot;</span>,
-      <span class="hljs-attr">&quot;Authorized&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-      <span class="hljs-attr">&quot;PendingPayment&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-      <span class="hljs-attr">&quot;TxCost&quot;</span>: <span class="hljs-number">0.0002</span>,
-      <span class="hljs-attr">&quot;TxId&quot;</span>: <span class="hljs-string">&quot;b4a575c2a71c7e56d02ab8e26bb1ef0a2f6cf2094f6ca2116476a569c1e84f6e&quot;</span>,
-      <span class="hljs-attr">&quot;Canceled&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-      <span class="hljs-attr">&quot;InvalidAddress&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;Confirmations&quot;</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-attr">&quot;LastUpdated&quot;</span>: <span class="hljs-string">&quot;2014-02-13T07:38:53.883&quot;</span>,
+      <span class="hljs-attr">&quot;TxId&quot;</span>: <span class="hljs-string">&quot;e26d3b33fcfc2cb0c74d0938034956ea590339170bf4102f080eab4b85da9bde&quot;</span>,
+      <span class="hljs-attr">&quot;CryptoAddress&quot;</span>: <span class="hljs-string">&quot;15VyEAT4uf7ycrNWZVb1eGMzrs21BH95Va&quot;</span>
     }
   ]
 }
@@ -3498,15 +3494,10 @@
             <div class="doc-copy">
               <section class="json-schema-properties">
                 <dl>
-                  <dt data-property-name="PaymentUuid">
-                    <span class="json-property-name">PaymentUuid:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(uuid)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dt data-property-name="Currency">
-                    <span class="json-property-name">Currency:</span>
-                    <span class="json-property-type">string</span>
+                  <dt data-property-name="Id">
+                    <span class="json-property-name">Id:</span>
+                    <span class="json-property-type">number</span>
+                    <span class="json-property-format">(integer)</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
                   <dt data-property-name="Amount">
@@ -3515,31 +3506,20 @@
                     <span class="json-property-format">(double)</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
-                  <dt data-property-name="Address">
-                    <span class="json-property-name">Address:</span>
+                  <dt data-property-name="Currency">
+                    <span class="json-property-name">Currency:</span>
                     <span class="json-property-type">string</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
-                  <dt data-property-name="Opened">
-                    <span class="json-property-name">Opened:</span>
+                  <dt data-property-name="Confirmations">
+                    <span class="json-property-name">Confirmations:</span>
+                    <span class="json-property-type">number</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dt data-property-name="LastUpdated">
+                    <span class="json-property-name">LastUpdated:</span>
                     <span class="json-property-type">string</span>
                     <span class="json-property-format">(date-time)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dt data-property-name="Authorized">
-                    <span class="json-property-name">Authorized:</span>
-                    <span class="json-property-type">boolean</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dt data-property-name="PendingPayment">
-                    <span class="json-property-name">PendingPayment:</span>
-                    <span class="json-property-type">boolean</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dt data-property-name="TxCost">
-                    <span class="json-property-name">TxCost:</span>
-                    <span class="json-property-type">number</span>
-                    <span class="json-property-format">(double)</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
                   <dt data-property-name="TxId">
@@ -3547,14 +3527,9 @@
                     <span class="json-property-type">string</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
-                  <dt data-property-name="Canceled">
-                    <span class="json-property-name">Canceled:</span>
-                    <span class="json-property-type">boolean</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dt data-property-name="InvalidAddress">
-                    <span class="json-property-name">InvalidAddress:</span>
-                    <span class="json-property-type">boolean</span>
+                  <dt data-property-name="CryptoAddress">
+                    <span class="json-property-name">CryptoAddress:</span>
+                    <span class="json-property-type">string</span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
                 </dl>
@@ -3564,17 +3539,13 @@
               <section>
                 <h5>Example</h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;PaymentUuid&quot;</span>: <span class="hljs-string">&quot;b52c7a5c-90c6-4c6e-835c-e16df12708b1&quot;</span>,
+  <span class="hljs-attr">&quot;Id&quot;</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">&quot;Amount&quot;</span>: <span class="hljs-number">2.12345678</span>,
   <span class="hljs-attr">&quot;Currency&quot;</span>: <span class="hljs-string">&quot;BTC&quot;</span>,
-  <span class="hljs-attr">&quot;Amount&quot;</span>: <span class="hljs-number">0.00156121</span>,
-  <span class="hljs-attr">&quot;Address&quot;</span>: <span class="hljs-string">&quot;1DeaaFBdbB5nrHj87x3NHS4onvw1GPNyAu&quot;</span>,
-  <span class="hljs-attr">&quot;Opened&quot;</span>: <span class="hljs-string">&quot;2014-07-11T03:41:25.323&quot;</span>,
-  <span class="hljs-attr">&quot;Authorized&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;PendingPayment&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;TxCost&quot;</span>: <span class="hljs-number">0.0002</span>,
-  <span class="hljs-attr">&quot;TxId&quot;</span>: <span class="hljs-string">&quot;b4a575c2a71c7e56d02ab8e26bb1ef0a2f6cf2094f6ca2116476a569c1e84f6e&quot;</span>,
-  <span class="hljs-attr">&quot;Canceled&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;InvalidAddress&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  <span class="hljs-attr">&quot;Confirmations&quot;</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">&quot;LastUpdated&quot;</span>: <span class="hljs-string">&quot;2014-02-13T07:38:53.883&quot;</span>,
+  <span class="hljs-attr">&quot;TxId&quot;</span>: <span class="hljs-string">&quot;e26d3b33fcfc2cb0c74d0938034956ea590339170bf4102f080eab4b85da9bde&quot;</span>,
+  <span class="hljs-attr">&quot;CryptoAddress&quot;</span>: <span class="hljs-string">&quot;15VyEAT4uf7ycrNWZVb1eGMzrs21BH95Va&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
