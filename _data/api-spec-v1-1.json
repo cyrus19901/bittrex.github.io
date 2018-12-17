@@ -1173,15 +1173,7 @@
             "deprecated": false,
             "tags": [],
             "security": null,
-            "parameters": [
-                {
-                    "name": "marketName",
-                    "type": "string",
-                    "in": "",
-                    "description": "the market identifier (e.g. BTC-ETH)",
-                    "required": true
-                }
-            ],
+            "parameters": [],
             "x-btx-request-example": "https://socket.bittrex.com/signalr",
             "responses": {
                 "Success": {
@@ -1206,15 +1198,7 @@
             "deprecated": false,
             "tags": [],
             "security": null,
-            "parameters": [
-                {
-                    "name": "marketName",
-                    "type": "string",
-                    "in": "",
-                    "description": "the market identifier (e.g. BTC-ETH)",
-                    "required": true
-                }
-            ],
+            "parameters": [],
             "x-btx-request-example": "https://socket.bittrex.com/signalr",
             "responses": {
                 "Success": {
