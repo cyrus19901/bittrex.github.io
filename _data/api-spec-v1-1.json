@@ -464,7 +464,7 @@
                     }
                 ],
                 "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/api/v1.1/market/buylimit?apikey=API_KEY&uuid=ORDER_UUID",
+                "x-btx-request-example": "https://api.bittrex.com/api/v1.1/market/cancel?apikey=API_KEY&uuid=ORDER_UUID",
                 "responses": {
                     "200": {
                         "description": "Success",
