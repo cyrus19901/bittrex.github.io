@@ -846,7 +846,7 @@
         "tags": [
           "Subaccounts"
         ],
-        "description": "Create a new subaccount. _(NOT YET IMPLEMENTED)_",
+        "description": "Create a new subaccount.",
         "operationId": "Subaccounts_Create",
         "consumes": [
           "application/json"
