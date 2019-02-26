@@ -1399,33 +1399,6 @@
                     "format": "double",
                     "description": "rate",
                     "type": "number"
-                },
-                "fillType": {
-                    "description": "fill type",
-                    "enum": [
-                        "OPEN",
-                        "PARTIAL_FILL",
-                        "FILL"
-                    ],
-                    "type": "string"
-                },
-                "orderDirection": {
-                    "description": "direction of order",
-                    "enum": [
-                        "BUY",
-                        "SELL"
-                    ],
-                    "type": "string"
-                },
-                "orderType": {
-                    "description": "order type",
-                    "enum": [
-                        "LIMIT",
-                        "MARKET",
-                        "CEILING_LIMIT",
-                        "CEILING_MARKET"
-                    ],
-                    "type": "string"
                 }
             }
         },
@@ -1509,9 +1482,7 @@
                     "description": "order type",
                     "enum": [
                         "LIMIT",
-                        "MARKET",
-                        "CEILING_LIMIT",
-                        "CEILING_MARKET"
+                        "MARKET"
                     ],
                     "type": "string"
                 },
@@ -1525,20 +1496,12 @@
                     "description": "limit price, if present",
                     "type": "number"
                 },
-                "ceiling": {
-                    "format": "double",
-                    "description": "ceiling, if present",
-                    "type": "number"
-                },
                 "timeInForce": {
                     "description": "time in force",
                     "enum": [
                         "GOOD_TIL_CANCELLED",
-                        "GOOD_UNTIL_DATE",
                         "IMMEDIATE_OR_CANCEL",
-                        "FILL_OR_KILL",
-                        "POST_ONLY_GOOD_TIL_CANCELED",
-                        "POST_ONLY_GOOD_UNTIL_DATE"
+                        "FILL_OR_KILL"
                     ],
                     "type": "string"
                 },
@@ -1603,9 +1566,7 @@
                     "description": "order type",
                     "enum": [
                         "LIMIT",
-                        "MARKET",
-                        "CEILING_LIMIT",
-                        "CEILING_MARKET"
+                        "MARKET"
                     ],
                     "type": "string"
                 },
@@ -1619,20 +1580,12 @@
                     "description": "limit, if present",
                     "type": "number"
                 },
-                "ceiling": {
-                    "format": "double",
-                    "description": "ceiling, if present",
-                    "type": "number"
-                },
                 "timeInForce": {
                     "description": "time in force",
                     "enum": [
                         "GOOD_TIL_CANCELLED",
-                        "GOOD_UNTIL_DATE",
                         "IMMEDIATE_OR_CANCEL",
-                        "FILL_OR_KILL",
-                        "POST_ONLY_GOOD_TIL_CANCELED",
-                        "POST_ONLY_GOOD_UNTIL_DATE"
+                        "FILL_OR_KILL"
                     ],
                     "type": "string"
                 },

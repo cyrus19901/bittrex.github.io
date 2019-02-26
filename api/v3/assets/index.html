@@ -1797,10 +1797,7 @@
     <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
     <span class="hljs-attr">&quot;filledAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-    <span class="hljs-attr">&quot;rate&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-    <span class="hljs-attr">&quot;fillType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;orderDirection&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;orderType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    <span class="hljs-attr">&quot;rate&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>
   }
 ]
 </code></pre>
@@ -2076,7 +2073,6 @@
     <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-    <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -2147,7 +2143,6 @@
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
@@ -2190,7 +2185,6 @@
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -2298,7 +2292,6 @@
     <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-    <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -2398,7 +2391,6 @@
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -4248,45 +4240,6 @@
                   <dd>
                     <p>rate</p>
                   </dd>
-                  <dt data-property-name="fillType" class="has-description">
-                    <span class="json-property-name">fillType:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-enum" title="Possible values">
-                      <span class="json-property-enum-item">OPEN</span>,
-                      <span class="json-property-enum-item">PARTIAL_FILL</span>,
-                      <span class="json-property-enum-item">FILL</span>
-                    </span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>fill type</p>
-                  </dd>
-                  <dt data-property-name="orderDirection" class="has-description">
-                    <span class="json-property-name">orderDirection:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-enum" title="Possible values">
-                      <span class="json-property-enum-item">BUY</span>,
-                      <span class="json-property-enum-item">SELL</span>
-                    </span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>direction of order</p>
-                  </dd>
-                  <dt data-property-name="orderType" class="has-description">
-                    <span class="json-property-name">orderType:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-enum" title="Possible values">
-                      <span class="json-property-enum-item">LIMIT</span>,
-                      <span class="json-property-enum-item">MARKET</span>,
-                      <span class="json-property-enum-item">CEILING_LIMIT</span>,
-                      <span class="json-property-enum-item">CEILING_MARKET</span>
-                    </span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>order type</p>
-                  </dd>
                 </dl>
               </section>
             </div>
@@ -4297,10 +4250,7 @@
   <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
   <span class="hljs-attr">&quot;filledAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;rate&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;fillType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;orderDirection&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;orderType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  <span class="hljs-attr">&quot;rate&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
@@ -4481,9 +4431,7 @@
                     <span class="json-property-type">string</span>
                     <span class="json-property-enum" title="Possible values">
                       <span class="json-property-enum-item">LIMIT</span>,
-                      <span class="json-property-enum-item">MARKET</span>,
-                      <span class="json-property-enum-item">CEILING_LIMIT</span>,
-                      <span class="json-property-enum-item">CEILING_MARKET</span>
+                      <span class="json-property-enum-item">MARKET</span>
                     </span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
@@ -4508,25 +4456,13 @@
                   <dd>
                     <p>limit price, if present</p>
                   </dd>
-                  <dt data-property-name="ceiling" class="has-description">
-                    <span class="json-property-name">ceiling:</span>
-                    <span class="json-property-type">number</span>
-                    <span class="json-property-format">(double)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>ceiling, if present</p>
-                  </dd>
                   <dt data-property-name="timeInForce" class="has-description">
                     <span class="json-property-name">timeInForce:</span>
                     <span class="json-property-type">string</span>
                     <span class="json-property-enum" title="Possible values">
                       <span class="json-property-enum-item">GOOD_TIL_CANCELLED</span>,
-                      <span class="json-property-enum-item">GOOD_UNTIL_DATE</span>,
                       <span class="json-property-enum-item">IMMEDIATE_OR_CANCEL</span>,
-                      <span class="json-property-enum-item">FILL_OR_KILL</span>,
-                      <span class="json-property-enum-item">POST_ONLY_GOOD_TIL_CANCELED</span>,
-                      <span class="json-property-enum-item">POST_ONLY_GOOD_UNTIL_DATE</span>
+                      <span class="json-property-enum-item">FILL_OR_KILL</span>
                     </span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
@@ -4605,7 +4541,6 @@
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -4654,9 +4589,7 @@
                     <span class="json-property-type">string</span>
                     <span class="json-property-enum" title="Possible values">
                       <span class="json-property-enum-item">LIMIT</span>,
-                      <span class="json-property-enum-item">MARKET</span>,
-                      <span class="json-property-enum-item">CEILING_LIMIT</span>,
-                      <span class="json-property-enum-item">CEILING_MARKET</span>
+                      <span class="json-property-enum-item">MARKET</span>
                     </span>
                     <span class="json-property-range" title="Value limits"></span>
                     <span class="json-property-required"></span>
@@ -4682,25 +4615,13 @@
                   <dd>
                     <p>limit, if present</p>
                   </dd>
-                  <dt data-property-name="ceiling" class="has-description">
-                    <span class="json-property-name">ceiling:</span>
-                    <span class="json-property-type">number</span>
-                    <span class="json-property-format">(double)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>ceiling, if present</p>
-                  </dd>
                   <dt data-property-name="timeInForce" class="has-description">
                     <span class="json-property-name">timeInForce:</span>
                     <span class="json-property-type">string</span>
                     <span class="json-property-enum" title="Possible values">
                       <span class="json-property-enum-item">GOOD_TIL_CANCELLED</span>,
-                      <span class="json-property-enum-item">GOOD_UNTIL_DATE</span>,
                       <span class="json-property-enum-item">IMMEDIATE_OR_CANCEL</span>,
-                      <span class="json-property-enum-item">FILL_OR_KILL</span>,
-                      <span class="json-property-enum-item">POST_ONLY_GOOD_TIL_CANCELED</span>,
-                      <span class="json-property-enum-item">POST_ONLY_GOOD_UNTIL_DATE</span>
+                      <span class="json-property-enum-item">FILL_OR_KILL</span>
                     </span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
@@ -4728,7 +4649,6 @@
   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;clientId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
