@@ -3,7 +3,7 @@
     "info": {
         "version": "v3",
         "title": "Bittrex API",
-        "description": "Bittrex provides a simple and powerful API consisting of REST endpoints for transactional operations and a complementary Websocket service providing streaming market, order, and balance updates.\n\n Access to and use of the API is governed by our Terms of Service.\n If you are a user of Bittrex.com, the applicable Terms of Service are available [here](https://support.bittrex.com/hc/en-us/articles/360000560871).\n If you are a user of Bittrex International, the applicable Terms of Service are available [here](https://support.bittrex.com/hc/en-us/articles/360001411486).\n\n If you have any API questions, feedback, or recommendations please post a question via our [support center](https://support.bittrex.com)."
+        "description": "API for interacting with the bittrex.com exchange"
     },
     "host": "api.bittrex.com",
     "basePath": "/v3",
@@ -16,13 +16,12 @@
                 "tags": [
                     "Account"
                 ],
-                "description": "Retrieve account information. _(NOT YET IMPLEMENTED)_",
+                "description": "Retrieve account information.",
                 "operationId": "Account_Get",
                 "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -31,8 +30,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/account"
+                "x-btx-authenticated": true
             }
         },
         "/addresses": {
@@ -46,7 +44,6 @@
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -58,8 +55,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/addresses"
+                "x-btx-authenticated": true
             },
             "post": {
                 "tags": [
@@ -92,8 +88,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/addresses"
+                "x-btx-authenticated": true
             }
         },
         "/addresses/{currencySymbol}": {
@@ -124,8 +119,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/addresses/{currencySymbol}"
+                "x-btx-authenticated": true
             }
         },
         "/balances": {
@@ -139,7 +133,6 @@
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -151,8 +144,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/balances"
+                "x-btx-authenticated": true
             }
         },
         "/balances/{currencySymbol}": {
@@ -183,8 +175,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/balances/{currencySymbol}"
+                "x-btx-authenticated": true
             }
         },
         "/currencies": {
@@ -198,7 +189,6 @@
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -209,8 +199,7 @@
                             }
                         }
                     }
-                },
-                "x-btx-request-example": "https://api.bittrex.com/v3/currencies"
+                }
             }
         },
         "/currencies/{symbol}": {
@@ -240,8 +229,7 @@
                             "$ref": "#/definitions/Currency"
                         }
                     }
-                },
-                "x-btx-request-example": "https://api.bittrex.com/v3/currencies/{symbol}"
+                }
             }
         },
         "/deposits": {
@@ -265,7 +253,7 @@
                         "enum": [
                             "PENDING",
                             "COMPLETED",
-                            "ERROR"
+                            "ERROR_CONTACT_SUPPORT"
                         ]
                     },
                     {
@@ -287,8 +275,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/deposits?status=COMPLETED"
+                "x-btx-authenticated": true
             }
         },
         "/deposits/pending": {
@@ -322,8 +309,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/deposits/pending"
+                "x-btx-authenticated": true
             }
         },
         "/deposits/{depositId}": {
@@ -341,9 +327,10 @@
                     {
                         "name": "depositId",
                         "in": "path",
-                        "description": "_(guid-formatted string)_ - ID of the deposit to retrieve",
+                        "description": "ID of the deposit to retrieve",
                         "required": true,
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     }
                 ],
                 "responses": {
@@ -354,8 +341,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/deposits/{depositId}"
+                "x-btx-authenticated": true
             }
         },
         "/markets": {
@@ -388,8 +374,7 @@
                             }
                         }
                     }
-                },
-                "x-btx-request-example": "https://api.bittrex.com/v3/markets"
+                }
             }
         },
         "/markets/{marketName}": {
@@ -426,8 +411,7 @@
                             "$ref": "#/definitions/Market"
                         }
                     }
-                },
-                "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}"
+                }
             }
         },
         "/markets/{marketName}/orderbook": {
@@ -476,8 +460,7 @@
                             "$ref": "#/definitions/OrderBook"
                         }
                     }
-                },
-                "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/orderbook"
+                }
             }
         },
         "/markets/{marketName}/history": {
@@ -510,8 +493,7 @@
                             }
                         }
                     }
-                },
-                "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/history"
+                }
             }
         },
         "/markets/{marketName}/ticks": {
@@ -558,8 +540,7 @@
                             }
                         }
                     }
-                },
-                "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/ticks"
+                }
             }
         },
         "/orders": {
@@ -582,8 +563,9 @@
                         "type": "string",
                         "enum": [
                             "OPEN",
-                            "FILLED",
-                            "CANCELLED"
+                            "COMPLETED",
+                            "CANCELLED",
+                            "ERROR"
                         ]
                     },
                     {
@@ -621,8 +603,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/orders"
+                "x-btx-authenticated": true
             },
             "post": {
                 "tags": [
@@ -655,8 +636,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/orders"
+                "x-btx-authenticated": true
             }
         },
         "/orders/open": {
@@ -690,8 +670,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/orders/open"
+                "x-btx-authenticated": true
             }
         },
         "/orders/{orderId}": {
@@ -723,8 +702,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}"
+                "x-btx-authenticated": true
             },
             "delete": {
                 "tags": [
@@ -754,8 +732,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}"
+                "x-btx-authenticated": true
             }
         },
         "/status": {
@@ -776,8 +753,7 @@
                             "$ref": "#/definitions/ServiceStatus"
                         }
                     }
-                },
-                "x-btx-request-example": "https://api.bittrex.com/v3/status"
+                }
             }
         },
         "/subaccounts": {
@@ -785,7 +761,7 @@
                 "tags": [
                     "Subaccounts"
                 ],
-                "description": "List subaccounts. _(NOT YET IMPLEMENTED)_",
+                "description": "List subaccounts. (NOT YET IMPLEMENTED)",
                 "operationId": "Subaccounts_List",
                 "consumes": [],
                 "produces": [
@@ -820,14 +796,13 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts"
+                "x-btx-authenticated": true
             },
             "post": {
                 "tags": [
                     "Subaccounts"
                 ],
-                "description": "Create a new subaccount.",
+                "description": "Create a new subaccount. _(NOTE: This API is limited to partners and not available for traders.)_",
                 "operationId": "Subaccounts_Create",
                 "consumes": [
                     "application/json"
@@ -854,8 +829,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts"
+                "x-btx-authenticated": true
             }
         },
         "/subaccounts/{subaccountId}": {
@@ -887,8 +861,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts/{subaccountId}"
+                "x-btx-authenticated": true
             }
         },
         "/withdrawals": {
@@ -911,9 +884,11 @@
                         "type": "string",
                         "enum": [
                             "PENDING",
+                            "AUTHORIZED",
                             "COMPLETED",
-                            "CANCELLED",
-                            "ERROR"
+                            "ERROR_CONTACT_SUPPORT",
+                            "ERROR_INVALID_ADDRESS",
+                            "CANCELLED"
                         ]
                     },
                     {
@@ -935,8 +910,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals"
+                "x-btx-authenticated": true
             },
             "post": {
                 "tags": [
@@ -969,8 +943,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals"
+                "x-btx-authenticated": true
             }
         },
         "/withdrawals/pending": {
@@ -1004,8 +977,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/pending"
+                "x-btx-authenticated": true
             }
         },
         "/withdrawals/{withdrawalId}": {
@@ -1037,8 +1009,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}"
+                "x-btx-authenticated": true
             },
             "delete": {
                 "tags": [
@@ -1068,8 +1039,7 @@
                         }
                     }
                 },
-                "x-btx-authenticated": true,
-                "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/{withdrawalId}"
+                "x-btx-authenticated": true
             }
         }
     },
@@ -1078,12 +1048,18 @@
             "type": "object",
             "properties": {
                 "id": {
+                    "format": "uuid",
                     "description": "the account ID associated with this API key / user",
-                    "type": "string"
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
                 },
                 "email": {
                     "description": "the email address associated with this API key / user",
                     "type": "string"
+                },
+                "isInternational": {
+                    "description": "true if this account has access to international markets, false otherwise",
+                    "type": "boolean"
                 }
             }
         },
@@ -1156,36 +1132,16 @@
                 },
                 "coinType": {
                     "description": "coin type of this currency",
-                    "enum": [
-                        "ADA",
-                        "ANTSHARES",
-                        "BITCOIN",
-                        "BITCOIN_PERCENTAGE_FEE",
-                        "BITCOIN_STEALTH",
-                        "BITSHAREX",
-                        "CRYPTO_NOTE",
-                        "CRYPTO_NOTE_PAYMENTID",
-                        "ETH",
-                        "ETH_CONTRACT",
-                        "FIAT",
-                        "LISK",
-                        "LUMEN",
-                        "NEM",
-                        "NXT",
-                        "NXT_ASSET",
-                        "NXT_MS",
-                        "OMNI",
-                        "RIPPLE",
-                        "STEEM",
-                        "TRON",
-                        "WAVES",
-                        "WAVES_ASSET"
-                    ],
                     "type": "string"
                 },
-                "isActive": {
-                    "description": "determines whether this currency is currently active",
-                    "type": "boolean"
+                "status": {
+                    "description": "currency status (online, offline, etc.)",
+                    "enum": [
+                        "ONLINE",
+                        "OFFLINE",
+                        "ERROR"
+                    ],
+                    "type": "string"
                 },
                 "isInternational": {
                     "description": "true if this market is restricted to international users",
@@ -1213,7 +1169,8 @@
                 "id": {
                     "format": "uuid",
                     "description": "unique ID for this deposit",
-                    "type": "string"
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
                 },
                 "currencySymbol": {
                     "description": "unique symbol of the currency being deposited to",
@@ -1252,7 +1209,7 @@
                     "enum": [
                         "PENDING",
                         "COMPLETED",
-                        "ERROR"
+                        "ERROR_CONTACT_SUPPORT"
                     ],
                     "type": "string"
                 }
@@ -1286,9 +1243,14 @@
                     "description": "minimum trade size",
                     "type": "number"
                 },
-                "isActive": {
+                "status": {
                     "description": "true if this market is currently active",
-                    "type": "boolean"
+                    "enum": [
+                        "ONLINE",
+                        "OFFLINE",
+                        "ERROR"
+                    ],
+                    "type": "string"
                 },
                 "isInternational": {
                     "description": "true if this market is restricted to international users",
@@ -1403,22 +1365,6 @@
         "OrderBookEntry": {
             "type": "object",
             "properties": {
-                "orderDirection": {
-                    "description": "order direction",
-                    "enum": [
-                        "BUY",
-                        "SELL"
-                    ],
-                    "type": "string"
-                },
-                "orderType": {
-                    "description": "order type",
-                    "enum": [
-                        "LIMIT",
-                        "MARKET"
-                    ],
-                    "type": "string"
-                },
                 "quantity": {
                     "format": "double",
                     "description": "quantity",
@@ -1449,9 +1395,9 @@
                     "description": "quantity",
                     "type": "number"
                 },
-                "price": {
+                "rate": {
                     "format": "double",
-                    "description": "price",
+                    "description": "rate",
                     "type": "number"
                 },
                 "fillType": {
@@ -1468,6 +1414,16 @@
                     "enum": [
                         "BUY",
                         "SELL"
+                    ],
+                    "type": "string"
+                },
+                "orderType": {
+                    "description": "order type",
+                    "enum": [
+                        "LIMIT",
+                        "MARKET",
+                        "CEILING_LIMIT",
+                        "CEILING_MARKET"
                     ],
                     "type": "string"
                 }
@@ -1534,7 +1490,8 @@
                 "id": {
                     "format": "uuid",
                     "description": "unique ID of this order",
-                    "type": "string"
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
                 },
                 "marketName": {
                     "description": "unique name of the market this order is being placed on",
@@ -1552,7 +1509,9 @@
                     "description": "order type",
                     "enum": [
                         "LIMIT",
-                        "MARKET"
+                        "MARKET",
+                        "CEILING_LIMIT",
+                        "CEILING_MARKET"
                     ],
                     "type": "string"
                 },
@@ -1566,29 +1525,22 @@
                     "description": "limit price, if present",
                     "type": "number"
                 },
+                "ceiling": {
+                    "format": "double",
+                    "description": "ceiling, if present",
+                    "type": "number"
+                },
                 "timeInForce": {
                     "description": "time in force",
                     "enum": [
                         "GOOD_TIL_CANCELLED",
+                        "GOOD_UNTIL_DATE",
                         "IMMEDIATE_OR_CANCEL",
-                        "FILL_OR_KILL"
+                        "FILL_OR_KILL",
+                        "POST_ONLY_GOOD_TIL_CANCELED",
+                        "POST_ONLY_GOOD_UNTIL_DATE"
                     ],
                     "type": "string"
-                },
-                "trigger": {
-                    "description": "trigger specification, if present",
-                    "enum": [
-                        "GREATER_THAN",
-                        "LESS_THAN",
-                        "STOP_LOSS_FIXED",
-                        "STOP_LOSS_PERCENTAGE"
-                    ],
-                    "type": "string"
-                },
-                "triggerTargetPrice": {
-                    "format": "double",
-                    "description": "if trigger (price-related) is present, target price for that trigger",
-                    "type": "number"
                 },
                 "fillQuantity": {
                     "format": "double",
@@ -1600,17 +1552,18 @@
                     "description": "commission",
                     "type": "number"
                 },
-                "price": {
+                "rate": {
                     "format": "double",
-                    "description": "price",
+                    "description": "rate",
                     "type": "number"
                 },
                 "status": {
                     "description": "order status",
                     "enum": [
                         "OPEN",
-                        "FILLED",
-                        "CANCELLED"
+                        "COMPLETED",
+                        "CANCELLED",
+                        "ERROR"
                     ],
                     "type": "string"
                 },
@@ -1630,8 +1583,7 @@
             "required": [
                 "marketName",
                 "direction",
-                "type",
-                "quantity"
+                "type"
             ],
             "type": "object",
             "properties": {
@@ -1651,13 +1603,15 @@
                     "description": "order type",
                     "enum": [
                         "LIMIT",
-                        "MARKET"
+                        "MARKET",
+                        "CEILING_LIMIT",
+                        "CEILING_MARKET"
                     ],
                     "type": "string"
                 },
                 "quantity": {
                     "format": "double",
-                    "description": "quantity",
+                    "description": "quantity, if present",
                     "type": "number"
                 },
                 "limit": {
@@ -1665,34 +1619,28 @@
                     "description": "limit, if present",
                     "type": "number"
                 },
+                "ceiling": {
+                    "format": "double",
+                    "description": "ceiling, if present",
+                    "type": "number"
+                },
                 "timeInForce": {
                     "description": "time in force",
                     "enum": [
                         "GOOD_TIL_CANCELLED",
+                        "GOOD_UNTIL_DATE",
                         "IMMEDIATE_OR_CANCEL",
-                        "FILL_OR_KILL"
+                        "FILL_OR_KILL",
+                        "POST_ONLY_GOOD_TIL_CANCELED",
+                        "POST_ONLY_GOOD_UNTIL_DATE"
                     ],
                     "type": "string"
-                },
-                "trigger": {
-                    "description": "trigger specification, if present",
-                    "enum": [
-                        "GREATER_THAN",
-                        "LESS_THAN",
-                        "STOP_LOSS_FIXED",
-                        "STOP_LOSS_PERCENTAGE"
-                    ],
-                    "type": "string"
-                },
-                "triggerTargetPrice": {
-                    "format": "double",
-                    "description": "if trigger (price-related) is present, target price for that trigger",
-                    "type": "number"
                 },
                 "clientId": {
                     "format": "uuid",
-                    "description": "client-provided identifier for advanced order tracking (NYI)",
-                    "type": "string"
+                    "description": "client-provided identifier for advanced order tracking",
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
                 }
             }
         },
@@ -1721,7 +1669,8 @@
                 "id": {
                     "format": "uuid",
                     "description": "unique ID of this subaccount",
-                    "type": "string"
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
                 }
             }
         },
@@ -1735,7 +1684,8 @@
                 "id": {
                     "format": "uuid",
                     "description": "unique ID for this withdrawal",
-                    "type": "string"
+                    "type": "string",
+                    "example": "00000000-0000-0000-0000-000000000000"
                 },
                 "currencySymbol": {
                     "description": "unique symbol of currency to withdraw",
@@ -1759,21 +1709,15 @@
                     "description": "TxID associated with this withdrawal",
                     "type": "string"
                 },
-                "isAuthorized": {
-                    "description": "true if this deposit has been authorized",
-                    "type": "boolean"
-                },
-                "hasInvalidAddress": {
-                    "description": "true if this withdrawal has an invalid target crypto address",
-                    "type": "boolean"
-                },
                 "status": {
                     "description": "current status of this withdrawal",
                     "enum": [
                         "PENDING",
+                        "AUTHORIZED",
                         "COMPLETED",
-                        "CANCELLED",
-                        "ERROR"
+                        "ERROR_CONTACT_SUPPORT",
+                        "ERROR_INVALID_ADDRESS",
+                        "CANCELLED"
                     ],
                     "type": "string"
                 },
@@ -1815,25 +1759,6 @@
                     "type": "string"
                 }
             }
-        }
-    },
-    "x-spectacle-topics": {
-        "Availability": {
-            "description": "The V3-Alpha API is available on an invite-only basis at this time. Later releases will be made publicly available to the community."
-        },
-        "Pre-Release Warning": {
-            "description": "> **Warning**: The V3-Alpha or other pre-release API versions are not for production use.\n\n The V3-Alpha release will be subject to breaking changes, potentially without notice, until the final API is released. Pre-release APIs should only be used for testing and review.\n\nThe V3-Alpha API will operate against production (live-site) data and accounts and we recommend using test accounts and small-value transactions to validate your implementation.\n\nBy using the V3-Alpha API you understand and agree that issues may be encountered without warning, affecting your use of the website and API. Bittrex provides no warranties, either express or implied, as to the suitability or usability of pre-release APIs. Bittrex will not be liable for any loss, whether such loss is direct, indirect, special or consequential, suffered by any party as a result of their use of the V3-Alpha API or other pre-release APIs. "
-        },
-        "Getting Started": {
-            "description": "Keep the following in mind when developing against the Bittrex API: \n - Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.\n - All REST requests must be sent to `https://api.bittrex.com/v3` using the `application/json` content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application."
-        },
-        "Best Practices": {
-            "description": "### Call Limits\n The Bittrex API employs call limits on all endpoints to ensure the efficiency and availability of the platform for all customers. In general, API users are permitted to make a maximum of 60 API calls per minute. Calls after the limit will fail, with the limit resetting at the start of the next minute.\n\n __Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.__"
-        }
-    },
-    "securityDefinitions": {
-        "api_key": {
-            "description": "### Overview\n In order to properly sign an authenticated request for the Bittrex v3 API, the following headers must be included:\n\n- `Api-Key`\n\n- `Api-Timestamp`\n\n- `Api-Content-Hash`\n\n- `Api-Signature`\n\n\nThe following sections are instructions for properly populating these headers.\n\n---\n #### Api-Key\nPopulate this header with your API key.\n\nExample Value:\n\n`4894xxxxxxxx407e827d05xxxxxxxxxx`\n\n---\n #### Api-Timestamp\nPopulate this header with the current time as a UNIX timestamp, in epoch-millisecond format.\n\nSample JS Code Snippet:\n\n``` javascript\nvar timestamp = new Date().getTime();\n```\n\nExample Value:\n\n`1542323450016`\n\n---\n #### Api-Content-Hash\nPopulate this header with a SHA512 hash of the request contents, ASCII-encoded. If there are no request contents, populate this header with a SHA512 hash of an empty string.\n\nSample JS Code Snippet:\n\n``` javascript\nvar contentHash = CryptoJS.SHA512(content).toString(CryptoJS.enc.ASCII);\n```\n\nExample Value:\n\n``` markdown\ncf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\n```\n\n---\n#### Api-Signature\nCreate a pre-sign string formed from the following items and concatenating them together:\n1. contents of your `Api-Timestamp` header\n2. the full URI you are using to make the request (including query string)\n3. contents of your `Api-Content-Hash` header\n\n\nOnce you have created this pre-sign string, sign it via HMACSHA512, using your API secret as the signing secret. ASCII-encode the result of this operation and populate the Api-Signature header with it.\n\n\nSample JS Code Snippet:\n\n``` javascript\nvar uri = 'https://api.bittrex.com/v3/balances';\nvar preSign = [timestamp, uri, contentHash].join('');\nvar signature = CryptoJS.HmacSHA512(preSign, apiSecret).toString(CryptoJS.enc.ASCII);\n```\n\nExample Pre-Signed Value:\n\n``` markdown\n1542323450016https://api.bittrex.com/v3/balancescf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\n```\n\nExample Post-Signed Value:\n\n``` markdown\n939047623f0efbe10bfbb32f18e5d8885b2a91be3c3cea82adf0dd2d20892b20bcb6a10a91fec3afcedcc009f2b2a86c5366974cfadcf671fe0490582568f51f\n```\n\n---\n #### Api-Subaccount-Id\n_(NOTE: This functionality is limited to partners and unavailable to general traders.)_\n\nIf you wish to make a request on behalf of a subaccount, you will need to:\n\n1. Authenticate using all 4 of the headers above referring to your master account.\n1. Populate the `Api-Subaccount-Id` header with the Guid of the subaccount you wish to impersonate for this request. The specified subaccount *must* be a subaccount of the master account used to authenticate the request.\n\nExample Value:\n\n``` markdown\n x111x11x-8968-48ac-b956-x1x11x111111\n```\n\n---\n"
         }
     }
 }
