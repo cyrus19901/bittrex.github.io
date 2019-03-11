@@ -1296,20 +1296,6 @@
                     "type": "string",
                     "example": "Bitcoin"
                 },
-                "MinConfirmation": {
-                    "format": "int32",
-                    "type": "integer",
-                    "example": 2
-                },
-                "TxFee": {
-                    "format": "double",
-                    "type": "number",
-                    "example": 0.0020000
-                },
-                "IsActive": {
-                    "type": "boolean",
-                    "example": true
-                },
                 "CoinType": {
                     "enum": [
                         "ADA",
@@ -1334,6 +1320,24 @@
                     ],
                     "type": "string",
                     "example": "BITCOIN"
+                },
+                "MinConfirmation": {
+                    "format": "int32",
+                    "type": "integer",
+                    "example": 2
+                },
+                "TxFee": {
+                    "format": "double",
+                    "type": "number",
+                    "example": 0.0020000
+                },
+                "IsActive": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "IsRestricted": {
+                    "type": "boolean",
+                    "example": false
                 },
                 "BaseAddress": {
                     "type": "string",
@@ -1435,6 +1439,10 @@
                 "IsActive": {
                     "type": "boolean",
                     "example": true
+                },
+                "IsRestricted": {
+                    "type": "boolean",
+                    "example": false
                 },
                 "Created": {
                     "format": "date-time",
