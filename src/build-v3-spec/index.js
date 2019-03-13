@@ -90,11 +90,6 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/deposits?status=COMPLETED"
                 }
             },
-            "/deposits/pending": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits/pending"
-                }
-            },
             "/deposits/{depositId}": {
                 "get": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/deposits/{depositId}"
@@ -113,16 +108,6 @@ function requestExamples(json) {
             "/markets/{marketName}/orderbook": {
                 "get": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/orderbook"
-                }
-            },
-            "/markets/{marketName}/history": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/history"
-                }
-            },
-            "/markets/{marketName}/ticks": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/ticks"
                 }
             },
             "/orders": {
@@ -170,12 +155,6 @@ function requestExamples(json) {
                 },
                 "post": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals"
-                }
-            },
-            "/withdrawals/pending": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/pending"
-
                 }
             },
             "/withdrawals/{withdrawalId}": {
