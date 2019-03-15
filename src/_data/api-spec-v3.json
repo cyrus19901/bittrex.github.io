@@ -709,63 +709,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object"
-            }
-          }
-        },
-        "x-btx-authenticated": true
-      }
-    },
-    "/orders/{orderId}/executions": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "description": "Retrieve executions for a specific order.",
-        "operationId": "Orders_GetOrderExecutions",
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "orderId",
-            "in": "path",
-            "description": "ID of order to retrieve executions for",
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "startingAfter",
-            "in": "query",
-            "description": "unique identifier of the item to start after, in the sort order of the given endpoint",
-            "required": false,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "endingBefore",
-            "in": "query",
-            "description": "unique identifier of the item to end before, in the sort order of the given endpoint",
-            "required": false,
-            "type": "string",
-            "format": "uuid"
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "maximum number of items to retrieve -- default 100, minimum 1, maximum 200",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Execution"
+              "$ref": "#/definitions/OrderCancelResult"
             }
           }
         },
@@ -1615,14 +1559,63 @@
           "description": "order status",
           "enum": [
             "OPEN",
-            "CLOSED",
-            "ERROR_CONTACT_SUPPORT"
+            "CLOSED"
           ],
           "type": "string"
         },
         "createdAt": {
           "format": "date-time",
           "description": "timestamp (UTC) of order creation",
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "description": "timestamp (UTC) of last order update",
+          "type": "string"
+        },
+        "closedAt": {
+          "format": "date-time",
+          "description": "timestamp (UTC) when this order was closed",
+          "type": "string"
+        }
+      }
+    },
+    "OrderCancelResult": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "description": "unique ID of this order",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "fillQuantity": {
+          "format": "double",
+          "description": "fill quantity",
+          "type": "number"
+        },
+        "commission": {
+          "format": "double",
+          "description": "commission",
+          "type": "number"
+        },
+        "proceeds": {
+          "format": "double",
+          "description": "proceeds",
+          "type": "number"
+        },
+        "clientOrderId": {
+          "format": "uuid",
+          "description": "client-provided identifier for advanced order tracking",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "status": {
+          "description": "order status",
+          "enum": [
+            "OPEN",
+            "CLOSED"
+          ],
           "type": "string"
         },
         "updatedAt": {
