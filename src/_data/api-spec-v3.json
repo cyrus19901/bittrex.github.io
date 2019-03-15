@@ -1521,17 +1521,10 @@
           "description": "time in force",
           "enum": [
             "GOOD_TIL_CANCELLED",
-            "GOOD_TIL_DATE",
             "IMMEDIATE_OR_CANCEL",
             "FILL_OR_KILL",
-            "POST_ONLY_GOOD_TIL_CANCELLED",
-            "POST_ONLY_GOOD_TIL_DATE"
+            "POST_ONLY_GOOD_TIL_CANCELLED"
           ],
-          "type": "string"
-        },
-        "expiresAt": {
-          "format": "date-time",
-          "description": "time when this order should expire (required for TimeInForce.GOOD_TIL_DATE and TimeInForce.POST_ONLY_GOOD_TIL_DATE)",
           "type": "string"
         },
         "fillQuantity": {
@@ -1731,17 +1724,10 @@
           "description": "time in force",
           "enum": [
             "GOOD_TIL_CANCELLED",
-            "GOOD_TIL_DATE",
             "IMMEDIATE_OR_CANCEL",
             "FILL_OR_KILL",
-            "POST_ONLY_GOOD_TIL_CANCELLED",
-            "POST_ONLY_GOOD_TIL_DATE"
+            "POST_ONLY_GOOD_TIL_CANCELLED"
           ],
-          "type": "string"
-        },
-        "expiresAt": {
-          "format": "date-time",
-          "description": "time when this order should expire (required for TimeInForce.GOOD_TIL_DATE and TimeInForce.POST_ONLY_GOOD_TIL_DATE)",
           "type": "string"
         },
         "clientOrderId": {
