@@ -2150,7 +2150,6 @@
     <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;proceeds&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -2262,7 +2261,6 @@
     <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
     <span class="hljs-attr">&quot;proceeds&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -2365,7 +2363,6 @@
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;proceeds&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -2531,7 +2528,6 @@
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
 </code></pre>
@@ -2575,7 +2571,6 @@
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;proceeds&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -4510,25 +4505,14 @@
                     <span class="json-property-type">string</span>
                     <span class="json-property-enum" title="Possible values">
                       <span class="json-property-enum-item">GOOD_TIL_CANCELLED</span>,
-                      <span class="json-property-enum-item">GOOD_TIL_DATE</span>,
                       <span class="json-property-enum-item">IMMEDIATE_OR_CANCEL</span>,
                       <span class="json-property-enum-item">FILL_OR_KILL</span>,
-                      <span class="json-property-enum-item">POST_ONLY_GOOD_TIL_CANCELLED</span>,
-                      <span class="json-property-enum-item">POST_ONLY_GOOD_TIL_DATE</span>
+                      <span class="json-property-enum-item">POST_ONLY_GOOD_TIL_CANCELLED</span>
                     </span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
                   <dd>
                     <p>time in force</p>
-                  </dd>
-                  <dt data-property-name="expiresAt" class="has-description">
-                    <span class="json-property-name">expiresAt:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(date-time)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>time when this order should expire (required for TimeInForce.GOOD_TIL_DATE and TimeInForce.POST_ONLY_GOOD_TIL_DATE)</p>
                   </dd>
                   <dt data-property-name="fillQuantity" class="has-description">
                     <span class="json-property-name">fillQuantity:</span>
@@ -4620,7 +4604,6 @@
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;proceeds&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
@@ -4926,25 +4909,14 @@
                     <span class="json-property-type">string</span>
                     <span class="json-property-enum" title="Possible values">
                       <span class="json-property-enum-item">GOOD_TIL_CANCELLED</span>,
-                      <span class="json-property-enum-item">GOOD_TIL_DATE</span>,
                       <span class="json-property-enum-item">IMMEDIATE_OR_CANCEL</span>,
                       <span class="json-property-enum-item">FILL_OR_KILL</span>,
-                      <span class="json-property-enum-item">POST_ONLY_GOOD_TIL_CANCELLED</span>,
-                      <span class="json-property-enum-item">POST_ONLY_GOOD_TIL_DATE</span>
+                      <span class="json-property-enum-item">POST_ONLY_GOOD_TIL_CANCELLED</span>
                     </span>
                     <span class="json-property-range" title="Value limits"></span>
                   </dt>
                   <dd>
                     <p>time in force</p>
-                  </dd>
-                  <dt data-property-name="expiresAt" class="has-description">
-                    <span class="json-property-name">expiresAt:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(date-time)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>time when this order should expire (required for TimeInForce.GOOD_TIL_DATE and TimeInForce.POST_ONLY_GOOD_TIL_DATE)</p>
                   </dd>
                   <dt data-property-name="clientOrderId" class="has-description">
                     <span class="json-property-name">clientOrderId:</span>
@@ -4969,7 +4941,6 @@
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
 </code></pre>
