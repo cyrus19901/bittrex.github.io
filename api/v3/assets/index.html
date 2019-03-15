@@ -11,6 +11,7 @@
         <a href="#topic-Pre-Release-Warning">Pre-Release Warning</a>
         <a href="#topic-Getting-Started">Getting Started</a>
         <a href="#topic-Best-Practices">Best Practices</a>
+        <a href="#topic-Pagination">Pagination</a>
         <a href="#authentication">Authentication</a>
         <h5>Rest API</h5>
         <section>
@@ -98,10 +99,7 @@
           <a href="#tag-Orders">Orders</a>
           <ul>
             <li>
-              <a href="#operation--orders-get" title="/orders"> GET /orders </a>
-            </li>
-            <li>
-              <a href="#operation--orders-post" title="/orders"> POST /orders </a>
+              <a href="#operation--orders-closed-get" title="/orders/closed"> GET /orders/closed </a>
             </li>
             <li>
               <a href="#operation--orders-open-get" title="/orders/open"> GET /orders/open </a>
@@ -114,6 +112,9 @@
             </li>
             <li>
               <a href="#operation--orders--orderId--executions-get" title="/orders/{orderId}/executions"> GET /orders/{orderId}/executions </a>
+            </li>
+            <li>
+              <a href="#operation--orders-post" title="/orders"> POST /orders </a>
             </li>
           </ul>
         </section>
@@ -171,8 +172,8 @@
         <a href="#definition-Trade" title="Trade"> Trade </a>
         <a href="#definition-Candle" title="Candle"> Candle </a>
         <a href="#definition-Order" title="Order"> Order </a>
-        <a href="#definition-NewOrder" title="NewOrder"> NewOrder </a>
         <a href="#definition-Execution" title="Execution"> Execution </a>
+        <a href="#definition-NewOrder" title="NewOrder"> NewOrder </a>
         <a href="#definition-ServiceStatus" title="ServiceStatus"> ServiceStatus </a>
         <a href="#definition-Subaccount" title="Subaccount"> Subaccount </a>
         <a href="#definition-NewSubaccount" title="NewSubaccount"> NewSubaccount </a>
@@ -260,6 +261,36 @@
             </div>
           </div>
         </div>
+        <h1 id="topic-Pagination" data-traverse-target="topic-Pagination">Pagination</h1>
+        <div class="panel">
+          <div class="doc-row">
+            <div class="doc-copy">
+              <h3 id="overview">Overview</h3>
+              <p> Several Bittrex API resources support bulk fetches via &#39;list&#39; API methods. For example, you can list deposits, list closed orders, and list withdrawals. These list API methods share a common structure, taking at least these three parameters: <code>limit, startingAfter, and endingBefore.</code> These parameters, if necessary, are specified as query parameters on the HTTP request.</p>
+              <h3 id="arguments-">Arguments:</h3>
+              <ul>
+                <li>
+                  <strong>limit(optional)</strong>: A limit on the number of objects to be returned between 1 and 200, defaults to 100</li>
+                <li>
+                  <p>
+                    <strong>startingAfter(optional)</strong>: A cursor for use in pagination. startingAfter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with objFoo, your subsequent call can include startingAfter=objFoo in order to fetch the next page of the list. Typically used for paginating in the forward direction.</p>
+                </li>
+                <li>
+                  <p>
+                    <strong>endingBefore(optional)</strong>: A cursor for use in pagination. endingBefore is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with objBar, your subsequent call can include endingBefore=objBar in order to fetch the previous page of the list. Typically used for paginating in the reverse direction.</p>
+                </li>
+              </ul>
+              <h3 id="examples-">Examples:</h3>
+              <p>List withdrawals, in reverse chronological order, up to maximum of 20 withdrawals, starting at the most recent withdrawal created:</p>
+              <p><code>https://api.bittrex.com/v3/withdrawals?limit=20</code></p>
+              <p>List withdrawals, in reverse chronological order, up to maximum of 10 withdrawals, starting after the withdrawal with ID of <code>940af3c3-665d-4432-a12e-cdf8fd99ab3b</code></p>
+              <p><code>https://api.bittrex.com/v3/withdrawals?limit=10&amp;startingAfter=940af3c3-665d-4432-a12e-cdf8fd99ab3b</code></p>
+              <p> List withdrawals, in reverse chronological order, up to a maximum of 15 withdrawals, ending before the withdrawal with ID of <code>0d990dd2-4103-4d57-8e80-047e886537db</code>: </p>
+              <p><code>https://api.bittrex.com/v3/withdrawals?limit=10&amp;endinBefore=0d990dd2-4103-4d57-8e80-047e886537db</code></p>
+              <p>Stripe utilizes cursor-based pagination via the startingAfter and endingBefore parameters. Both parameters take an existing object ID value (see below) and return objects in a specified sort order that is specific to the endpoint. The endingBefore parameter returns objects listed before the named object. The startingAfter parameter returns objects listed after the named object.</p>
+            </div>
+          </div>
+        </div>
         <!-- <h1 id="security" data-traverse-target="security">Security</h1> -->
         <h1 id="authentication" data-traverse-target="authentication">Authentication</h1>
         <div id="security-definition-api_key" class="panel">
@@ -281,6 +312,9 @@
                   <li>
                     <p><code>Api-Signature</code></p>
                   </li>
+                  <li>
+                    <p><code>Api-Subaccount-Id (optional)</code></p>
+                  </li>
                 </ul>
                 <p>The following sections are instructions for properly populating these headers.</p>
                 <hr>
@@ -297,42 +331,44 @@
                 <p><code>1542323450016</code></p>
                 <hr>
                 <h4 id="api-content-hash">Api-Content-Hash</h4>
-                <p>Populate this header with a SHA512 hash of the request contents, ASCII-encoded. If there are no request contents, populate this header with a SHA512 hash of an empty string.</p>
-                <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> contentHash = CryptoJS.SHA512(content).toString(CryptoJS.enc.ASCII);
+                <p>Populate this header with a SHA512 hash of the request contents, Hex-encoded. If there are no request contents, populate this header with a SHA512 hash of an empty string.</p>
+                <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> contentHash = CryptoJS.SHA512(content).toString(CryptoJS.enc.Hex);
 </code></pre>
                 <p>Example Value:</p> <pre><code class="hljs lang-markdown">cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 </code></pre>
                 <hr>
-                <h4 id="api-signature">Api-Signature</h4>
-                <p>Create a pre-sign string formed from the following items and concatenating them together:</p>
-                <ol>
-                  <li>contents of your <code>Api-Timestamp</code> header</li>
-                  <li>the full URI you are using to make the request (including query string)</li>
-                  <li>contents of your <code>Api-Content-Hash</code> header</li>
-                </ol>
-                <p>Once you have created this pre-sign string, sign it via HMACSHA512, using your API secret as the signing secret. ASCII-encode the result of this operation and populate the <code>Api-Signature</code> header with it.</p>
-                <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> uri = <span class="hljs-string">'https://api.bittrex.com/v3/balances'</span>;
-<span class="hljs-keyword">var</span> preSign = [timestamp, uri, contentHash].join(<span class="hljs-string">''</span>);
-<span class="hljs-keyword">var</span> signature = CryptoJS.HmacSHA512(preSign, apiSecret).toString(CryptoJS.enc.ASCII);
-</code></pre>
-                <p>Example Pre-Signed Value:</p> <pre><code class="hljs lang-markdown">1542323450016https://api.bittrex.com/v3/balancescf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
-</code></pre>
-                <p>Example Post-Signed Value:</p> <pre><code class="hljs lang-markdown">939047623f0efbe10bfbb32f18e5d8885b2a91be3c3cea82adf0dd2d20892b20bcb6a10a91fec3afcedcc009f2b2a86c5366974cfadcf671fe0490582568f51f
-</code></pre>
-                <hr>
                 <h4 id="api-subaccount-id">Api-Subaccount-Id</h4>
-                <p>
-                  <em>(NOTE: This functionality is limited to partners and unavailable to general traders.)</em>
-                </p>
+                <p>(NOTE: This functionality is limited to partners and unavailable to general traders.)</p>
                 <p>If you wish to make a request on behalf of a subaccount, you will need to:</p>
                 <ol>
                   <li>Authenticate using all 4 of the headers above referring to your master account.</li>
-                  <li>Populate the <code>Api-Subaccount-Id</code> header with the Guid of the subaccount you wish to impersonate for this request. The specified subaccount
+                  <li>Populate the Api-Subaccount-Id header with the Guid of the subaccount you wish to impersonate for this request. The specified subaccount
                     <em>must</em> be a subaccount of the master account used to authenticate the request.</li>
+                  <li>Include the Api-Subaccount-Id header at the end of the pre-signed signature, as indicated in the next section.</li>
                 </ol>
-                <p>Example Value:</p> <pre><code class="hljs lang-markdown"> x111x11x-8968-48ac-b956-x1x11x111111
+                <p>Example Value:</p>
+                <p><code>x111x11x-8968-48ac-b956-x1x11x111111</code></p>
+                <hr>
+                <h4 id="api-signature">Api-Signature</h4>
+                <p>Create a pre-sign string formed from the following items and concatenating them together:</p>
+                <ol>
+                  <li>Contents of your <code>Api-Timestamp</code> header</li>
+                  <li>The full URI you are using to make the request (including query string)</li>
+                  <li>The HTTP method of the request, in all caps (GET, POST, DELETE, etc.) </li>
+                  <li>Contents of your <code>Api-Content-Hash</code> header </li>
+                  <li>Content of your <code>Api-Subaccount-Id header</code> (or an empty string if not present) </li>
+                </ol>
+                <p>Once you have created this pre-sign string, sign it via HMACSHA512, using your API secret as the signing secret. Hex-encode the result of this operation and populate the <code>Api-Signature</code> header with it.</p>
+                <p>Sample JS Code Snippet:</p> <pre><code class="hljs lang-javascript"><span class="hljs-keyword">var</span> uri = <span class="hljs-string">'https://api.bittrex.com/v3/balances'</span>;
+<span class="hljs-keyword">var</span> preSign = [timestamp, uri, method, contentHash, subaccountId].join(<span class="hljs-string">''</span>);
+<span class="hljs-keyword">var</span> signature = CryptoJS.HmacSHA512(preSign, apiSecret).toString(CryptoJS.enc.Hex);
 </code></pre>
-                <hr> </section>
+                <p>Example Pre-Signed Value (no subaccount)</p> <pre><code class="hljs lang-markdown">1542323450016https://api.bittrex.com/v3/balancescf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
+</code></pre>
+                <p>Example Pre-Signed Value (with subaccount)</p> <pre><code class="hljs lang-markdown">1542323450016https://api.bittrex.com/v3/balancesGETcf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3ex111x11x-8968-48ac-b956-x1x11x111111
+</code></pre>
+                <p>Example Post-Signed Value:</p> <pre><code class="hljs lang-markdown">939047623f0efbe10bfbb32f18e5d8885b2a91be3c3cea82adf0dd2d20892b20bcb6a10a91fec3afcedcc009f2b2a86c5366974cfadcf671fe0490582568f51f
+</code></pre> </section>
               <section class="swagger-security-definition-properties"> </section>
             </div>
           </div>
@@ -1363,7 +1399,6 @@
     <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
     <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;isSponsored&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
     <span class="hljs-attr">&quot;logoUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
   }
 ]
@@ -1546,7 +1581,6 @@
   <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;isSponsored&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;logoUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre>
@@ -1978,7 +2012,7 @@
           </div>
         </div>
         <h1 id="tag-Orders" class="swagger-summary-tag" data-traverse-target="tag-Orders">Orders</h1>
-        <div id="operation--orders-get" class="operation panel" data-traverse-target="operation--orders-get">
+        <div id="operation--orders-closed-get" class="operation panel" data-traverse-target="operation--orders-closed-get">
           <!-- <section class="operation-tags row"> -->
           <!-- <div class="doc-copy"> -->
           <div class="operation-tags">
@@ -1991,38 +2025,19 @@
           <h2 class="operation-title">
             <span class="operation-name">
               <span class="operation-name">GET</span>
-              <span class="operation-path">/orders</span>
+              <span class="operation-path">/orders/closed</span>
             </span>
           </h2>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-operation-description">
-                <p>List historical orders.</p>
+                <p>List closed orders.</p>
               </section>
             </div>
           </div>
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-request-params">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">status:
-                      <span class="prop-type">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-enum" title="Possible values">
-                          <span class="json-property-enum-item">OPEN</span>,
-                          <span class="json-property-enum-item">CLOSED</span>,
-                          <span class="json-property-enum-item">ERROR_CONTACT_SUPPORT</span>
-                        </span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>filter by order status (OPEN not allowed, use /orders/open to list open orders</p>
-                  </div>
-                </div>
                 <div class="prop-row prop-group">
                   <div class="prop-name">
                     <div class="prop-title">marketName:
@@ -2035,20 +2050,6 @@
                   </div>
                   <div class="prop-value">
                     <p>filter by market ID</p>
-                  </div>
-                </div>
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">showExecutions:
-                      <span class="prop-type">
-                        <span class="json-property-type">boolean</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                      </span>
-                    </div>
-                    <div class="prop-subtitle"> in query </div>
-                  </div>
-                  <div class="prop-value">
-                    <p>include execution data with each order</p>
                   </div>
                 </div>
                 <div class="prop-row prop-group">
@@ -2101,8 +2102,7 @@
               </section>
             </div>
             <div class="doc-examples">
-              <section>
-                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/orders</code></pre> </section>
+              <section> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -2164,123 +2164,6 @@
     <span class="hljs-attr">&quot;closedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
   }
 ]
-</code></pre>
-                <!-- </div> -->
-              </section>
-            </div>
-          </div>
-        </div>
-        <div id="operation--orders-post" class="operation panel" data-traverse-target="operation--orders-post">
-          <!-- <section class="operation-tags row"> -->
-          <!-- <div class="doc-copy"> -->
-          <div class="operation-tags">
-            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
-            <a class="label" href="#tag-Orders">Orders</a>
-            <!---->
-          </div>
-          <!-- </div> -->
-          <!-- </section> -->
-          <h2 class="operation-title">
-            <span class="operation-name">
-              <span class="operation-name">POST</span>
-              <span class="operation-path">/orders</span>
-            </span>
-          </h2>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-operation-description">
-                <p>Create a new order.</p>
-              </section>
-            </div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-request-body">
-                <div class="prop-row">
-                  <div class="prop-name">
-                    <div class="swagger-request-model">
-                      <span class="">
-                        <a class="json-schema-ref" href="#/definitions/NewOrder">NewOrder</a>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="prop-value columns small-6">
-                    <!-- <div class="swagger-request-description"> -->
-                    <p>information specifying the order to create</p>
-                    <!-- </div> -->
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="doc-examples">
-              <section>
-                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/orders</code></pre>
-                <h5>Request Content-Types:
-                  <span>application/json</span>
-                </h5>
-                <h5>Request Body Example</h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
-}
-</code></pre>
-                <!-- </div> -->
-              </section>
-            </div>
-          </div>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="swagger-responses">
-                <div class="prop-row prop-group">
-                  <div class="prop-name">
-                    <div class="prop-title">200 OK</div>
-                    <div class="prop-ref">
-                      <span class="">
-                        <a class="json-schema-ref" href="#/definitions/Order">Order</a>
-                      </span>
-                    </div>
-                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
-                  </div>
-                  <div class="prop-value">
-                    <p>OK</p>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="doc-examples">
-              <h5>Response Content-Types:
-                <span>application/json</span>
-              </h5>
-              <section>
-                <h5>Response Example
-                  <span>(200 OK)</span>
-                </h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
-  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-  <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;proceeds&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-  <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-  <span class="hljs-attr">&quot;closedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
-}
 </code></pre>
                 <!-- </div> -->
               </section>
@@ -2728,6 +2611,123 @@
             </div>
           </div>
         </div>
+        <div id="operation--orders-post" class="operation panel" data-traverse-target="operation--orders-post">
+          <!-- <section class="operation-tags row"> -->
+          <!-- <div class="doc-copy"> -->
+          <div class="operation-tags">
+            <a class="label alert" href="#authentication" title="Requires a properly signed request. Click for more.">Authenticated</a>
+            <a class="label" href="#tag-Orders">Orders</a>
+            <!---->
+          </div>
+          <!-- </div> -->
+          <!-- </section> -->
+          <h2 class="operation-title">
+            <span class="operation-name">
+              <span class="operation-name">POST</span>
+              <span class="operation-path">/orders</span>
+            </span>
+          </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-operation-description">
+                <p>Create a new order.</p>
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-request-body">
+                <div class="prop-row">
+                  <div class="prop-name">
+                    <div class="swagger-request-model">
+                      <span class="">
+                        <a class="json-schema-ref" href="#/definitions/NewOrder">NewOrder</a>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="prop-value columns small-6">
+                    <!-- <div class="swagger-request-description"> -->
+                    <p>information specifying the order to create</p>
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/orders</code></pre>
+                <h5>Request Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <h5>Request Body Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="swagger-responses">
+                <div class="prop-row prop-group">
+                  <div class="prop-name">
+                    <div class="prop-title">200 OK</div>
+                    <div class="prop-ref">
+                      <span class="">
+                        <a class="json-schema-ref" href="#/definitions/Order">Order</a>
+                      </span>
+                    </div>
+                    <!-- <span class="swagger-global"></span> <span class="json-schema-reference"><a href=""></a></span> -->
+                  </div>
+                  <div class="prop-value">
+                    <p>OK</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <h5>Response Content-Types:
+                <span>application/json</span>
+              </h5>
+              <section>
+                <h5>Response Example
+                  <span>(200 OK)</span>
+                </h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+  <span class="hljs-attr">&quot;fillQuantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;commission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;proceeds&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+  <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+  <span class="hljs-attr">&quot;closedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
         <h1 id="tag-Status" class="swagger-summary-tag" data-traverse-target="tag-Status">Status</h1>
         <div id="operation--status-get" class="operation panel" data-traverse-target="operation--status-get">
           <!-- <section class="operation-tags row"> -->
@@ -2815,7 +2815,9 @@
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-operation-description">
-                <p>List subaccounts.</p>
+                <p>List subaccounts.
+                  <em>(NOTE: This API is limited to partners and not available for traders.)</em>
+                </p>
               </section>
             </div>
           </div>
@@ -3039,7 +3041,9 @@
           <div class="doc-row">
             <div class="doc-copy">
               <section class="swagger-operation-description">
-                <p>Retrieve details for a specified subaccount.</p>
+                <p>Retrieve details for a specified subaccount.
+                  <em>(NOTE: This API is limited to partners and not available for traders.)</em>
+                </p>
               </section>
             </div>
           </div>
@@ -4126,14 +4130,6 @@
                   <dd>
                     <p>notice or alert info</p>
                   </dd>
-                  <dt data-property-name="isSponsored" class="has-description">
-                    <span class="json-property-name">isSponsored:</span>
-                    <span class="json-property-type">boolean</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>true if this market is sponsored</p>
-                  </dd>
                   <dt data-property-name="logoUrl" class="has-description">
                     <span class="json-property-name">logoUrl:</span>
                     <span class="json-property-type">string</span>
@@ -4159,7 +4155,6 @@
   <span class="hljs-attr">&quot;isInternational&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;notice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;isSponsored&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;logoUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre>
@@ -4779,6 +4774,116 @@
             </div>
           </div>
         </div>
+        <div id="definition-Execution" class="definition panel" data-traverse-target="definition-Execution">
+          <h2 class="panel-title">
+            <a name="/definitions/Execution"></a>Execution </h2>
+          <div class="doc-row">
+            <div class="doc-copy">
+              <section class="json-schema-properties">
+                <dl>
+                  <dt data-property-name="id" class="has-description">
+                    <span class="json-property-name">id:</span>
+                    <span class="json-property-type">string</span>
+                    <span class="json-property-format">(uuid)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>unique ID of this execution</p>
+                  </dd>
+                  <dt data-property-name="marketName" class="has-description">
+                    <span class="json-property-name">marketName:</span>
+                    <span class="json-property-type">string</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>market name where this execution took place</p>
+                  </dd>
+                  <dt data-property-name="executedAt" class="has-description">
+                    <span class="json-property-name">executedAt:</span>
+                    <span class="json-property-type">string</span>
+                    <span class="json-property-format">(date-time)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>time when the execution was processed</p>
+                  </dd>
+                  <dt data-property-name="quantity" class="has-description">
+                    <span class="json-property-name">quantity:</span>
+                    <span class="json-property-type">number</span>
+                    <span class="json-property-format">(double)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>quantity traded during this execution</p>
+                  </dd>
+                  <dt data-property-name="rate" class="has-description">
+                    <span class="json-property-name">rate:</span>
+                    <span class="json-property-type">number</span>
+                    <span class="json-property-format">(double)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>rate at which this trade was executed</p>
+                  </dd>
+                  <dt data-property-name="makerOrderId" class="has-description">
+                    <span class="json-property-name">makerOrderId:</span>
+                    <span class="json-property-type">string</span>
+                    <span class="json-property-format">(uuid)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>maker order ID -- only available if your order was the taker for this execution</p>
+                  </dd>
+                  <dt data-property-name="takerOrderId" class="has-description">
+                    <span class="json-property-name">takerOrderId:</span>
+                    <span class="json-property-type">string</span>
+                    <span class="json-property-format">(uuid)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>taker order ID -- only available if your order was the taker for this execution</p>
+                  </dd>
+                  <dt data-property-name="makerCommission" class="has-description">
+                    <span class="json-property-name">makerCommission:</span>
+                    <span class="json-property-type">number</span>
+                    <span class="json-property-format">(double)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>commission charged -- only available if your order was the maker for this execution</p>
+                  </dd>
+                  <dt data-property-name="takerCommission" class="has-description">
+                    <span class="json-property-name">takerCommission:</span>
+                    <span class="json-property-type">number</span>
+                    <span class="json-property-format">(double)</span>
+                    <span class="json-property-range" title="Value limits"></span>
+                  </dt>
+                  <dd>
+                    <p>commission charged -- only available if your order was the taker for this execution</p>
+                  </dd>
+                </dl>
+              </section>
+            </div>
+            <div class="doc-examples">
+              <section>
+                <h5>Example</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;executedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
+  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;rate&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;makerOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+  <span class="hljs-attr">&quot;takerOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
+  <span class="hljs-attr">&quot;makerCommission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;takerCommission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>
+}
+</code></pre>
+                <!-- </div> -->
+              </section>
+            </div>
+          </div>
+        </div>
         <div id="definition-NewOrder" class="definition panel" data-traverse-target="definition-NewOrder">
           <h2 class="panel-title">
             <a name="/definitions/NewOrder"></a>NewOrder </h2>
@@ -4900,116 +5005,6 @@
   <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;expiresAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
-}
-</code></pre>
-                <!-- </div> -->
-              </section>
-            </div>
-          </div>
-        </div>
-        <div id="definition-Execution" class="definition panel" data-traverse-target="definition-Execution">
-          <h2 class="panel-title">
-            <a name="/definitions/Execution"></a>Execution </h2>
-          <div class="doc-row">
-            <div class="doc-copy">
-              <section class="json-schema-properties">
-                <dl>
-                  <dt data-property-name="id" class="has-description">
-                    <span class="json-property-name">id:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(uuid)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>unique ID of this execution</p>
-                  </dd>
-                  <dt data-property-name="marketName" class="has-description">
-                    <span class="json-property-name">marketName:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>market name where this execution took place</p>
-                  </dd>
-                  <dt data-property-name="executedAt" class="has-description">
-                    <span class="json-property-name">executedAt:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(date-time)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>time when the execution was processed</p>
-                  </dd>
-                  <dt data-property-name="quantity" class="has-description">
-                    <span class="json-property-name">quantity:</span>
-                    <span class="json-property-type">number</span>
-                    <span class="json-property-format">(double)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>quantity traded during this execution</p>
-                  </dd>
-                  <dt data-property-name="rate" class="has-description">
-                    <span class="json-property-name">rate:</span>
-                    <span class="json-property-type">number</span>
-                    <span class="json-property-format">(double)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>rate at which this trade was executed</p>
-                  </dd>
-                  <dt data-property-name="makerOrderId" class="has-description">
-                    <span class="json-property-name">makerOrderId:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(uuid)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>maker order ID -- only available if your order was the taker for this execution</p>
-                  </dd>
-                  <dt data-property-name="takerOrderId" class="has-description">
-                    <span class="json-property-name">takerOrderId:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(uuid)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>taker order ID -- only available if your order was the taker for this execution</p>
-                  </dd>
-                  <dt data-property-name="makerCommission" class="has-description">
-                    <span class="json-property-name">makerCommission:</span>
-                    <span class="json-property-type">number</span>
-                    <span class="json-property-format">(double)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>commission charged -- only available if your order was the maker for this execution</p>
-                  </dd>
-                  <dt data-property-name="takerCommission" class="has-description">
-                    <span class="json-property-name">takerCommission:</span>
-                    <span class="json-property-type">number</span>
-                    <span class="json-property-format">(double)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>commission charged -- only available if your order was the taker for this execution</p>
-                  </dd>
-                </dl>
-              </section>
-            </div>
-            <div class="doc-examples">
-              <section>
-                <h5>Example</h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
-  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;executedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;rate&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;makerOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
-  <span class="hljs-attr">&quot;takerOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>,
-  <span class="hljs-attr">&quot;makerCommission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;takerCommission&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>
 }
 </code></pre>
                 <!-- </div> -->
