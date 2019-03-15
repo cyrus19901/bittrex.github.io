@@ -16,10 +16,14 @@ function spectacleTopics(json) {
             },
             "Best Practices": {
                 "description": "### Call Limits\n The Bittrex API employs call limits on all endpoints to ensure the efficiency and availability of the platform for all customers. In general, API users are permitted to make a maximum of 60 API calls per minute. Calls after the limit will fail, with the limit resetting at the start of the next minute.\n\n __Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.__"
+            },
+            "Pagination": {
+                "description": "### Overview\n Several Bittrex API resources support bulk fetches via 'list' API methods. For example, you can list deposits, list closed orders, and list withdrawals. These list API methods share a common structure, using at least these three parameters: `limit, startingAfter, and endingBefore.` These parameters, if necessary are specified as query parameters on the HTTP request.\n\n ### Arguments:\n\n\n\n - __limit(optional)__: A limit on the number of objects to be returned between 1 and 200, defaults to 100\n - __startingAfter(optional)__: It is a cursor for for using pagination and acts is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects ending with objFoo, your subsequent call can include startingAfter=objFoo in order to fetch the next page of the list. Typically used for paginating in the forward direction.\n\n - __endingBefore(optional)__: It is a cursor for for using pagination and acts is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects starting with objBar, your subsequent call can include endingBefore=objBar in order to fetch the previous page of the list. Typically used for paginating in the reverse direction.\n\n\n ### Examples:\n\nList withdrawals, in reverse chronological order, up to maximum of 20 withdrawals, starting at the most recent withdrawal created:\n\n`https://api.bittrex.com/v3/withdrawals?limit=20`\n\nList withdrawals, in reverse chronological order, up to maximum of 10 withdrawals, starting after the withdrawal with ID of `940af3c3-665d-4432-a12e-cdf8fd99ab3b`\n\n`https://api.bittrex.com/v3/withdrawals?limit=10&startingAfter=940af3c3-665d-4432-a12e-cdf8fd99ab3b`\n\n List withdrawals, in reverse chronological order, up to a maximum of 10 withdrawals, ending before the withdrawal with ID of `0d990dd2-4103-4d57-8e80-047e886537db`: \n\n`https://api.bittrex.com/v3/withdrawals?limit=10&endinBefore=0d990dd2-4103-4d57-8e80-047e886537db`\n\n"
             }
         }
     });
 }
+
 
 function siteDescription(json) {
     console.log('Adding site description...');
@@ -37,7 +41,7 @@ function securityDefinitions(json) {
     return _.assign({}, json, {
         "securityDefinitions": {
             "api_key": {
-                "description": "### Overview\n In order to properly sign an authenticated request for the Bittrex v3 API, the following headers must be included:\n\n- `Api-Key`\n\n- `Api-Timestamp`\n\n- `Api-Content-Hash`\n\n- `Api-Signature`\n\n\nThe following sections are instructions for properly populating these headers.\n\n---\n #### Api-Key\nPopulate this header with your API key.\n\nExample Value:\n\n`4894xxxxxxxx407e827d05xxxxxxxxxx`\n\n---\n #### Api-Timestamp\nPopulate this header with the current time as a UNIX timestamp, in epoch-millisecond format.\n\nSample JS Code Snippet:\n\n``` javascript\nvar timestamp = new Date().getTime();\n```\n\nExample Value:\n\n`1542323450016`\n\n---\n #### Api-Content-Hash\nPopulate this header with a SHA512 hash of the request contents, ASCII-encoded. If there are no request contents, populate this header with a SHA512 hash of an empty string.\n\nSample JS Code Snippet:\n\n``` javascript\nvar contentHash = CryptoJS.SHA512(content).toString(CryptoJS.enc.ASCII);\n```\n\nExample Value:\n\n``` markdown\ncf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\n```\n\n---\n#### Api-Signature\nCreate a pre-sign string formed from the following items and concatenating them together:\n1. contents of your `Api-Timestamp` header\n2. the full URI you are using to make the request (including query string)\n3. contents of your `Api-Content-Hash` header\n\n\nOnce you have created this pre-sign string, sign it via HMACSHA512, using your API secret as the signing secret. ASCII-encode the result of this operation and populate the `Api-Signature` header with it.\n\n\nSample JS Code Snippet:\n\n``` javascript\nvar uri = 'https://api.bittrex.com/v3/balances';\nvar preSign = [timestamp, uri, contentHash].join('');\nvar signature = CryptoJS.HmacSHA512(preSign, apiSecret).toString(CryptoJS.enc.ASCII);\n```\n\nExample Pre-Signed Value:\n\n``` markdown\n1542323450016https://api.bittrex.com/v3/balancescf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\n```\n\nExample Post-Signed Value:\n\n``` markdown\n939047623f0efbe10bfbb32f18e5d8885b2a91be3c3cea82adf0dd2d20892b20bcb6a10a91fec3afcedcc009f2b2a86c5366974cfadcf671fe0490582568f51f\n```\n\n---\n #### Api-Subaccount-Id\n_(NOTE: This functionality is limited to partners and unavailable to general traders.)_\n\nIf you wish to make a request on behalf of a subaccount, you will need to:\n\n1. Authenticate using all 4 of the headers above referring to your master account.\n1. Populate the `Api-Subaccount-Id` header with the Guid of the subaccount you wish to impersonate for this request. The specified subaccount *must* be a subaccount of the master account used to authenticate the request.\n\nExample Value:\n\n``` markdown\n x111x11x-8968-48ac-b956-x1x11x111111\n```\n\n---\n"
+                "description": "### Overview\n In order to properly sign an authenticated request for the Bittrex v3 API, the following headers must be included:\n\n- `Api-Key`\n\n- `Api-Timestamp`\n\n- `Api-Content-Hash`\n\n- `Api-Signature`\n\n- `Api-Subaccount-Id (optional)`\n\n\nThe following sections are instructions for properly populating these headers.\n\n---\n #### Api-Key\nPopulate this header with your API key.\n\nExample Value:\n\n`4894xxxxxxxx407e827d05xxxxxxxxxx`\n\n---\n #### Api-Timestamp\nPopulate this header with the current time as a UNIX timestamp, in epoch-millisecond format.\n\nSample JS Code Snippet:\n\n``` javascript\nvar timestamp = new Date().getTime();\n```\n\nExample Value:\n\n`1542323450016`\n\n---\n #### Api-Content-Hash\nPopulate this header with a SHA512 hash of the request contents, Hex-encoded. If there are no request contents, populate this header with a SHA512 hash of an empty string.\n\nSample JS Code Snippet:\n\n``` javascript\nvar contentHash = CryptoJS.SHA512(content).toString(CryptoJS.enc.Hex);\n```\n\nExample Value:\n\n``` markdown\ncf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\n```\n\n---\n #### Api-Subaccount-Id\n(NOTE: This functionality is limited to partners and unavailable to general traders.)\n\nIf you wish to make a request on behalf of a subaccount, you will need to:\n\n1. Authenticate using all 4 of the headers above referring to your master account.\n2. Populate the Api-Subaccount-Id header with the Guid of the subaccount you wish to impersonate for this request. The specified subaccount *must* be a subaccount of the master account used to authenticate the request.\n3. Include the Api-Subaccount-Id header at the end of the pre-signed signature, as indicated in the next section.\n\nExample Value:\n\n`x111x11x-8968-48ac-b956-x1x11x111111`\n\n---\n #### Api-Signature\nCreate a pre-sign string formed from the following items and concatenating them together:\n1. Contents of your `Api-Timestamp` header\n2. The full URI you are using to make the request (including query string)\n3. The HTTP method of the request, in all caps (GET, POST, DELETE, etc.)  \n4. Contents of your `Api-Content-Hash` header \n5. Content of your `Api-Subaccount-Id` header (or an empty string if not present) \n\n\nOnce you have created this pre-sign string, sign it via HmacSHA512, using your API secret as the signing secret. Hex-encode the result of this operation and populate the `Api-Signature` header with it.\n\n\nSample JS Code Snippet:\n\n``` javascript\nvar uri = 'https://api.bittrex.com/v3/balances';\nvar preSign = [timestamp, uri, method, contentHash, subaccountId].join('');\nvar signature = CryptoJS.HmacSHA512(preSign, apiSecret).toString(CryptoJS.enc.Hex);\n```\n\nExample Pre-Signed Value (no subaccount)\n\n``` markdown\n1542323450016https://api.bittrex.com/v3/balancesGETcf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e\n```\n\nExample Pre-Signed Value (with subaccount)\n\n``` markdown\n1542323450016https://api.bittrex.com/v3/balancesGETcf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3ex111x11x-8968-48ac-b956-x1x11x111111\n```\n\nExample Post-Signed Value:\n\n``` markdown\n939047623f0efbe10bfbb32f18e5d8885b2a91be3c3cea82adf0dd2d20892b20bcb6a10a91fec3afcedcc009f2b2a86c5366974cfadcf671fe0490582568f51f\n```\n\n\n"
             }
         }
     });
@@ -90,11 +94,6 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/deposits?status=COMPLETED"
                 }
             },
-            "/deposits/pending": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits/pending"
-                }
-            },
             "/deposits/{depositId}": {
                 "get": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/deposits/{depositId}"
@@ -115,20 +114,7 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/orderbook"
                 }
             },
-            "/markets/{marketName}/history": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/history"
-                }
-            },
-            "/markets/{marketName}/ticks": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/ticks"
-                }
-            },
             "/orders": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/orders"
-                },
                 "post": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/orders"
                 }
@@ -170,12 +156,6 @@ function requestExamples(json) {
                 },
                 "post": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals"
-                }
-            },
-            "/withdrawals/pending": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/pending"
-
                 }
             },
             "/withdrawals/{withdrawalId}": {
