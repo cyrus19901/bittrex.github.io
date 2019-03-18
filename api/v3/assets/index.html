@@ -298,11 +298,11 @@
               <ul>
                 <li>
                   <p>
-                    <strong>Market Order</strong> : An order to buy or sell an asset immediately at the best available price. The price at which a market order will execute often deviates from the last-traded price or “real time” quote.</p>
+                    <strong>Market Order</strong> :An order to buy or sell an asset immediately at the best available price. The price at which a market order will execute often deviates from the last-traded price or “real time” quote.</p>
                 </li>
                 <li>
                   <p>
-                    <strong>Limit Order</strong> : An order to trade a specified quantity of an asset at a specified rate or better.A buy order will only be filled at or below the limit price and a sell order will only be filled at or above the limit price.</p>
+                    <strong>Limit Order</strong> :An order to trade a specified quantity of an asset at a specified rate or better.A buy order will only be filled at or below the limit price and a sell order will only be filled at or above the limit price.</p>
                 </li>
                 <li>
                   <p>
@@ -325,53 +325,48 @@
                     <strong>Post Only</strong> : This option allows market makers to ensure that their orders are making it to the order book instead of matching with a pre-existing order </p>
                 </li>
               </ul>
-              <h3 id="matrix-for-different-orders-">
-                <strong>Matrix for different Orders</strong> :</h3>
-              <p> Following table shows how different order types can be placed as a combination of each other.</p>
+              <h3 id="order-types-and-time-in-force-">
+                <strong>Order types and time in force</strong> :</h3>
+              <p> The following table shows which time in force options apply to which order types.</p>
               <div style='overflow-x:auto;'>
                 <table>
-                  <tr>
-                    <th>timeInForce</th>
-                    <th>LIMIT</th>
-                    <th>MARKET</th>
-                    <th>CEILING_LIMIT</th>
-                    <th>CEILING_MARKET</th>
-                  </tr>
-                  <tr>
-                    <td>GOOD_TIL_CANCELLED</td>
-                    <td>ALLOWED</td>
-                    <td>NA</td>
-                    <td>ALLOWED</td>
-                    <td>NA</td>
-                  </tr>
-                  <tr>
-                    <td>GOOD_TIL_DATE</td>
-                    <td>ALLOWED</td>
-                    <td>NA</td>
-                    <td>ALLOWED</td>
-                    <td>NA</td>
-                  </tr>
-                  <tr>
-                    <td>IMMEDIATE_OR_CANCEL</td>
-                    <td>ALLOWED</td>
-                    <td>ALLOWED</td>
-                    <td>ALLOWED</td>
-                    <td>ALLOWED</td>
-                  </tr>
-                  <tr>
-                    <td>FILL_OR_KILL</td>
-                    <td>ALLOWED</td>
-                    <td>ALLOWED</td>
-                    <td>ALLOWED</td>
-                    <td>ALLOWED</td>
-                  </tr>
-                  <tr>
-                    <td>POST_ONLY_GOOD_TIL_CANCELLED</td>
-                    <td>ALLOWED</td>
-                    <td>NOT ALLOWED</td>
-                    <td>ALLOWED</td>
-                    <td>NOT ALLOWED</td>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <th>timeInForce</th>
+                      <th>LIMIT</th>
+                      <th>MARKET</th>
+                      <th>CEILING_LIMIT</th>
+                      <th>CEILING_MARKET</th>
+                    </tr>
+                    <tr>
+                      <td>GOOD_TIL_CANCELLED</td>
+                      <td>ALLOWED</td>
+                      <td>NOT ALLOWED</td>
+                      <td>NOT ALLOWED</td>
+                      <td>NOT ALLOWED</td>
+                    </tr>
+                    <tr>
+                      <td>IMMEDIATE_OR_CANCEL</td>
+                      <td>ALLOWED</td>
+                      <td>ALLOWED</td>
+                      <td>ALLOWED</td>
+                      <td>ALLOWED</td>
+                    </tr>
+                    <tr>
+                      <td>FILL_OR_KILL</td>
+                      <td>ALLOWED</td>
+                      <td>ALLOWED</td>
+                      <td>ALLOWED</td>
+                      <td>ALLOWED</td>
+                    </tr>
+                    <tr>
+                      <td>POST_ONLY_GOOD_TIL_CANCELLED</td>
+                      <td>ALLOWED</td>
+                      <td>NOT ALLOWED</td>
+                      <td>NOT ALLOWED</td>
+                      <td>NOT ALLOWED</td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -2608,15 +2603,46 @@
                 <h5>Request Content-Types:
                   <span>application/json</span>
                 </h5>
-                <h5>Request Body Example</h5>
+                <h5>Request Body Example For Limit Order</h5>
                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
   <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIMIT&quot;</span>,
+  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;GOOD_TIL_CANCELLED || IMMEDIATE_OR_CANCEL || FILL_OR_KILL || POST_ONLY_GOOD_TIL_CANCELLED&quot;</span>,
+  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
+}
+</code></pre>
+                <h5>Request Body Example For Market Order</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;MARKET&quot;</span>,
+  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;IMMEDIATE_OR_CANCEL || FILL_OR_KILL &quot;</span>,
+  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
+}
+</code></pre>
+                <h5>Request Body Example For Ceiling limit Order</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;CEILING_LIMIT&quot;</span>,
   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
   <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot; IMMEDIATE_OR_CANCEL || FILL_OR_KILL &quot;</span>,
+  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
+}
+</code></pre>                
+              <h5>Request Body Example For Ceiling Market Order</h5>
+                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;CEILING_MARKET&quot;</span>,
+  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;IMMEDIATE_OR_CANCEL || FILL_OR_KILL &quot;</span>,
   <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
 }
 </code></pre>
