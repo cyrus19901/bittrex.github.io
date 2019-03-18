@@ -12,6 +12,7 @@
         <a href="#topic-Getting-Started">Getting Started</a>
         <a href="#topic-Best-Practices">Best Practices</a>
         <a href="#topic-Pagination">Pagination</a>
+        <a href="#topic-Placing-Orders">Placing Orders</a>
         <a href="#authentication">Authentication</a>
         <h5>Rest API</h5>
         <section>
@@ -285,6 +286,94 @@
               <p><code>https://api.bittrex.com/v3/withdrawals?limit=10&amp;startingAfter=940af3c3-665d-4432-a12e-cdf8fd99ab3b</code></p>
               <p> List withdrawals, in reverse chronological order, up to a maximum of 10 withdrawals, ending before the withdrawal with ID of <code>0d990dd2-4103-4d57-8e80-047e886537db</code>: </p>
               <p><code>https://api.bittrex.com/v3/withdrawals?limit=10&amp;endinBefore=0d990dd2-4103-4d57-8e80-047e886537db</code></p>
+            </div>
+          </div>
+        </div>
+        <h1 id="topic-Placing-Orders" data-traverse-target="topic-Placing-Orders">Placing Orders</h1>
+        <div class="panel">
+          <div class="doc-row">
+            <div class="doc-copy">
+              <h3 id="order-types-">
+                <strong>Order Types</strong>:</h3>
+              <ul>
+                <li>
+                  <p>
+                    <strong>Market Order</strong> : An order to buy or sell an asset immediately at the best available price. The price at which a market order will execute often deviates from the last-traded price or “real time” quote.</p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Limit Order</strong> : An order to trade a specified quantity of an asset at a specified rate or better.A buy order will only be filled at or below the limit price and a sell order will only be filled at or above the limit price.</p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Ceiling Order</strong> : It is a type of market order which executes orders to buy/sell a specified total value of the order at the best, currently available price (e.g. buy $100 USD of BTC at the current market BTC price)</p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Good-Til-Cancelled Order</strong> : A Good-Til-Cancelled (GTC) order is an order to buy or sell a token that lasts until the order is completed, expired, or cancelled.The maximum lifetime of any order is 28 days. Any order older then 28 days will be automatically canceled by the system and all reserved funds will be returned to your account.</p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Immediate-Or-Cancel Order</strong> : An Immediate-Or-Cancel (IOC) order is an order to buy or sell a token that must be executed immediately. Any portion of an IOC order that cannot be filled immediately will be cancelled.</p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Fill-or-Kill</strong> : This option allows orders to be placed which will be filled immediately and completely, or not at all.</p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Post Only</strong> : This option allows market makers to ensure that their orders are making it to the order book instead of matching with a pre-existing order </p>
+                </li>
+              </ul>
+              <h3 id="matrix-for-different-orders-">
+                <strong>Matrix for different Orders</strong> :</h3>
+              <p> Following table shows how different order types can be placed as a combination of each other.</p>
+              <div style='overflow-x:auto;'>
+                <table>
+                  <tr>
+                    <th>timeInForce</th>
+                    <th>LIMIT</th>
+                    <th>MARKET</th>
+                    <th>CEILING_LIMIT</th>
+                    <th>CEILING_MARKET</th>
+                  </tr>
+                  <tr>
+                    <td>GOOD_TIL_CANCELLED</td>
+                    <td>ALLOWED</td>
+                    <td>NA</td>
+                    <td>ALLOWED</td>
+                    <td>NA</td>
+                  </tr>
+                  <tr>
+                    <td>GOOD_TIL_DATE</td>
+                    <td>ALLOWED</td>
+                    <td>NA</td>
+                    <td>ALLOWED</td>
+                    <td>NA</td>
+                  </tr>
+                  <tr>
+                    <td>IMMEDIATE_OR_CANCEL</td>
+                    <td>ALLOWED</td>
+                    <td>ALLOWED</td>
+                    <td>ALLOWED</td>
+                    <td>ALLOWED</td>
+                  </tr>
+                  <tr>
+                    <td>FILL_OR_KILL</td>
+                    <td>ALLOWED</td>
+                    <td>ALLOWED</td>
+                    <td>ALLOWED</td>
+                    <td>ALLOWED</td>
+                  </tr>
+                  <tr>
+                    <td>POST_ONLY_GOOD_TIL_CANCELLED</td>
+                    <td>ALLOWED</td>
+                    <td>NOT ALLOWED</td>
+                    <td>ALLOWED</td>
+                    <td>NOT ALLOWED</td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -4875,7 +4964,8 @@
                     <span class="json-property-required"></span>
                   </dt>
                   <dd>
-                    <p>order type</p>
+                    <p>order type.For more details look at the
+                      <strong>Placing Order</strong> section</p>
                   </dd>
                   <dt data-property-name="quantity" class="has-description">
                     <span class="json-property-name">quantity:</span>

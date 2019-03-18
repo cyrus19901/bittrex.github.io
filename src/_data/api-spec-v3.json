@@ -1696,7 +1696,7 @@
           "type": "string"
         },
         "type": {
-          "description": "order type",
+          "description": "order type.For more details look at the **Placing Order** section",
           "enum": [
             "LIMIT",
             "MARKET",
