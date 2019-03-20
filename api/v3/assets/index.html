@@ -13,6 +13,7 @@
         <a href="#topic-Best-Practices">Best Practices</a>
         <a href="#topic-Pagination">Pagination</a>
         <a href="#topic-Placing-Orders">Placing Orders</a>
+        <a href="#topic-Sub-Accounts">Sub Accounts</a>
         <a href="#authentication">Authentication</a>
         <h5>Rest API</h5>
         <section>
@@ -242,7 +243,7 @@
             <div class="doc-copy">
               <p>Keep the following in mind when developing against the Bittrex API: </p>
               <ul>
-                <li>Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.</li>
+                <li>Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled and extended verification is done on the account.</li>
                 <li>All REST requests must be sent to <code>https://api.bittrex.com/v3</code> using the <code>application/json</code> content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.</li>
               </ul>
             </div>
@@ -265,7 +266,7 @@
           <div class="doc-row">
             <div class="doc-copy">
               <h3 id="overview">Overview</h3>
-              <p> Several Bittrex API resources support bulk fetches via &#39;list&#39; API methods. For example, you can list deposits, list closed orders, and list withdrawals. These list API methods share a common structure, using at least these three parameters: <code>limit, startingAfter, and endingBefore.</code> These parameters, if necessary are specified as query parameters on the HTTP request.</p>
+              <p> Several Bittrex API resources support bulk fetches via &#39;list&#39; API methods. For example, you can list deposits, list closed orders, and list withdrawals. These list API methods share a common structure, using at least these three parameters: <code>limit, startingAfter and endingBefore.</code> These parameters, if necessary are specified as query parameters on the HTTP request.</p>
               <h3 id="arguments-">Arguments:</h3>
               <ul>
                 <li>
@@ -372,6 +373,25 @@
             </div>
           </div>
         </div>
+        <h1 id="topic-Sub-Accounts" data-traverse-target="topic-Sub-Accounts">Sub Accounts</h1>
+        <div class="panel">
+          <div class="doc-row">
+            <div class="doc-copy">
+              <p>(NOTE: This functionality is limited to partners and unavailable to general traders.)</p>
+              <p>The subaccount feature will enable partners to create a sub accounts for each of their users allowing the users to create sub account deposit addresses, manage deposit and withdrawal transactions as well as place orders from for the sub and access historical data.</p>
+              <h3 id="getting-started-">Getting Started:</h3>
+              <p> Key points to remember before working with this feature :</p>
+              <ul>
+                <li>
+                  <p>Enable 2FA on your account as the API Keys cannot be generated unless 2FA is enabled and extended verification is done on the account.</p>
+                </li>
+                <li>
+                  <p>When enabled, authentication mechanism will need to be modified which is shown under <code>Api-subaccount-ID</code> under Authentication with with examples.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <!-- <h1 id="security" data-traverse-target="security">Security</h1> -->
         <h1 id="authentication" data-traverse-target="authentication">Authentication</h1>
         <div id="security-definition-api_key" class="panel">
@@ -418,7 +438,7 @@
                 <p>Example Value:</p> <pre><code class="hljs lang-markdown">cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 </code></pre>
                 <hr>
-                <h4 id="api-subaccount-id">Api-Subaccount-Id</h4>
+                <h4 id="api-subaccount-id-only-for-subaccount-feature-">Api-Subaccount-Id (Only for subaccount feature)</h4>
                 <p>(NOTE: This functionality is limited to partners and unavailable to general traders.)</p>
                 <p>If you wish to make a request on behalf of a subaccount, you will need to:</p>
                 <ol>
@@ -2604,48 +2624,48 @@
                   <span>application/json</span>
                 </h5>
                 <h5>Request Body Example For Limit Order</h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIMIT&quot;</span>,
-  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;GOOD_TIL_CANCELLED||IMMEDIATE_OR_CANCEL||FILL_OR_KILL||<br>POST_ONLY_GOOD_TIL_CANCELLED&quot;</span>,
-  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
-}
-</code></pre>
-                <h5>Request Body Example For Market Order</h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;MARKET&quot;</span>,
-  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;IMMEDIATE_OR_CANCEL||FILL_OR_KILL&quot;</span>,
-  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
-}
-</code></pre>
-                <h5>Request Body Example For Ceiling limit Order</h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;CEILING_LIMIT&quot;</span>,
-  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;IMMEDIATE_OR_CANCEL||FILL_OR_KILL&quot;</span>,
-  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
-}
-</code></pre>                
-              <h5>Request Body Example For Ceiling Market Order</h5>
-                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;CEILING_MARKET&quot;</span>,
-  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;IMMEDIATE_OR_CANCEL||FILL_OR_KILL&quot;</span>,
-  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
-}
-</code></pre>
+                                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+                  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+                  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+                  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIMIT&quot;</span>,
+                  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+                  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+                  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;GOOD_TIL_CANCELLED||IMMEDIATE_OR_CANCEL||<br>FILL_OR_KILL||POST_ONLY_GOOD_TIL_CANCELLED&quot;</span>,
+                  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
+                }
+                </code></pre>
+                                <h5>Request Body Example For Market Order</h5>
+                                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+                  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+                  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+                  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;MARKET&quot;</span>,
+                  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+                  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;IMMEDIATE_OR_CANCEL||FILL_OR_KILL&quot;</span>,
+                  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
+                }
+                </code></pre>
+                                <h5>Request Body Example For Ceiling limit Order</h5>
+                                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+                  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+                  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+                  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;CEILING_LIMIT&quot;</span>,
+                  <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+                  <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+                  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+                  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;IMMEDIATE_OR_CANCEL||FILL_OR_KILL&quot;</span>,
+                  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
+                }
+                </code></pre>                
+                              <h5>Request Body Example For Ceiling Market Order</h5>
+                                <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+                  <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+                  <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+                  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;CEILING_MARKET&quot;</span>,
+                  <span class="hljs-attr">&quot;ceiling&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
+                  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;IMMEDIATE_OR_CANCEL||FILL_OR_KILL&quot;</span>,
+                  <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
+                }
+                </code></pre>
                 <!-- </div> -->
               </section>
             </div>
