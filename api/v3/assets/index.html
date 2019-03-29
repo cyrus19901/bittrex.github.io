@@ -323,7 +323,7 @@
                 </li>
                 <li>
                   <p>
-                    <strong>Post Only</strong> : This option allows market makers to ensure that their orders are making it to the order book instead of matching with a pre-existing order </p>
+                    <strong>Post Only</strong> : This option allows market makers to ensure that their orders are making it to the order book instead of matching with a pre-existing order. Note: If the order is not a maker order, you will return an error and the order will be cancelled </p>
                 </li>
               </ul>
               <h3 id="order-types-and-time-in-force-">
@@ -341,28 +341,28 @@
                     </tr>
                     <tr>
                       <td>GOOD_TIL_CANCELLED</td>
-                      <td>ALLOWED</td>
+                      <td>BUY OR SELL</td>
                       <td>NOT ALLOWED</td>
                       <td>NOT ALLOWED</td>
                       <td>NOT ALLOWED</td>
                     </tr>
                     <tr>
                       <td>IMMEDIATE_OR_CANCEL</td>
-                      <td>ALLOWED</td>
-                      <td>ALLOWED</td>
-                      <td>ALLOWED</td>
-                      <td>ALLOWED</td>
+                      <td>BUY OR SELL</td>
+                      <td>BUY OR SELL</td>
+                      <td>BUY ONLY</td>
+                      <td>BUY ONLY</td>
                     </tr>
                     <tr>
                       <td>FILL_OR_KILL</td>
-                      <td>ALLOWED</td>
-                      <td>ALLOWED</td>
-                      <td>ALLOWED</td>
-                      <td>ALLOWED</td>
+                      <td>BUY OR SELL</td>
+                      <td>BUY OR SELL</td>
+                      <td>BUY ONLY</td>
+                      <td>BUY ONLY</td>
                     </tr>
                     <tr>
                       <td>POST_ONLY_GOOD_TIL_CANCELLED</td>
-                      <td>ALLOWED</td>
+                      <td>BUY OR SELL</td>
                       <td>NOT ALLOWED</td>
                       <td>NOT ALLOWED</td>
                       <td>NOT ALLOWED</td>
@@ -1315,7 +1315,6 @@
     <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;txId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;confirmations&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
-    <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
     <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
   }
@@ -1410,7 +1409,6 @@
   <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;txId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;confirmations&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
-  <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
@@ -2623,14 +2621,14 @@
                 <h5>Request Content-Types:
                   <span>application/json</span>
                 </h5>
-                <h5>Request Body Example For Limit Order</h5>
+              <h5>Request Body Example For Limit Order</h5>
                                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
                   <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
                   <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
                   <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIMIT&quot;</span>,
                   <span class="hljs-attr">&quot;quantity&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
                   <span class="hljs-attr">&quot;limit&quot;</span>: <span class="hljs-string">&quot;number (double)&quot;</span>,
-                  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;GOOD_TIL_CANCELLED||IMMEDIATE_OR_CANCEL||<br>FILL_OR_KILL||POST_ONLY_GOOD_TIL_CANCELLED&quot;</span>,
+                  <span class="hljs-attr">&quot;timeInForce&quot;</span>: <span class="hljs-string">&quot;GOOD_TIL_CANCELLED||<br>IMMEDIATE_OR_CANCEL||FILL_OR_KILL||POST_ONLY_GOOD_TIL_CANCELLED&quot;</span>,
                   <span class="hljs-attr">&quot;clientOrderId&quot;</span>: <span class="hljs-string">&quot;string (uuid)&quot;</span>
                 }
                 </code></pre>
@@ -3973,15 +3971,6 @@
                   <dd>
                     <p>current count of confirmations</p>
                   </dd>
-                  <dt data-property-name="createdAt" class="has-description">
-                    <span class="json-property-name">createdAt:</span>
-                    <span class="json-property-type">string</span>
-                    <span class="json-property-format">(date-time)</span>
-                    <span class="json-property-range" title="Value limits"></span>
-                  </dt>
-                  <dd>
-                    <p>time stamp when this deposit was initiated</p>
-                  </dd>
                   <dt data-property-name="updatedAt" class="has-description">
                     <span class="json-property-name">updatedAt:</span>
                     <span class="json-property-type">string</span>
@@ -4019,7 +4008,6 @@
   <span class="hljs-attr">&quot;address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;txId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;confirmations&quot;</span>: <span class="hljs-string">&quot;integer (int32)&quot;</span>,
-  <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
   <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
