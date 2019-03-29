@@ -1234,11 +1234,6 @@
           "description": "current count of confirmations",
           "type": "integer"
         },
-        "createdAt": {
-          "format": "date-time",
-          "description": "time stamp when this deposit was initiated",
-          "type": "string"
-        },
         "updatedAt": {
           "format": "date-time",
           "description": "time stamp when this deposit was last updated",
