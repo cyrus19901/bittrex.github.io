@@ -95,6 +95,21 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/currencies/{symbol}"
                 }
             },
+            "/deposits/closed": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits/closed"
+                }
+            },
+            "/deposits/open": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits/open"
+                }
+            },
+            "/deposits/ByTxId/{txId}": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits/ByTxId/{txId}"
+                }
+            },
             "/deposits/{depositId}": {
                 "get": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/deposits/{depositId}"
@@ -105,9 +120,44 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/markets"
                 }
             },
-            "/orders": {
+            "/markets/summaries": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/summaries"
+                }
+            },
+            "/markets/{marketSymbol}": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}"
+                }
+            },
+            "/markets/{marketSymbol}/summary": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/summary"
+                }
+            },
+            "/markets/{marketSymbol}/orderbook": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/orderbook"
+                }
+            },
+            "/markets/{marketSymbol}/trades": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/trades"
+                }
+            },
+            "/markets/{marketSymbol}/ticker": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/ticker"
+                }
+            },
+            "/markets/{marketSymbol}/candles": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/candles"
+                }
+            },
+            "/orders/closed": {
                 "post": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/orders"
+                    "x-btx-request-example": "https://api.bittrex.com/v3/orders/closed"
                 }
             },
             "/orders/open": {

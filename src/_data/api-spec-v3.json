@@ -891,6 +891,7 @@
           ],
           "description": "Pings the service",
           "operationId": "Ping_Get",
+          "operationId": "Ping_Get",
           "consumes": [],
           "produces": [
             "application/json"
