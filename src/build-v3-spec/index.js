@@ -18,7 +18,7 @@ function spectacleTopics(json) {
                 "description": "### Call Limits\n The Bittrex API employs call limits on all endpoints to ensure the efficiency and availability of the platform for all customers. In general, API users are permitted to make a maximum of 60 API calls per minute. Calls after the limit will fail, with the limit resetting at the start of the next minute.\n\n __Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level.__"
             },
             "Pagination": {
-                "description": "### Overview\n Several Bittrex API resources support bulk fetches via 'list' API methods. For example, you can list deposits, list closed orders, and list withdrawals. These list API methods share a common structure, using at least these three parameters: `limit, startingAfter and endingBefore.` These parameters, if necessary are specified as query parameters on the HTTP request.\n\n ### Arguments:\n\n\n\n - __limit(optional)__: A limit on the number of objects to be returned between 1 and 200, defaults to 100\n - __startingAfter(optional)__: It is a cursor for for using pagination and acts is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects ending with objFoo, your subsequent call can include startingAfter=objFoo in order to fetch the next page of the list. Typically used for paginating in the forward direction.\n\n - __endingBefore(optional)__: It is a cursor for for using pagination and acts is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects starting with objBar, your subsequent call can include endingBefore=objBar in order to fetch the previous page of the list. Typically used for paginating in the reverse direction.\n\n\n ### Examples:\n\nList withdrawals, in reverse chronological order, up to maximum of 20 withdrawals, starting at the most recent withdrawal created:\n\n`https://api.bittrex.com/v3/withdrawals?limit=20`\n\nList withdrawals, in reverse chronological order, up to maximum of 10 withdrawals, starting after the withdrawal with ID of `940af3c3-665d-4432-a12e-cdf8fd99ab3b`\n\n`https://api.bittrex.com/v3/withdrawals?limit=10&startingAfter=940af3c3-665d-4432-a12e-cdf8fd99ab3b`\n\n List withdrawals, in reverse chronological order, up to a maximum of 10 withdrawals, ending before the withdrawal with ID of `0d990dd2-4103-4d57-8e80-047e886537db`: \n\n`https://api.bittrex.com/v3/withdrawals?limit=10&endinBefore=0d990dd2-4103-4d57-8e80-047e886537db`\n\n"
+                "description": "### Overview\n Several Bittrex API resources support bulk fetches via 'list' API methods. For example, you can list deposits, list closed orders, and list withdrawals. These list API methods share a common structure, using at least these three parameters: `pageSize, nextPageToken and previousPageToken.` These parameters, if necessary are specified as query parameters on the HTTP request.\n\n ### Arguments:\n\n\n\n - __pageSize(optional)__: A limit on the number of objects to be returned between 1 and 200, defaults to 100\n - __nextPageToken(optional)__: It is a cursor for for using pagination and acts is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects ending with objFoo, your subsequent call can include `nextPageToken=objFoo` in order to fetch the next page of the list. Typically used for paginating in the forward direction.\n\n - __previousPageToken(optional)__: It is a cursor for for using pagination and acts is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects starting with objBar, your subsequent call can include `previousPageToken=objBar` in order to fetch the previous page of the list. Typically used for paginating in the reverse direction.\n\n\n ### Examples:\n\nList withdrawals, in reverse chronological order, up to maximum of 20 withdrawals, starting at the most recent withdrawal created:\n\n`https://api.bittrex.com/v3/withdrawals?pageSize=20`\n\nList withdrawals, in reverse chronological order, up to maximum of 10 withdrawals, starting after the withdrawal with ID of `940af3c3-665d-4432-a12e-cdf8fd99ab3b`\n\n`https://api.bittrex.com/v3/withdrawals?pageSize=10&nextPageToken=940af3c3-665d-4432-a12e-cdf8fd99ab3b`\n\n List withdrawals, in reverse chronological order, up to a maximum of 10 withdrawals, ending before the withdrawal with ID of `0d990dd2-4103-4d57-8e80-047e886537db`: \n\n`https://api.bittrex.com/v3/withdrawals?pageSize=10&previousPageToken=0d990dd2-4103-4d57-8e80-047e886537db`\n\n"
             },
             "Placing Orders": {
                 "description": "### __Order Types__:\n\n - __Market Order__ :An order to buy or sell an asset immediately at the best available price. The price at which a market order will execute often deviates from the last-traded price or “real time” quote.\n\n - __Limit Order__ :An order to trade a specified quantity of an asset at a specified rate or better.A buy order will only be filled at or below the limit price and a sell order will only be filled at or above the limit price.\n\n - __Ceiling Order__ : It is a type of market order which executes orders to buy/sell a specified total value of the order at the best, currently available price (e.g. buy $100 USD of BTC at the current market BTC price)\n\n - __Good-Til-Cancelled Order__ : A Good-Til-Cancelled (GTC) order is an order to buy or sell a token that lasts until the order is completed, expired, or cancelled.The maximum lifetime of any order is 28 days. Any order older then 28 days will be automatically canceled by the system and all reserved funds will be returned to your account.\n\n - __Immediate-Or-Cancel Order__ : An Immediate-Or-Cancel (IOC) order is an order to buy or sell a token that must be executed immediately. Any portion of an IOC order that cannot be filled immediately will be cancelled.\n\n - __Fill-or-Kill__ : This option allows orders to be placed which will be filled immediately and completely, or not at all.\n\n - __Post Only__ : This option allows market makers to ensure that their orders are making it to the order book instead of matching with a pre-existing order. Note: If the order is not a maker order, you will return an error and the order will be cancelled \n\n\n ### __Order types and time in force__ : \n\n The following table shows which time in force options apply to which order types.\n\n\n<div style='overflow-x:auto;'><table><tbody><tr><th>timeInForce</th><th>LIMIT</th><th>MARKET</th><th>CEILING_LIMIT</th><th>CEILING_MARKET</th></tr><tr><td>GOOD_TIL_CANCELLED</td><td>BUY OR SELL</td><td>NOT ALLOWED</td><td>NOT ALLOWED</td><td>NOT ALLOWED</td></tr><tr><td>IMMEDIATE_OR_CANCEL</td><td>BUY OR SELL</td><td>BUY OR SELL</td><td>BUY ONLY</td><td>BUY ONLY</td></tr><tr><td>FILL_OR_KILL</td><td>BUY OR SELL</td><td>BUY OR SELL</td><td>BUY ONLY</td><td>BUY ONLY</td></tr><tr><td>POST_ONLY_GOOD_TIL_CANCELLED</td><td>BUY OR SELL</td><td>NOT ALLOWED</td><td>NOT ALLOWED</td><td>NOT ALLOWED</td></tr></tbody></table></div>"
@@ -95,9 +95,19 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/currencies/{symbol}"
                 }
             },
-            "/deposits": {
+            "/deposits/closed": {
                 "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits?status=COMPLETED"
+                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits/closed"
+                }
+            },
+            "/deposits/open": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits/open"
+                }
+            },
+            "/deposits/ByTxId/{txId}": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/deposits/ByTxId/{txId}"
                 }
             },
             "/deposits/{depositId}": {
@@ -110,14 +120,44 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/markets"
                 }
             },
-            "/markets/{marketName}": {
+            "/markets/summaries": {
                 "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}"
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/summaries"
                 }
             },
-            "/markets/{marketName}/orderbook": {
+            "/markets/{marketSymbol}": {
                 "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketName}/orderbook"
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}"
+                }
+            },
+            "/markets/{marketSymbol}/summary": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/summary"
+                }
+            },
+            "/markets/{marketSymbol}/orderbook": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/orderbook"
+                }
+            },
+            "/markets/{marketSymbol}/trades": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/trades"
+                }
+            },
+            "/markets/{marketSymbol}/ticker": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/ticker"
+                }
+            },
+            "/markets/{marketSymbol}/candles": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/markets/{marketSymbol}/candles"
+                }
+            },
+            "/orders/closed": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/orders/closed"
                 }
             },
             "/orders": {
@@ -138,11 +178,6 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/orders/{orderId}"
                 }
             },
-            "/status": {
-                "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/status"
-                }
-            },
             "/subaccounts": {
                 "get": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts"
@@ -156,12 +191,29 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts/{subaccountId}"
                 }
             },
-            "/withdrawals": {
+            "/ping": {
                 "get": {
-                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals"
-                },
+                    "x-btx-request-example": "https://api.bittrex.com/v3/ping"
+                }
+            },
+            "/withdrawals": {
                 "post": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals"
+                }
+            },
+            "/withdrawals/open": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/open"
+                }
+            },
+            "/withdrawals/closed": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/closed"
+                }
+            },
+            "/withdrawals/ByTxId/{txId}": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/ByTxId/{txId}"
                 }
             },
             "/withdrawals/{withdrawalId}": {
