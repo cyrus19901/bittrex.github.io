@@ -136,9 +136,29 @@ function requestExamples(json) {
                     "x-btx-request-example": "https://api.bittrex.com/v3/subaccounts/{subaccountId}"
                 }
             },
+            "/ping": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/ping"
+                }
+            },
             "/withdrawals": {
                 "post": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals"
+                }
+            },
+            "/withdrawals/open": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/open"
+                }
+            },
+            "/withdrawals/closed": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/closed"
+                }
+            },
+            "/withdrawals/ByTxId/{txId}": {
+                "get": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/withdrawals/ByTxId/{txId}"
                 }
             },
             "/withdrawals/{withdrawalId}": {
