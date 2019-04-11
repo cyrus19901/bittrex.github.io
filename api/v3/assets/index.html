@@ -127,14 +127,6 @@
           </ul>
         </section>
         <section>
-          <a href="#tag-default">default</a>
-          <ul>
-            <li>
-              <a href="#operation--orders-closed-post" title="/orders/closed"> POST /orders/closed </a>
-            </li>
-          </ul>
-        </section>
-        <section>
           <a href="#tag-Ping">Ping</a>
           <ul>
             <li>
@@ -1997,7 +1989,7 @@
             </div>
             <div class="doc-examples">
               <section>
-                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/markets/{marketSymbol}/summary}</code></pre> </section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/markets/{marketSymbol}/summary</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -2575,7 +2567,8 @@
               </section>
             </div>
             <div class="doc-examples">
-              <section> </section>
+              <section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/orders/closed</code></pre> </section>
             </div>
           </div>
           <div class="doc-row">
@@ -3003,10 +2996,11 @@
             </div>
             <div class="doc-examples">
               <section>
+                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/orders</code></pre>
                 <h5>Request Content-Types:
                   <span>application/json</span>
                 </h5>
-<h5>Request Body Example For Limit Order</h5>
+ <h5>Request Body Example For Limit Order</h5>
                                 <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
                   <span class="hljs-attr">&quot;marketName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
                   <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3101,22 +3095,6 @@
 </code></pre>
                 <!-- </div> -->
               </section>
-            </div>
-          </div>
-        </div>
-        <h1 id="tag-default" class="swagger-summary-tag" data-traverse-target="tag-default">default</h1>
-        <div id="operation--orders-closed-post" class="operation panel" data-traverse-target="operation--orders-closed-post">
-          <h2 class="operation-title">
-            <span class="operation-name">
-              <span class="operation-name">POST</span>
-              <span class="operation-path">/orders/closed</span>
-            </span>
-          </h2>
-          <div class="doc-row">
-            <div class="doc-copy"> </div>
-            <div class="doc-examples">
-              <section>
-                <h5>Request Url Example</h5> <pre><code>https://api.bittrex.com/v3/orders/closed</code></pre> </section>
             </div>
           </div>
         </div>

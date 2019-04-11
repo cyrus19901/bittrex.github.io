@@ -156,8 +156,13 @@ function requestExamples(json) {
                 }
             },
             "/orders/closed": {
-                "post": {
+                "get": {
                     "x-btx-request-example": "https://api.bittrex.com/v3/orders/closed"
+                }
+            },
+            "/orders": {
+                "post": {
+                    "x-btx-request-example": "https://api.bittrex.com/v3/orders"
                 }
             },
             "/orders/open": {
