@@ -1,4 +1,4 @@
-language: npm
+language: node
 
 npm:
   - 8.0.0
