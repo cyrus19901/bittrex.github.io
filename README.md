@@ -1,9 +1,7 @@
 # Bittrex Developers
 URL: [https://bittrex.github.io](https://bittrex.github.io)
 
-https://img.shields.io/coveralls/github/cyrus19901/bittrex.github.io.svg
-https://img.shields.io/coveralls/github/cyrus19901/bittrex.github.io.svg
-https://travis-ci.org/cyrus19901/bittrex.github.io.svg?branch=master
+
 ## Installation
 1. Install Jekyll
     - For windows users, follow the instructions [here](https://jekyllrb.com/docs/installation/windows/#installing-jekyll)
