@@ -1,0 +1,11 @@
+language: npm
+
+npm:
+  - 8.0.0
+
+before-script:
+  - npm install 
+  - bundle install
+
+script:
+  - deploy
