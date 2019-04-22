@@ -8,4 +8,4 @@ before-script:
   - bundle install
 
 script:
-  - deploy
+  - npm run serve
